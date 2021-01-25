@@ -1,0 +1,34 @@
+site_name: QGIS.бг докс
+language: bg
+repo_url: https://github.com/qgibg/site
+plugins:
+  - awesome-pages: {}
+  - search:
+      lang: 
+        - ru
+        - en
+theme:
+  name: material
+  custom_dir: overrides
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - search.suggest
+    - search.highlight
+    - search.share
+  palette:
+
+    # Toggle light mode
+    - scheme: default
+      primary: green
+      accent: green
+markdown_extensions:
+  - smarty
+  - footnotes
+  - markdown_captions
+  - admonition
+  - pymdownx.superfences
+  - toc:
+      permalink: true
+nav:
+  - ...
