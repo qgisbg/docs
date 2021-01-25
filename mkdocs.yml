@@ -1,6 +1,6 @@
 site_name: QGIS.бг докс
 language: bg
-repo_url: https://github.com/qgibg/site
+repo_url: https://github.com/qgisbg/docs
 plugins:
   - awesome-pages: {}
   - search:
