@@ -1,6 +1,6 @@
 site_name: QGIS.бг докс
 language: bg
-repo_url: https://github.com/qgibg/docs
+repo_url: https://github.com/qgisbg/docs
 extra_css:
   - assets/consent.css
 extra_javascript:

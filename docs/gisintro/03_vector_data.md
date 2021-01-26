@@ -7,19 +7,9 @@ tags: вектор, точка, линия, полигон, вертекс, ге
 
 ## Преглед
 
-**Vector** data provide a way to represent real world **features**
-within the GIS environment. A feature is anything you can see on the
-landscape. Imagine you are standing on the top of a hill. Looking down
-you can see houses, roads, trees, rivers, and so on (see
-`figure_vector_landscape`{.interpreted-text role="numref"}). Each one of
-these things would be a **feature** when we represent them in a GIS
-Application. Vector features have **attributes**, which consist of text
-or numerical information that **describe** the features.
+**Векрните данни** в ГИС позволяват изобразяването на **обекти** от заобикалящата ни среда. **Обект** може да бъде всичко, което виждаме около нас. Представете си, че сте на някое високо място. Като се огледате наоколо, виждате дървета, реки, пътища, поля, сгради, селища и т.н. Всяко от тези неща би било "обект", когато го представяме в ГИС среда. Всеки отделен обект може да има **атрибути**, които са допълнителна информация, най-често като текст и числа, която **описва** обекта.
 
-::: {#figure_vector_landscape}
-![Looking over a landscape you can see the main features, such as roads,
-houses and trees.](img/landscape.jpg){.align-center width="30em"}
-:::
+![Когато се огледаме наоколо, виждаме основните обекти - пътища, река, къщи, дървета.](img/landscape.jpg)
 
 A vector feature has its shape represented using **geometry**. The
 geometry is made up of one or more interconnected **vertices**. A vertex
