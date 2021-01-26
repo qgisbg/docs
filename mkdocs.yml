@@ -1,10 +1,15 @@
 site_name: QGIS.бг докс
 language: bg
-repo_url: https://github.com/qgibg/site
+repo_url: https://github.com/qgibg/docs
+extra_css:
+  - assets/consent.css
+extra_javascript:
+  - https://cdn.jsdelivr.net/npm/cookies-eu-banner@2.0.1/dist/cookies-eu-banner.js
+  - assets/consent.js
 plugins:
   - awesome-pages: {}
   - search:
-      lang: 
+      lang:
         - ru
         - en
 theme:
@@ -17,8 +22,6 @@ theme:
     - search.highlight
     - search.share
   palette:
-
-    # Toggle light mode
     - scheme: default
       primary: green
       accent: green
