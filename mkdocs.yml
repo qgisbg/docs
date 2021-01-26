@@ -1,5 +1,4 @@
 site_name: QGIS.бг докс
-language: bg
 repo_url: https://github.com/qgisbg/docs
 extra_css:
   - assets/consent.css
@@ -27,10 +26,23 @@ theme:
       accent: green
 markdown_extensions:
   - smarty
-  - footnotes
   - markdown_captions
   - admonition
-  - pymdownx.superfences
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji
+  - pymdownx.extra
+  - pymdownx.escapeall
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.tabbed
+  - pymdownx.tilde
+  - mdx_iconify:
+      patterns: 
+        qgis:
+          prefix: https://raw.githubusercontent.com/qgis/QGIS/master/images/themes/default/
+          suffix: .svg
+          check_suffix: True
   - toc:
       permalink: true
 nav:

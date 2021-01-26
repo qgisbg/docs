@@ -9,6 +9,7 @@ Markdown==3.3.3
 markdown-captions==2
 markdown-toc==1.2.6
 MarkupSafe==1.1.1
+-e git+https://github.com/suricactus/mdx_iconify@b64d75cee132cd0087ae21055e7a9955721d5c44#egg=mdx_iconify
 mkdocs==1.1.2
 mkdocs-awesome-pages-plugin==2.5.0
 mkdocs-material==6.2.5
