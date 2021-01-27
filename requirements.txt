@@ -12,7 +12,7 @@ MarkupSafe==1.1.1
 -e git+https://github.com/suricactus/mdx_iconify@b64d75cee132cd0087ae21055e7a9955721d5c44#egg=mdx_iconify
 mkdocs==1.1.2
 mkdocs-awesome-pages-plugin==2.5.0
-mkdocs-material==6.2.5
+mkdocs-material==6.2.6
 mkdocs-material-extensions==1.0.1
 nltk==3.5
 pandoc==1.0.2

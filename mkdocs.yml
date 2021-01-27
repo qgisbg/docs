@@ -12,6 +12,7 @@ plugins:
         - ru
         - en
 theme:
+  language: bg
   name: material
   custom_dir: overrides
   features:
