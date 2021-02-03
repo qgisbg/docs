@@ -7,40 +7,23 @@ tags: вектор, топология, топологични правила, �
 
 ## Преглед
 
-**Topology** expresses the spatial relationships between connecting or
-adjacent vector features (points, polylines and polygons) in a GIS.
-Topological or topology-based data are useful for detecting and
-correcting digitising errors (e.g. two lines in a roads vector layer
-that do not meet perfectly at an intersection). Topology is necessary
-for carrying out some types of spatial analysis, such as network
-analysis.
+**Топологията** описва пространствените връзки между свързани или съседни векторни обекти. Анализирането на топологията на даден векторен слой може да открие и поправи редица грешки, които лесно могат да се допуснат при цифроване. Например два пътя не се допират в обща точка при кръстовище, а има леко разминаване. При пространствен анализ на транспортната мрежа това би било критичен проблем.
 
-Imagine you travel to London. On a sightseeing tour you plan to visit
-St. Paul\'s Cathedral first and in the afternoon Covent Garden Market
-for some souvenirs. Looking at the Underground map of London (see
-`figure_topology_london`{.interpreted-text role="numref"}) you have to
-find connecting trains to get from Covent Garden to St. Paul\'s. This
-requires topological information (data) about where it is possible to
-change trains. Looking at a map of the underground, the topological
-relationships are illustrated by circles that show connectivity.
+Представете си, че пътуваме до Лондон. Туристическата обиколка включва посещение на катедралата Свети Павел, а следобеда селфи пред Бъкингамския дворец. За да пристигнем навреме ще използваме метрото, но първо трябва да се ориентирате по схемата на различните метролинии. Това изисква информация за топологията на кои станции може да се прехвърлим от една линия на друга. На тази карта подобни взаимовръзки са показани с кръгчета, които означават, че е възможен трансфер тук.
 
-::: {#figure_topology_london}
-![Topology of London Underground
-Network.](img/london_underground.png){.align-center width="30em"}
-:::
+![Карта на Лондонското метро.](img/london_underground.png){.align-center width="30em"}
 
-Topology errors
-===============
+## Топологични грешки
 
-There are different types of topological errors and they can be grouped
-according to whether the vector feature types are polygons or polylines.
-Topological errors with **polygon** features can include unclosed
-polygons, gaps between polygon borders or overlapping polygon borders. A
-common topological error with **polyline** features is that they do not
-meet perfectly at a point (node). This type of error is called an
-**undershoot** if a gap exists between the lines, and an **overshoot**
-if a line ends beyond the line it should connect to (see
-`figure_topology_errors`{.interpreted-text role="numref"}).
+Топологичните грешки са сред най-неприятните реалности от ГИС ежедневието. 
+
+При полигоните подобни грешки включват незатворени многоъгълници, празни пространства или застъпване между два съседни полигона, или два полигона с обща граница имат различен брой **възли** по общата си граница.
+
+TODO examples
+
+При линиите най-често се получава разминаване при допиране на двете линии, вместо да споделят общ възел. Ако линията не достига крайната си точка, това се нарича **недостигане**, а минава отвъд нея **задминаване**.
+
+TODO examples
 
 ::: {#figure_topology_errors}
 ![Undershoots (1) occur when digitised vector lines that should connect
