@@ -38,6 +38,7 @@ markdown_extensions:
   - pymdownx.magiclink
   - pymdownx.tabbed
   - pymdownx.tilde
+  - mdx_include
   - mdx_iconify:
       patterns: 
         qgis:
