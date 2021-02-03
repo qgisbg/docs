@@ -6,9 +6,9 @@ title: 01. Добре дошли
 
 ## Увод в ГИС
 
-Ръководство за всеки, който се вълнува от карти и география и иска да разбере повече за основни моменти в географските информационни системи (ГИС) и тяхното приложение в съвремието.
+Ръководството е за всеки, който се вълнува от карти и география и желае да научи повече за основните понятия и принципи. Подходящо е като въведение за напълно начинаещи в сферата на географските информационни системи (ГИС) и цифровизацията на географската наука.
 
-Това ръководство е продукт на прекрасната работа на Тим Сътън, както и последвалите автори и редактори. Преводът, осъвременяването и адаптацията на български е на Иван Иванов - suricactus.
+Без усърдната работа на Тим Сътън, както и последвалите автори и редактори, този текст нямаше да е реалност. Преводът, осъвременяването и адаптацията му на български е на Иван Иванов - suricactus.
 
 Този текст нямаше да съществува и без QGIS - безплатно и отворено ГИС приложение за всеки, за всяка операционна система.
 
@@ -20,75 +20,55 @@ title: 01. Добре дошли
 
 Т. Сътън (Т. Sutton), О. Дасау (O. Dassau), М. Сътън (M. Sutton)
 
-#### Оригинален спонсор 
+#### Оригинален спонсор
 
 Chief Directorate: Spatial Planning & Information,
 Department of Land Affairs, Източен Кейп, Южна Африка.
 
-#### Оригинално партньорство с 
+#### Оригинално партньорство
 
 Spatial Information Management Unit, Office of the Premier, Източен Кейп, Южна Африка.
 
 #### Превод на български
 
-Иван Иванов - suricactus
+- Иван Иванов - suricactus
+- Евгения Сарафова
 
 | | | |
 |-|-|-|
-| ![](img/dla_logo.png) | ![](img/eastern_cape_logo.jpg) | ![](img/suricactus_logo.jpg) |
+| ![](img/dla_logo.png) | ![](img/eastern_cape_logo.jpg) | ![](img/suricactus_logo.png) |
 
 #### Авторско право
 (c) 2009 Chief Directorate: Spatial Planning & Information, Department of Land Affairs, Eastern Cape.
 
 (c) 2021 Иван Иванов - suricactus
 
-Дава се разрешение за копирането, разпространението и модификацията на този документ под лицензионните условия на лиценза за свободна документация на ГНУ, версия 1.2 или по-нова. Не са включени непроменливите раздели, текстове на предна и задна корица. Превод и оригиналния текст на лиценза са влючени в секцията [13. Лиценз](/13_license).
+Дава се разрешение за копирането, разпространението и модификацията на този документ под лицензионните условия на лиценза за свободна документация на ГНУ, версия 1.2 или по-нова. Не са включени непроменливите раздели, текстове на предна и задна корица. Превод и оригиналния текст на лиценза са влючени в секцията [13. Лиценз](/gisintro/99_licence).
 
 ## Думи на преводача
 
-Крайно време беше да имаме стабилна основа за свободната българска география.
+Разбирането на обикалящата ни среда безспорно може да предотврати и обясни огромно количество информация за света около нас - предвиждане на наводнения и засушавания, струтвания по пътищата, проверка на реколтата, следене на природни и социални процеси, откриване на най-краткия път и още и още безкрайни приложения.
+
+Свободния софтуер, свободните данни и свободното знание са засилващи се тенденции по целия свят, макар и у нас това да е с известно закъснение.
+
+Дълги години свободните материали за ГИС на български бяха силно ограничени и непълни. С този превод се надявам да успеем да положим основите на една по-отворена географска общност в България, където с помощта на отворените технологии да успеем да изградим едно по-геоинформирано общество.
+
+Въпреки че думите на оригиналния автор по-долу са написани преди 12 години в контекста на развиваща се африканска страна, те са не по-малко адеквактни и през третото десетилетие на века в страна членка на Европейския съюз. С популяризацията на QGIS и другите отворени продукти в страната се надявам, че монополното положение на определени организации и идеи за постоянно затваряне и криене на инструменти, умения и знания постепенно ще остане част от миналото и ще отворим нова страница на коопериране помежду географската общоност.
 
 ## Думи на оригиналния автор
 
-This project was sponsored by the Chief Directorate: Spatial Planning &
-Information, Department of Land Affairs (DLA), Eastern Cape, in
-conjunction with the Spatial Information Management Unit, Office of the
-Premier, Eastern Cape, South Africa.
+Този проект беше спорнсориран от Главна дирекция "Пространствено планиране и данни", (Chief Directorate: Spatial Planning & Information), Министерство на поземлените въпроси (Department of Land Affairs), Източен Кейп, Южна Африка (бел. прев. към 2021 наследен от Главна дирекция "Национална геопространствена информация").
 
-GIS is becoming an increasingly important tool in environmental
-management, retail, military, police, tourism and many other spheres of
-our daily lives. If you use a computer or a cell phone, you have
-probably already used a GIS in some form without even realising it.
-Maybe it was a map on a web site, Google Earth, an information booth or
-your cell phone telling you where you are. Proprietary GIS software
-(software that cannot be freely shared or modified) is available that
-will let you do everything we describe in these worksheets and a lot
-more. However this software is usually very expensive or otherwise
-limits your freedom to copy, share and modify the software. GIS vendors
-sometimes make an exception for educational activities, providing
-cheaper or free copies of their software. They do this knowing that if
-teachers and learners get to know their software, they will be reluctant
-to learn other packages. When learners leave school they will go into
-the workplace and buy the commercial software, never knowing that there
-are free alternatives that they could be using.
+ГИС е все по-важен инструмент в редица сфери, като управление на природната среда, хотелиерство, военно дело, опазване на реда, туризъм и още много други сфери на ежедневието. Който е използвал компютър или телефон, най-вероятно е използвал ГИС без дори да го осъзнае. Може би е било карта в някой уебсайт, Google Earth, туристически киоск или мобилен телефон с навигация. Всичко в това ръководство, а и много повече, може да се постигне с платен софтуер със затворен код (който не може да бъде споделян или променян). Този софтуер обаче е скъпоплатен, а и ограничава свободата за копиране, споделяне и променяне. Понякога софтуерните корпорации правят изключения за образователни институции, като предоставят по-евтини или безплатни версии на техния софтуер. Това се прави, защото ако веднъж преподавателите и техните ученици се свикнат с платения софтурер, надали биха инвестирали време да разучат други софтуерни програми. Когато учениците напуснат образователната институция и започнат работа, те ще си купят комерсиален лиценз просто защото не са знаели, че има свободни и безплатни алтернативи.
 
-With QGIS, we offer an alternative \-\-- software that is free of cost
-and free in a social sense. You can make as many copies as you like.
-When learners leave school one day they can use this software to build
-their skills, solve problems at work and make the world a better place.
+С QGIS имаме алтернатива - софтуер, който е безплатен като цена и свободен в социалното му значение. Няма ограничение на броя копия, които можеш да направиш на този софтуер. Когато учениците напуснат училище, те могат да продължат да използват същия софтуер, за да развиват уменията си и да превръщат света в едно по-добро място.
 
-When you buy commercial software, you limit your options for the future.
-By learning, using and sharing Free and Open Source Software, you are
-building your own skills, freeing money to be spent on important things
-like food and shelter and boosting our own economy.
+Когато си купуваш комерсиален софтурер, ти ограничаваш собствените си бъдещи възможности. При изучаване, употреба и споделяне на свободен и отворен софтуер, ти развиваш уменията пестейки средства, които могат да бъдат по-разумно похарчени за развитието на икономиката.
 
-By sponsoring the creation of this resource, the DLA has created a
-foundation to which young minds can be exposed. Exciting possibilities
-lie ahead when principles of free sharing of knowledge and data are
-embraced. For this we give our heartfelt thanks to the DLA!
+Със спонсорирането на съставянето на това ръководство, Министерството на поземлените въпроси полага основите, на които да стъпят свежите идеи на младежта. Когато свободното споделяне на знания и умения са на почит, то вълнуващите резултати няма да закъснеят. Затова най-дълбоки благодарности към министерството!
 
-We hope you enjoy using and learning QGIS in the spirit of Ubuntu!
+Надяваме се разучаването и работата с QGIS ще те зарази в духа на Убунту!
 
 ![](img/tims_sign.png)
 
-Tim Sutton, April 2009
+Тим Сътън, април 2009
