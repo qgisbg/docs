@@ -7,168 +7,72 @@ tags: растер, пиксел, дистанционни изследвани�
 
 ## Преглед
 
-In the previous topics we have taken a closer look at vector data. While
-vector features use geometry (points, polylines and polygons) to
-represent the real world, raster data takes a different approach.
-Rasters are made up of a matrix of pixels (also called cells), each
-containing a value that represents the conditions for the area covered
-by that cell (see `figure_raster`{.interpreted-text role="numref"}). In
-this topic we are going to take a closer look at raster data, when it is
-useful and when it makes more sense to use vector data.
+В предишните глави разгледахме векторните данни в подробности и научихме, че при тях имаме отделни обекти. Всеки обект се представя в пространството с геометрия, било то точка, линия или полигон. Сега е време да обърнем внимание на другия основен вид данни в ГИС, а именно **растерните**. Те са представляват мрежа от плътно слепени **клетки** с еднаква форма и и размер. Тези клетки наричаме **пиксели**, като най-често това са квадратни пиксели разположени в **редове** и **колони**. Всеки пиксел съхранява една или повече числови стойности, които са валидни за цялата площ на пиксела. В тази глава ще се задълбочим в приложението и полезността на растерните данни.
 
-::: {#figure_raster}
-![A raster dataset is composed of rows (running across) and columns
-(running down) of pixels (also know as cells). Each pixel represents a
-geographical region, and the value in that pixel represents some
-characteristic of that region.](img/raster_dataset.png){.align-center
-width="30em"}
-:::
+Всъщност всяка най-обикновена снимка, било то селфи в огледалото, или спътникова снимка, представлява растерно изображение. То има определена резолюция, което определя броят редове и колони,а всеки пиксел съхранява число, описващо цвета.
 
-Raster data in detail
-=====================
+В контекста на ГИС, всеки пиксел покрива определена площ от земната повърхност, като неговата стойност се приема за хомогенна за цялата му площ.
 
-Raster data is used in a GIS application when we want to display
-information that is continuous across an area and cannot easily be
-divided into vector features. When we introduced you to vector data we
-showed you the image in `figure_landscape`{.interpreted-text
-role="numref"}. Point, polyline and polygon features work well for
-representing some features on this landscape, such as trees, roads and
-building footprints. Other features on a landscape can be more difficult
-to represent using vector features. For example the grasslands shown
-have many variations in colour and density of cover. It would be easy
-enough to make a single polygon around each grassland area, but a lot of
-the information about the grassland would be lost in the process of
-simplifying the features to a single polygon. This is because when you
-give a vector feature attribute values, they apply to the whole feature,
-so vectors aren\'t very good at representing features that are not
-homogeneous (entirely the same) all over. Another approach you could
-take is to digitise every small variation of grass colour and cover as a
-separate polygon. The problem with that approach is that it will take a
-huge amount of work in order to create a good vector dataset.
+![Растерните данни се състоят от редове (в широчина) и колони (във височина) от пиксели. Всеки един от тях покрива определена площ от земната повърхност, а стойността на пиксела определя някакво свойство за тази площ.](img/raster_dataset.png)
 
-::: {#figure_landscape}
-![Some features on a landscape are easy to represent as points,
-polylines and polygons (e.g. trees, roads, houses). In other cases it
-can be difficult. For example how would you represent the grasslands? As
-polygons? What about the variations in colour you can see in the grass?
-When you are trying to represent large areas with continuously changing
-values, raster data can be a better
-choice.](img/landscape.jpg){.align-center width="30em"}
-:::
+## Още за растерните данни
 
-Using raster data is a solution to these problems. Many people use
-raster data as a **backdrop** to be used behind vector layers in order
-to provide more meaning to the vector information. The human eye is very
-good at interpreting images and so using an image behind vector layers,
-results in maps with a lot more meaning. Raster data is not only good
-for images that depict the real world surface (e.g. satellite images and
-aerial photographs), they are also good for representing more abstract
-ideas. For example, rasters can be used to show rainfall trends over an
-area, or to depict the fire risk on a landscape. In these kinds of
-applications, each cell in the raster represents a different value e.g.
-risk of fire on a scale of one to ten.
+В ГИС използваме растери, когато представяме информация за непрекъснат обект или явление за дадена територия. Когато си обяснявахме за векторните данни, разгледахме пейзаж погледнат от високо. Точки, линии и полигони добре описваха индивидуалните обекти, но как да опишем нещо като цвета на тревата например? Или надморската височина? Или пък температурата на въздуха? За разлика от конкретното дърво, или конкретната къща, измерване на надморската височина може да се случи във всяка една безкрайно малка точка.
 
-An example that shows the difference between an image obtained from a
-satellite and one that shows calculated values can be seen in
-`figure_raster_types`{.interpreted-text role="numref"}.
+![Не всичко от заобикалящата ни среда е така лесно да се представи като точки, линии и полигони, както например дърветата, сградите или пътищата. Например как бихме описали ливадите? Като полигони? Ами различните цветове на тревата? При данни за големи площи с непрекъснато променящи се стойности се използват растери, по-просто е.](img/landscape.jpg)
 
-::: {#figure_raster_types}
+Възможно решение е да оградим големи участъци в полигони, за които да зададем средната надморска височина. Проблемът е, че дори и в този случай на цялата площ не наблюдаваме еднаква стойност. Това е защото векторните данни са по-удачни за показване на хомогенни обекти по качествен признак. Например полигона и атрибутите, с които се описва територията на някоя община, не се променят за целия обхват на общината, тя си има все същия кмет, все същите граници и все същия общински център.
+
+Добре, другия вариант за събиране на данни за надморската височина е просто да направим полигоните по-малки, за да гарантираме, че нямаме отклонение с повече от 1 метър за тази площ. Това е правдоподобно решение, но изведнъж ще се окаже, че работим със стотици (хиляди) обекти и това ще затормози както нас, така и ГИС програмата.
+
+Растерните данни са решението в точно такива случаи. Много често растери се използват като фон на векторни слоеве, за да се опише по-добре контекста на весторните слоеве. Хората са добре приспособени да извличат информация от изображения, именно затова картите с подходяща непрекъсната картна основа успяват да предадат повече информация.
+
+Макар и най-често асоциирани със спътникови изображения на земната повърхност, растерните данни са приложими и съхранението на по-абстрактни идеи. Примери за това са надморската височина, сума на валежите, сеизмичен риск, гъстота на населението и т.н. Ето например спътниково изображение и извлечена преработена изображение от него.
+
 ![True colour raster images (left) are useful as they provide a lot of
 detail that is hard to capture as vector features but easy to see when
 looking at the raster image. Raster data can also be non-photographic
 data such as the raster layer shown on the right which shows the
 calculated average minimum temperature in the Western Cape for the month
-of March.](img/raster_types.png){.align-center width="30em"}
-:::
+of March.](img/raster_types.png)
 
-Georeferencing
-==============
+## Геореференциране
 
-Georeferencing is the process of defining exactly where on the earth\'s
-surface an image or raster dataset was created. This positional
-information is stored with the digital version of the aerial photo. When
-the GIS application opens the photo, it uses the positional information
-to ensure that the photo appears in the correct place on the map.
-Normally this positional information consists of a coordinate for the
-top left pixel in the image, the size of each pixel in the X direction,
-the size of each pixel in the Y direction, and the amount (if any) by
-which the image is rotated. With these few pieces of information, the
-GIS application can ensure that raster data are displayed in the correct
-place. The georeferencing information for a raster is often provided in
-a small text file accompanying the raster.
+**Геореференцирането** е процесът на задаване на точния териториален обхват на изображението. Тази информация се съхранява като **метаданни**, за да може ГИС програмата да покаже изображението на правилното място на картата. Информацията необходима за правилното геореференциране в най-простия случай се състои от координатите на горния ляв ъгъл на изображението, широчина и височина на всеки пиксел, която съответства върху земната повърхност, както и с колко е завъртяно изображението. Обикновено тази информация е достатъчна, за да може всяка ГИС програма да покаже снимката привилно. Тя се съхранява най-често вътре в самия растерен файл, но понякога е и като отделен текстови файл придружаващ изображението.
 
-Sources of raster data
-======================
+## Източници на растери
 
-Raster data can be obtained in a number of ways. Two of the most common
-ways are aerial photography and satellite imagery. In aerial
-photography, an aeroplane flies over an area with a camera mounted
-underneath it. The photographs are then imported into a computer and
-georeferenced. Satellite imagery is created when satellites orbiting the
-earth point special digital cameras towards the earth and then take an
-image of the area on earth they are passing over. Once the image has
-been taken it is sent back to earth using radio signals to special
-receiving stations such as the one shown in
-`figure_csir_station`{.interpreted-text role="numref"}. The process of
-capturing raster data from an aeroplane or satellite is called **remote
-sensing**.
+Растери могат да се извлекат по различни начини. Двата най-разпространени са въздушното и спътниковото заснемане. При въздушното заснемане летателен апарат, било то самолет, хеликоптер или дрон, облита дадена територия и я заснема със специално пригодена камера, или по-общо **сензор**. Спътниковите изображения пък се заснемат от много по-голяма височина всеки път когато преминат над територия, която представлява интерес. И в двата случая тези данни и придружаващите ги метаданни се нуждаят от последваща обработка на Земята, която да направи изображенията използваме и георефенцирани. Целия този процес се нарича **дистанционни изследвания**.
 
-::: {#figure_csir_station}
-![The CSIR Satellite Applications Center at Hartebeeshoek near
-Johannesburg. Special antennae track satellites as they pass overhead
-and download images using radio
-waves.](img/csir_station.jpg){.align-center width="30em"}
-:::
+![Част от данните, които спътниците на Европейската космическа агенция изпращат, биват приемани от станцията Цебрерос в Испания.](//upload.wikimedia.org/wikipedia/commons/0/0b/Ceberos_estrack_station.jpg)
 
-In other cases, raster data can be computed. For example an insurance
-company may take police crime incident reports and create a country wide
-raster map showing how high the incidence of crime is likely to be in
-each area. Meteorologists (people who study weather patterns) might
-generate a province level raster showing average temperature, rainfall
-and wind direction using data collected from weather stations (see
-`figure_csir_station`{.interpreted-text role="numref"}). In these cases,
-they will often use raster analysis techniques such as interpolation
-(which we describe in Topic `spatial_analysys`{.interpreted-text
-role="ref"}).
+В други случаи, растерите се изчисляват. Например метеоролозите биха растерен слой на средната температура, валежи, скорост или посока на вятъра за цялата територия на страната, въпреки че тези замервания са се случили само в проделени точки, където има метеорологични станции. За целта са приложили специален метод за пространствен анализ наречен интерполация, който ще разгредаме по-подробно в една от следващите глави.
 
-Sometimes raster data are created from vector data because the data
-owners want to share the data in an easy to use format. For example, a
-company with road, rail, cadastral and other vector datasets may choose
-to generate a raster version of these datasets so that employees can
-view these datasets in a web browser. This is normally only useful if
-the attributes, that users need to be aware of, can be represented on
-the map with labels or symbology. If the user needs to look at the
-attribute table for the data, providing it in raster format could be a
-bad choice because raster layers do not usually have any attribute data
-associated with them.
+Често растери са генерирани и от векторни слоеве, просто защото работата с растери е много по-лесна. Например Гугъл карти или OpenStreetMap, които показват множество векторни обекти като пътища, реки, сгради, гари, паркове, ресторанти и прочие, всъщност се визуализират за крайните потребители като растери. Това е приложимо само ако данните могат да бъдат комуникирани само със симвология и етикети. Ако се налага да работим изключително с атрибутивната таблица, то тогава растеризираните вектори не са най-добрия вариант.
 
-Spatial Resolution
-==================
+??? note "Забележка"
+    OpenStreetMap и подобни услуги всъщност прилагат трик, с който да покажат данните от атрибутивната таблица. Всеки път когато потребителят натисне върху точка от картата, нейните координати се изпращат до сървъра и той връща атрибутите на векторния обект, който се намира точно на това място.
 
-Every raster layer in a GIS has pixels (cells) of a fixed size that
-determine its spatial resolution. This becomes apparent when you look at
-an image at a small scale (see
-`figure_raster_small_scale`{.interpreted-text role="numref"}) and then
-zoom in to a large scale (see
-`figure_raster_large_scale`{.interpreted-text role="numref"}).
+## Разделителна способност
 
-::: {#figure_raster_small_scale}
-![This satellite image looks good when using a small
-scale\...](img/raster_small_scale.png){.align-center width="30em"}
-:::
+### Пространствена разделителна способност (ПСР)
 
-::: {#figure_raster_large_scale}
-![\...but when viewed at a large scale you can see the individual pixels
-that the image is composed
-of.](img/raster_large_scale.png){.align-center width="30em"}
-:::
+Всеки растер се състои от пиксели с еднакви размери. Именно тези размери определят разделителната способност, или на каква площ от земната повърхност отговаря един пиксел. Това ясно се забелязва, ако приближим достатъчно в някой растерен слой.
+
+![Добре изглеждащ растерен слой, но\...](img/raster_small_scale.png)
+
+![... ако приближим прекалено, и изображението става... пикселизирано.](img/raster_large_scale.png)
+
+
 
 Several factors determine the spatial resolution of an image. For remote
 sensing data, spatial resolution is usually determined by the
 capabilities of the sensor used to take an image. For example SPOT5
 satellites can take images where each pixel is 10 m x 10 m. Other
 satellites, for example MODIS take images only at 500 m x 500 m per
-pixel. In aerial photography, pixel sizes of 50 cm x 50 cm are not
+pixel. 
+
+In aerial photography, pixel sizes of 50 cm x 50 cm are not
 uncommon. Images with a pixel size covering a small area are called
 \'**high resolution**\' images because it is possible to make out a high
 degree of detail in the image. Images with a pixel size covering a large
@@ -200,100 +104,50 @@ example of this --\-- it\'s useful to see the clouds across the whole
 country. Zooming in to one particular cloud in high resolution will not
 tell you very much about the upcoming weather!
 
-On the other hand, using low resolution raster data can be problematic
-if you are interested in a small region because you probably won\'t be
-able to make out any individual features from the image.
+От друга страна използването на растери с ниска резолюция е проблем, ако искаме да опишем обекти с малка площ. В някои случаи е възможно няколко обекта да попаднат в един и същи пиксел.
 
-Spectral resolution
-===================
+### Спектрална разделителна способност
 
-If you take a colour photograph with a digital camera or camera on a
-cellphone, the camera uses electronic sensors to detect red, green and
-blue light. When the picture is displayed on a screen or printed out,
-the red, green and blue (RGB) information is combined to show you an
-image that your eyes can interpret. While the information is still in
-digital format though, this RGB information is stored in separate colour
-**bands**.
+Когато правим дигитална снимка с телефона си например, камерата използва електрически **сензор**, с който улавя яркостта на червената, зелената и синята светлина и записва тези три стойности за всеки пиксел. Когато екранът показва всеки отделен пиксел, той чете тази информация и настройва екрана да възпроизведе същия цвят светлина. Тъй като нашия сензор е уловил трите цвята червено, зелено и синьо и е записал три стойности, то създадения растер има три **канала**.
 
-Whilst our eyes can only see RGB wavelengths, the electronic sensors in
-cameras are able to detect wavelengths that our eyes cannot. Of course
-in a hand held camera it probably doesn\'t make sense to record
-information from the **non-visible** parts of the spectrum since most
-people just want to look at pictures of their dog or what have you.
-Raster images that include data for non-visible parts of the light
-spectrum are often referred to as multi-spectral images. In GIS
-recording the non-visible parts of the spectrum can be very useful. For
-example, measuring infra-red light can be useful in identifying water
-bodies.
+И докато нашите очи могат да виждат само тези три цвята, то електрическите сензори не са ограничени от тези недостатъци на човешкото зрение. Тъй като повечето снимки на потребители са от рода на снимка на вечерята в Инстаграм и са със съмнителен принос за научните среди, тези изображения са сам в тези три цвята. Вече дори някои съвременни мобилни телефони улавят и записват информация за инфрачервената светлина , която е **невидима** за нас.
 
-Because having images containing multiple bands of light is so useful in
-GIS, raster data are often provided as multi-band images. Each band in
-the image is like a separate layer. The GIS will combine three of the
-bands and show them as red, green and blue so that the human eye can see
-them. The number of bands in a raster image is referred to as its
-**spectral resolution**.
+!!! "Експеримент"
+    Вземете дистанционно на някой електроуред у дома и го насочете към камерата на вашия телефон. Натиснете някое от копчетата на дистанционното. Виждате ли светлина? В случая сензора улавя светлина, която не е видима за нас и я интерпретира като червено.
 
-If an image consists of only one band, it is often called a
-**grayscale** image. With grayscale images, you can apply false
-colouring to make the differences in values in the pixels more obvious.
-Images with false colouring applied are often referred to as
-**pseudocolour images**.
+Професионалните сензори за дистанционни изследвания могат записват информация и за други невидими цветове за нас. Те се наричат **многоканални** при запис на няколко и **хиперканални** при запис на интензитета на десетки или стотици дължини на вълната. Но защо? Ами например инфрачервената светлина е много добър индикатор за откриване на водни повърхности и вода в растителността. Броят на каналите в едно изображение се нарича **спекрална разделителна способност**.
 
-Raster to vector conversion
-===========================
+Най-често изображенията в ГИС са многоканални, където всеки канал е като отделен растерен слой. ГИС позволява да се комбинират до три от тези канали, за да се покаже изображението в цветове, които човешкото око може да види. Ако избраните канали не съвпадат с реалните цветове за червено, зелено и синьо, това изображение се нарича изображение с **фалшиви цветове**.
 
-In our discussion of vector data, we explained that often raster data
-are used as a backdrop layer, which is then used as a base from which
-vector features can be digitised.
+Понякога изображението съдържа само един канал и то се нарича **сиво**. В такива случаи е въможно допълнително да се приложат цветове спрямо стойностите в пикселите и се наричат **псевдоцветове**. Особен случай на едноканалните изображения са **двоичните маски**. При тях имаме черен фон, който съответства на стойност 0, и бели обекти със стойност 1. Те се използват за маркиране на границите на отделни обекти.
 
-Another approach is to use advanced computer programs to automatically
-extract vector features from images. Some features such as roads show in
-an image as a sudden change of colour from neighbouring pixels. The
-computer program looks for such colour changes and creates vector
-features as a result. This kind of functionality is normally only
-available in very specialised (and often expensive) GIS software.
+TODO example grayscale vs pseudocolor
 
-Vector to raster conversion
-===========================
+TODO example binary mask
 
-Sometimes it is useful to convert vector data into raster data. One side
-effect of this is that attribute data (that is attributes associated
-with the original vector data) will be lost when the conversion takes
-place. Having vectors converted to raster format can be useful though
-when you want to give GIS data to non GIS users. With the simpler raster
-formats, the person you give the raster image to can simply view it as
-an image on their computer without needing any special GIS software.
+## Преобразуване от растер към вектор
 
-Raster analysis
-===============
+По-рано коментирахме, че често при работа с векторни слоеве изолзваме растерен слой за заден фон. Това улеснява осъзнаването на пространствения контекст на данните, както и цифроването на нови векторни обекти.
 
-There are a great many analytical tools that can be run on raster data
-which cannot be used with vector data. For example, rasters can be used
-to model water flow over the land surface. This information can be used
-to calculate where watersheds and stream networks exist, based on the
-terrain.
+Не е задължително цифроването да става ръчно обаче. Някои особености на земната повърхност, например пътища сред ниви, представляват рязка промяна в цвета между между съседни пиксели. Тази рязка промяна позволява лесното им идентифициране от специализирани компютърни програми, които могат да извлекат данни при алгоритмичното анализиране на изображението. В днешно време автоматичното извличане на данни от изображения може да вземе предвид не само цветовете, но и формата, разположението и шарките, които те образуват. За целта се прилагат различни алгоритми, като в последните години изкуствения интелект е заел особено място в изпълнението на подобни задачи.
 
-Raster data are also often used in agriculture and forestry to manage
-crop production. For example with a satellite image of a farmer\'s
-lands, you can identify areas where the plants are growing poorly and
-then use that information to apply more fertilizer on the affected areas
-only. Foresters use raster data to estimate how much timber can be
-harvested from an area.
+## Преобразуване от вектор към растер
 
-Raster data is also very important for disaster management. Analysis of
-Digital Elevation Models (a kind of raster where each pixel contains the
-height above sea level) can then be used to identify areas that are
-likely to be flooded. This can then be used to target rescue and relief
-efforts to areas where it is needed the most.
+Преобразуването от вектор към растер се нарича **растеризиране** и се прилага за улеснена обработка на пространствената информация или за разпространение на географската информация към потребители без специализиран ГИС софтуер. Особеност при растеризирането е, че информацията от атрибутивната таблица се изгубва завинаги и не може да бъде възстановена. Въпреки това числовите и категоризиращите атрибути могат да бъдат записани като отделни канали в изображението.
 
-Common problems / things to be aware of
-=======================================
+## Анализ на растери
 
-As we have already mentioned, high resolution raster data can require
-large amounts of computer storage.
+Фактът, че растерите са просто поредица от еднакви по размер пиксели по редове и колони ги прави идеален кандидат за авторатизиран анализ с компютърни алгоритми, при това много по-удобен отколкото векторните данни. 
 
-What have we learned?
-=====================
+Растери често се използват и в управлението на земеделските и горските ресурси. От спътниково изображение може да се види в къде растенията са със забавено развитие, изпитват воден недостиг, са нападнати от вредител, или да изчисли обема на дървения материал. По този начин собственика на земята може да вземе информирано решение какви действия да предприеме и какво да очаква в бъдеще.
+
+В условията на променящ се климат, анализирането на растери е незаменим инструмент за предпазване и справяне с все по-засилващите се като честата и сила природните бедствия. Например в хидрологията само с цифров модел на релефа можем да открием повърхностите потоци и съответните им водосбори, както и кои участъци имат затруднено отичане и биха се наводнили при определено количество валеж.
+
+## Препъникамъчета
+
+Тъй като растерите покриват големи участъци от земната повърхност, често те са с прекалено големи размери. Това води до няколко нежелани ефекта, като голямо необходимост от голямо пространство за съхранение, покриване на участъци, които не представляват интерес, както и до излишна нужда от изчислителна мощ. Размерът на растерните файлове е правопропорционален на броят канали, размерът на пикселите и обхватът на изображението.
+
+## Какво научихме?
 
 Let\'s wrap up what we covered in this worksheet:
 
@@ -330,39 +184,3 @@ Here are some ideas for you to try with your learners:
     map representation of your school. Which types of features worked
     well when represented as rasters? How did your choice in cell size
     affect your ability to represent different feature types?
-
-Something to think about
-========================
-
-If you don\'t have a computer available, you can understand raster data
-using pen and paper. Draw a grid of squares onto a sheet of paper to
-represent your soccer field. Fill the grid in with numbers representing
-values for grass cover on your soccer field. If a patch is bare give the
-cell a value of 0. If the patch is mixed bare and covered, give it a
-value of 1. If an area is completely covered with grass, give it a value
-of 2. Now use pencil crayons to colour the cells based on their values.
-Colour cells with value 2 dark green. Value 1 should get coloured light
-green, and value 0 coloured in brown. When you finish, you should have a
-raster map of your soccer field!
-
-Further reading
-===============
-
-**Book**:
-
--   Chang, Kang-Tsung (2006). Introduction to Geographic Information
-    Systems. 3rd Edition. McGraw Hill. ISBN: 0070658986
--   DeMers, Michael N. (2005). Fundamentals of Geographic Information
-    Systems. 3rd Edition. Wiley. ISBN: 9814126195
-
-**Website:** <https://en.wikipedia.org/wiki/GIS_file_formats#Raster>
-
-The QGIS User Guide also has more detailed information on working with
-raster data in QGIS.
-
-What\'s next?
-=============
-
-In the section that follows we will take a closer look at **topology**
-to see how the relationship between vector features can be used to
-ensure the best data quality.
