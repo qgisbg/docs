@@ -274,61 +274,21 @@ We have summarised the GIS Vector Data concept in Figure
 data.](img/vector_summary.png){.align-center width="30em"}
 :::
 
-Now you try!
-============
+## Практика!
 
-Here are some ideas for you to try with your learners:
+Ето някои идеи за упражнения:
 
--   Using a copy of a toposheet map for your local area (like the one
-    shown in `figure_sample_map`{.interpreted-text role="numref"}), see
-    if your learners can identify examples of the different types of
-    vector data by highlighting them on the map.
--   Think of how you would create vector features in a GIS to represent
-    real world features on your school grounds. Create a table of
-    different features in and around your school and then task your
-    learners to decide whether they would be best represented in the GIS
-    as a point, line or polygon. See [table\_vector\_1](#table_vector_1)
-    for an example.
+- Опитайте се да откриете различни примери за векторни данни на топографски картен лист.
 
-::: {#figure_sample_map}
-![Can you identify two point features and one polygon feature on this
-map?](img/sample_map.png){.align-center width="30em"}
-:::
+![Потърсете векторни обекти на картата, описани с точки, линии или полигони.](img/sample_map.png)
 
-::: {#table_vector_1}
-  -----------------------------------------------------------------
-  Real world feature                       Suitable Geometry Type
-  ---------------------------------------- ------------------------
-  The school flagpole                      
+- Помислете как районът около сградата, в която се намирате може да бъде описана като векторни обекти. Изберете няколко категории обекти и създайте таблица за всеки един от тях, където всеки ред е отделен обект, а всяка колона някой от неговите атрибути. Определете вида на геометрията за всяка категория обекти, както и най-важните атрибути, които ги описват.
 
-  The soccer field                         
-
-  The footpaths in and around the school   
-
-  Places where taps are located            
-
-  Etc.                                     
-  -----------------------------------------------------------------
-:::
-
-Table Vector 1: Create a table like this (leaving the geometry type
-column empty) and ask your learners to decide on suitable geometry
-types.
-
-Something to think about
-========================
-
-If you don\'t have a computer available, you can use a toposheet and
-transparency sheets to show your learners about vector data.
-
-Further reading
-===============
-
-The QGIS User Guide also has more detailed information on working with
-vector data in QGIS.
-
-What\'s next?
-=============
-
-In the section that follows we will take a closer look at **attribute
-data** to see how it can be used to describe vector features.
+| Обект от истинския свят | Подходяща геометрия |
+|-------------------------|---------------------|
+| Пейки в парка           |                     |
+| Пешеходни пътеки        |                     |
+| Площади в града         |                     |
+| Пътека в гората         |                     |
+| Среда на охльов         |                     |
+| Футбулно игрище         |                     |
