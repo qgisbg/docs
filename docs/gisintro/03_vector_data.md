@@ -237,42 +237,24 @@ Because of these types of errors, it is very important to digitise data
 carefully and accurately. In the upcoming topic on **topology**, we will
 examine some of these types of errors in more detail.
 
-What have we learned?
+Какво научихме?
 =====================
 
-Let\'s wrap up what we covered in this worksheet:
+- **Векторните данни** се използват да пресъздадат **обекти** от реалния живот в ГИС.
+- Векторните обекти имат **геометрия**, която е или **точка**, **линия** или **полигон**.
+- Всеки векторен обект се описва чрез своите **атрибути**.
+- Геометрията се състои от **вертекси**.
+- За всеки вертекс записваме неговите X и Y координати. По желание може да се добави и Z стойност.
+- Точките се състоят от **един единствен вертекс** (Х, Y и при желание Z).
+- Линиите се състоят от **два или повече вертекса** свързани в определен ред.
+- Полигоните се състоят от поне **четири вертекса** свързани в определен ред, като първия и последния винаги съвпадат.
+- Изборът каква геометрия да предпочетем за данните зависи от мащаба, удобството и вида на описваните обекти.
+- Повечето ГИС програми и формати не позволяват повече от един вид геометрия за даден слой.
+- **Цифроването** е процесът на изчертаване на геометрията на нови обекти в ГИС.
+- Векторните данни могат да съдържат грешки, като **недостигане**, **подминаване** и **разминаване**, за които трябва да внимаваме.
+- Векторите се използват за **пространствен анализ** в ГИС програмите, например за откриване на най-близката болница до дадено училище.
 
--   **Vector data** is used to represent real world **features** in a
-    GIS.
--   A vector feature can have a **geometry** type of **point**, **line**
-    or a **polygon**.
--   Each vector feature has **attribute data** that describes it.
--   Feature geometry is described in terms of **vertices.**
--   Point geometries are made up of a **single vertex** (X,Y and
-    optionally Z).
--   Polyline geometries are made up of **two or more** vertices forming
-    a connected line.
--   Polygon geometries are made up of **at least four vertices** forming
-    an enclosed area. The first and last vertices are always in the same
-    place.
--   Choosing which geometry type to use depends on scale, convenience
-    and what you want to do with the data in the GIS.
--   Most GIS applications do not allow you to mix more than one geometry
-    type in a single layer.
--   Digitising is the process of creating digital vector data by drawing
-    it in a GIS application.
--   Vector data can have quality issues such as **undershoots**,
-    **overshoots** and **slivers** which you need to be aware of.
--   Vector data can be used for **spatial analysis** in a GIS
-    application, for example to find the nearest hospital to a school.
-
-We have summarised the GIS Vector Data concept in Figure
-`figure_vector_summary`{.interpreted-text role="numref"}.
-
-::: {#figure_vector_summary}
-![This diagram shows how GIS applications deal with vector
-data.](img/vector_summary.png){.align-center width="30em"}
-:::
+![Диаграмата показва как векторните данни се използват в ГИС среда.](img/vector_summary.png)
 
 ## Практика!
 
