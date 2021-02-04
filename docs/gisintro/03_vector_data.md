@@ -11,55 +11,23 @@ tags: вектор, точка, линия, полигон, вертекс, ге
 
 ![Когато се огледаме наоколо, виждаме основните обекти - пътища, река, къщи, дървета.](img/landscape.jpg)
 
-A vector feature has its shape represented using **geometry**. The
-geometry is made up of one or more interconnected **vertices**. A vertex
-describes a position in space using an **X**, **Y** and optionally **Z**
-axis. Geometries which have vertices with a `Z` axis are often referred
-to as **2.5D** since they describe height or depth at each vertex, but
-not both.
+Формата на векторния обект се представя чрез неговата **геометрия**. Векторната геометрия се състои от последователно свързани точки, наречени **вертекси**. Вертексът описва позицията на дадена точка, като съхранява координатите по осите **X**, **Y** и незадължително **Z**. Възможно е да се запишат и други данни за всеки вертекс, но тази функционалст се ползва далеч по-рядко.
 
-When a feature\'s geometry consists of only a single vertex, it is
-referred to as a **point** feature (see illustration
-`figure_geometry_point`{.interpreted-text role="numref"}). Where the
-geometry consists of two or more vertices and the first and last vertex
-are not equal, a **polyline** feature is formed (see illustration
-`figure_geometry_polyline`{.interpreted-text role="numref"}). Where
-three or more vertices are present, and the last vertex is equal to the
-first, an enclosed **polygon** feature is formed (see illustration
-`figure_geometry_polygon`{.interpreted-text role="numref"}).
+Когато геометрията на обекта съдържа един единствен вертекс, то геометрия се нарича **точка**. Когато геометрията се състои от два или повече вертекса, като първия и последния не съвпадат, то става дума за **линия**. Когато геометрията се състои от три или повече вертекси, при които първия и последния съвпадат, получения затворен многоъгълник се нарича **полигон**.
 
-::: {#figure_geometry_point}
-![A point feature is described by its X, Y and optionally Z coordinate.
-The point attributes describe the point e.g. if it is a tree or a lamp
-post.](img/point_feature.png){.align-center width="30em"}
-:::
+![Точката се описва от X, Y и незадължителна Z координата. Атрибутите на обекта с точката съхраняват допълнителна информация за точката, например дали е палмово дърво, уличен стълб, място на светкавица или др..](img/point_feature.png)
 
-::: {#figure_geometry_polyline}
-![A polyline is a sequence of joined vertices. Each vertex has an X, Y
-(and optionally Z) coordinate. Attributes describe the
-polyline.](img/polyline_feature.png){.align-center width="30em"}
-:::
+![Линията е поредица от свързани вертекси. Всеки вертекс има X, Y
+и незадължителни Z координата. Атрибутите съхраняват допълнителна информация, дали линията е река, път, маршрут на колело и дп.](img/polyline_feature.png)
 
-::: {#figure_geometry_polygon}
-![A polygon, like a polyline, is a sequence of vertices. However in a
-polygon, the first and last vertices are always at the same
-position.](img/polygon_feature.png){.align-center width="30em"}
-:::
+![И полигона, и линията са поредица от вертекси, но при полигона първия и последния вертекс винаги съвпадат](img/polygon_feature.png)
 
-Looking back at the picture of a landscape we showed you further up, you
-should be able to see the different types of features in the way that a
-GIS represents them now (see illustration
-`figure_geometry_landscape`{.interpreted-text role="numref"}).
+Ако погледнем отново на панорамната снимка от по-рано и въоръжени със знание за начина по който съхраняваме обекти в ГИС, лесно можем да си представим различните данни в компютъра.
 
-::: {#figure_geometry_landscape}
-![Landscape features as we would present them in a GIS. Rivers (blue)
-and roads (green) can be represented as lines, trees as points (red) and
-houses as polygons (white).](img/landscape_geometry.jpg){.align-center
-width="30em"}
-:::
+![Как бихме представили обектите от пейзажа в ГИС? Реките (в синьо) и пътищата (в зелено) могат да бъдат представени като линии, дърветата като точки (в червено), а къщите като полигони (в бяло).](img/landscape_geometry.jpg)
 
-Point features in detail
-========================
+
+## Още за точковите обекти
 
 The first thing we need to realise when talking about point features is
 that what we describe as a point in GIS is a matter of opinion, and
