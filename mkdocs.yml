@@ -42,6 +42,8 @@ markdown_extensions:
   - mdx_iconify:
       patterns: 
         qgis:
+          width: "36"
+          height: "36"
           prefix: https://raw.githubusercontent.com/qgis/QGIS/master/images/themes/default/
           suffix: .svg
           check_suffix: True
