@@ -50,4 +50,8 @@ markdown_extensions:
   - toc:
       permalink: true
 nav:
-  - ...
+  - index.md
+  - ... | wiki/*/*.md
+  - ... | gisintro/*.md
+  - ... | bgd/*.md
+  - ... | meta/*.md
