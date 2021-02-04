@@ -7,7 +7,7 @@ tags: вектор, точка, линия, полигон, вертекс, ге
 
 ## Преглед
 
-**Векрните данни** в ГИС позволяват изобразяването на **обекти** от заобикалящата ни среда. **Обект** може да бъде всичко, което виждаме около нас. Представете си, че сте на някое високо място. Като се огледате наоколо, виждате дървета, реки, пътища, поля, сгради, селища и т.н. Всяко от тези неща би било "обект", когато го представяме в ГИС среда. Всеки отделен обект може да има **атрибути**, които са допълнителна информация, най-често като текст и числа, която **описва** обекта.
+**Векрните данни** в ГИС позволяват изобразяването на **обекти** от заобикалящата ни среда. **Обект** може да бъде всичко около нас. Представете си, че сте на някое високо място. Като се огледате наоколо, виждате дървета, реки, пътища, поля, сгради, селища и т.н. Всяко от тези неща би било "обект", когато го представяме в ГИС среда. Всеки отделен обект може да има **атрибути**, които са допълнителна информация, най-често като текст и числа, която **описва** обекта.
 
 ![Когато се огледаме наоколо, виждаме основните обекти - пътища, река, къщи, дървета.](img/landscape.jpg)
 
@@ -29,75 +29,28 @@ tags: вектор, точка, линия, полигон, вертекс, ге
 
 ## Още за точковите обекти
 
-The first thing we need to realise when talking about point features is
-that what we describe as a point in GIS is a matter of opinion, and
-often dependent on scale. let\'s look at cities for example. If you have
-a small scale map (which covers a large area), it may make sense to
-represent a city using a point feature. However as you zoom in to the
-map, moving towards a larger scale, it makes more sense to show the city
-limits as a polygon.
+Трябва да сме наясно, че изборът на точки за представяне на обекти е приближение на реалността и е изцяло субективно решение на автора на данните. Основните причини да предпочетем точки са мащаба на картата, удобството за работа и вида на обектите. Например на дребномащабна карта (напр. карта на България), селищата ще бъдат представени най-вероятно като точки. Когато обаче представяме в по-едър мащаб (напр. карта на община или град), обхвата на селищата ще се представят най-вероятно като полигони. Ако ние ръчно трябва да изчертаем обектите, най-вероятно ще предпочетем точки където е възможно, защото изисква много пъти по-малко усилие, отколкото полигоните (един вертекс срещу три и повече). А и не на последно място, ако показваме местоположението на улични стълбове, просто няма смисъл да ги представяме като полигони.
 
-When you choose to use points to represent a feature is mostly a matter
-of scale (how far away are you from the feature), convenience (it takes
-less time and effort to create point features than polygon features),
-and the type of feature (some things like telephone poles just don\'t
-make sense to be stored as polygons).
+Както вече коментирахме, точковите обекти имат X, Y и евентуално Z стойност.  Стойностите за X и Y ще зависят от **координатната система** (КС). Ще разгледаме координатните системи много по-подробно в следващите глави, а засега нека просто приемем, че записаните стойности запазват с точност местоположението на дадената точка. Най-разпространения вариант за това е използването на **географска дължина и ширина**. 
 
-As we show in illustration `figure_geometry_point`{.interpreted-text
-role="numref"}, a point feature has an X, Y and optionally, Z value. The
-X and Y values will depend on the **Coordinate Reference System** (CRS)
-being used. We are going to go into more detail about Coordinate
-Reference Systems in a later tutorial. For now let\'s simply say that a
-CRS is a way to accurately describe where a particular place is on the
-earth\'s surface. One of the most common reference systems is
-**Longitude and Latitude**. Lines of Longitude run from the North Pole
-to the South Pole. Lines of Latitude run from the East to West. You can
-describe precisely where you are at any place on the earth by giving
-someone your Longitude (X) and Latitude (Y). If you make a similar
-measurement for a tree or a telephone pole and marked it on a map, you
-will have created a point feature.
+Линиите, които описват географската дължина се наричат **меридиани** и преминават по повърхността на Земята от единия до другия полюс. Един от тези меридиани се нарича за **главен меридиан** и всички точки, които лежат на главния меридиан имат географска дължина 0 градуса за географска дължина, тези на изток положителна стойност до 180 градуса, а тези на запад отрицателна стойност до -180 градуса. Линиите, които описват географската ширина се наричат **паралели** и обикалят земното кълбо перпендикулярно на меридианите. Главния паралел се нарича **екватор** и всички точки на екватора имат географска ширина 0 градуса, тези на север положителна стойност до 90 градуса на **северния полюс**, а тези на юг отрицателна до -90 градуса на **южния полюс**.
 
-Since we know the earth is not flat, it is often useful to add a Z value
-to a point feature. This describes how high above sea level you are.
+С това бързо и непълно въведение в географските координатни системи, можем да се досетим че при наличие на стойности за географската дължина (X) и ширина (Y), можем да определим с абсолютна точност позицията на всяка една точка на земната повърхност. Така само с две числа може да отбележим къде се намира дадено дърво, уличен стълб или самите ние.
 
-Polyline features in detail
-===========================
+Въпреки набиращото популярност движение, Земята не е плоска и в някои ситуации може да съхраним и стойността на измерената надморска височина (Z).
 
-Where a point feature is a single vertex, **a polyline has two or more
-vertices**. The polyline is a continuous path drawn through each vertex,
-as shown in `figure_geometry_polyline`{.interpreted-text role="numref"}.
-When two vertices are joined, a line is created. When more than two are
-joined, they form a \'line of lines\', or **polyline**.
+## Още за линейните обекти
 
-A polyline is used to show the geometry of **linear features** such as
-roads, rivers, contours, footpaths, flight paths and so on. Sometimes we
-have special rules for polylines in addition to their basic geometry.
-For example contour lines may touch (e.g. at a cliff face) but should
-never cross over each other. Similarly, polylines used to store a road
-network should be connected at intersections. In some GIS applications
-you can set these special rules for a feature type (e.g. roads) and the
-GIS will ensure that these polylines always comply to these rules.
+Ако точката се състои от само един вертекс, то **линията има два или повече вертекса**. Линията е непрекъснатата следа, оставена при последователното свързване на вертексите. Когато два вертекса се свържат се получава **отсечка**, когато много отсечки се свържат се получава **линия**.
 
-If a curved polyline has very large distances between vertices, it may
-appear **angular** or jagged, depending on the scale at which it is
-viewed (see `figure_polyline_jagged`{.interpreted-text role="numref"}).
-Because of this it is important that polylines are digitised (captured
-into the computer) with distances between vertices that are small enough
-for the scale at which you want to use the data.
+Линиите се използват за съхранение на геометрията на **линейни обекти**, а такива са реки, пътища, следи от преминаване, граници, контури на релефа и т. н. Понякога следваме специални правила освен дефиницията за линия. Например ако имаме карта на контурите на релефа, то контурите може да се допират (напр. много стръмен склон), но никога не могат да се пресичат. Подобно при карта на пътищата всеки пътен участък трябва да започне и свърши на кръстовище. В някои ГИС програми тези правила могат да се зададат като допълнително ограничение и програма сама ще съблюдава за спазването им.
 
-::: {#figure_polyline_jagged}
-![Polylines viewed at a smaller scale (1:20 000 to the left) may appear
-smooth and curved. When zoomed in to a larger scale (1:500 to the right)
-polylines may look very angular.](img/jagged_polyline.png){.align-center
-width="30em"}
-:::
+Ако линията прави завой, но има прекалено големи разстояния между съседните вертекси, тя ще изглежда много **ъгловата** при по-едри мащаби. Затова е важно при създаването на нов линеен обект да слагаме достатъчно вертекси при завоите според нуждите на мащаба.
 
-The **attributes** of a polyline describe its properties or
-characteristics. For example a road polyline may have attributes that
-describe whether it is surfaced with gravel or tar, how many lanes it
-has, whether it is a one way street, and so on. The GIS can use these
-attributes to symbolise the polyline feature with a suitable colour or
-line style.
+![Линиите при дребен мащаб (1:20 000 вляво) изглеждат плавни и извити. При приближаване в едър мащаб обаче (1:500 вдясно) линиите могат да приемат много ъгловат вид.](img/jagged_polyline.png)
+
+<!-- TODO това малко ни в клин, ни в ръкав тук, трябва да се измести сякаш -->
+Атрибутите на линейните обекти описват свойствата му. Така за слой с пътища може да имаме атрибут за пътната настилка - павета или асфалт, или пък за броят ленти в посока, или пък дали е еднопосочка и т. н. Благодарение на тези атрибути може да визуализираме слоя с подхощят цвят и дебелина на линията.
 
 Polygon features in detail
 ==========================
