@@ -1,4 +1,7 @@
-
+---
+title: Как да правим сложни промени в QGIS.бг докс в Windows?
+tags: anaconda, miniconda, conda, windows, install
+---
 
 1. Инсталираме vscode
 1. Инсталираме miniconda
