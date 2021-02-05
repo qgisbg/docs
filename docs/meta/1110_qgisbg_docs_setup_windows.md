@@ -1,6 +1,6 @@
 ---
 title: Как да настроим среда за работа по QGIS.бг докс в Windows?
-tags: anaconda, miniconda, conda, windows, install
+tags: miniconda, conda, vscode, qgis.bg, windows, install, setup, virtual environment
 ---
 
 1. Инсталираме и настройваме необходимия софтуер.
