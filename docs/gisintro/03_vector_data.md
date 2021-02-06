@@ -5,6 +5,7 @@ tags: вектор, точка, линия, полигон, вертекс, ге
 
 # Векторни данни
 
+
 ## Преглед
 
 **Векрните данни** в ГИС позволяват изобразяването на **обекти** от заобикалящата ни среда. **Обект** може да бъде всичко около нас. Представете си, че сте на някое високо място. Като се огледате наоколо, виждате дървета, реки, пътища, поля, сгради, селища и т.н. Всяко от тези неща би било "обект", когато го представяме в ГИС среда. Всеки отделен обект може да има **атрибути**, които са допълнителна информация, най-често като текст и числа, която **описва** обекта.
@@ -39,6 +40,7 @@ tags: вектор, точка, линия, полигон, вертекс, ге
 
 Въпреки набиращото популярност движение, Земята не е плоска и в някои ситуации може да съхраним и стойността на измерената надморска височина (Z).
 
+
 ## Още за линейните обекти
 
 Ако точката се състои от само един вертекс, то **линията има два или повече вертекса**. Линията е непрекъснатата следа, оставена при последователното свързване на вертексите. Когато два вертекса се свържат се получава **сегмент**, когато много сегменти се свържат се получава **линия**.
@@ -52,193 +54,70 @@ tags: вектор, точка, линия, полигон, вертекс, ге
 <!-- TODO това малко ни в клин, ни в ръкав тук, трябва да се измести сякаш -->
 Атрибутите на линейните обекти описват свойствата му. Така за слой с пътища може да имаме атрибут за пътната настилка - павета или асфалт, или пък за броят ленти в посока, или пък дали е еднопосочка и т. н. Благодарение на тези атрибути може да визуализираме слоя с подхощят цвят и дебелина на линията.
 
-Polygon features in detail
-==========================
 
-Polygon features are **enclosed areas** like dams, islands, country
-boundaries and so on. Like polyline features, polygons are created from
-a series of vertices that are connected with a continuous line. However
-because a polygon always describes an enclosed area, the first and last
-vertices should always be at the same place! Polygons often have
-**shared geometry** --\-- boundaries that are in common with a
-neighbouring polygon. Many GIS applications have the capability to
-ensure that the boundaries of neighbouring polygons exactly coincide. We
-will explore this in the `gentle_gis_topology`{.interpreted-text
-role="ref"} topic later in this tutorial.
+## Още за полигонните обекти
 
-As with points and polylines, polygons have **attributes**. The
-attributes describe each polygon. For example a dam may have attributes
-for depth and water quality.
+Полигоните са **затворени площи** като язовири, острови, общински граници и др. Както линиите, така и полигоните се създават от поредица от вертекси, които са свързани в непрекъсната линия. Разликата е там, че първия и последния вертекс при полигоните са на едно и също място, за да може фигурата да се затвори. Често полигоните имат **споделена геометрия** - границата със съседния полигон съвпада. Например при два полигона за държавите Румъния и България, и двата полигона ще има поредица от вертекси, които напълно ще съвпадат по протежение на общата държавна граница. В следващите глави ще разгледаме този случай в подробности.
 
-Vector data in layers
-=====================
+Също като точките и линиите, така и полигонните обекти имат **атрибути**. Атрибутите описват всеки полигон, например името на държавата, дълбочината на язовира, вида на гората и др.
 
-Now that we have described what vector data is, let\'s look at how
-vector data is managed and used in a GIS environment. Most GIS
-applications group vector features into **layers**. Features in a layer
-have the same geometry type (e.g. they will all be points) and the same
-kinds of attributes (e.g. information about what species a tree is for a
-trees layer). For example if you have recorded the positions of all the
-footpaths in your school, they will usually be stored together on the
-computer hard disk and shown in the GIS as a single layer. This is
-convenient because it allows you to hide or show all of the features for
-that layer in your GIS application with a single mouse click.
 
-Editing vector data
-===================
+## Векторни слоеве
 
-The GIS application will allow you to create and modify the geometry
-data in a layer \---- a process called **digitising** --\-- which we
-will look at more closely in a later tutorial. If a layer contains
-polygons (e.g. farm dams), the GIS application will only allow you to
-create new polygons in that layer. Similarly if you want to change the
-shape of a feature, the application will only allow you to do it if the
-changed shape is correct. For example it won\'t allow you to edit a line
-in such a way that it has only one vertex --\-- remember in our
-discussion of lines above that all lines must have at least two
-vertices.
+След като си обяснихме какво са векторните данни, нека разгледаме тяхното приложение в ГИС. Повечето ГИС приложения групират векторните обекти в **слоеве**. Всички обекти в един слой имат една и съща геометрия (т.е. винаги са или само точки, или само линии, или само полигони) и имат еднакъв брой и имена на атрибутите (напр. всички обекти имат атрибута вид на дървото, ако става дума за слой с дървета). Ако събрали информация за дърветата в града като точкови обекти, всички те ще се заредят като един слой в ГИС. Това е удобно, защото може да настроим визуализацията на всички обекти едновременно, да ги показваме и скриваме и като цяло да работим с тях като една логическа група.
 
-Creating and editing vector data is an important function of a GIS since
-it is one of the main ways in which you can create personal data for
-things you are interested in. Say for example you are monitoring
-pollution in a river. You could use the GIS to digitise all outfalls for
-storm water drains (as point features). You could also digitise the
-river itself (as a polyline feature). Finally you could take readings of
-pH levels along the course of the river and digitise the places where
-you made these readings (as a point layer).
 
-As well as creating your own data, there is a lot of free vector data
-that you can obtain and use. For example, you can obtain vector data
-that appears on the 1:50 000 map sheets from the Chief Directorate:
-Surveys and Mapping.
+## Редакция на векторни данни
 
-Scale and vector data
-=====================
+ГИС програмите позволяват създаването на нови и редакцията на съществуващи обекти и техните геометрии. Този процес се нарича **цифроване**, който ще разгледаме в подробности в следващите глави. Ако слоя за редакция съдържа полигони, ГИС програмата ще ни позволи да създаваме само полигони за този слой, независимо дали става дума за нови обекти или редакция на вече съществуващи. Така в случай със слой от линии, ГИС програмата няма да ни позволи някой линия да има само един вертекс, предвид че условието да са поне две и нагоре.
 
-Map **scale** is an important issue to consider when working with vector
-data in a GIS. When data is captured, it is usually digitised from
-existing maps, or by taking information from surveyor records and global
-positioning system devices. Maps have different scales, so if you import
-vector data from a map into a GIS environment (for example by digitising
-paper maps), the digital vector data will have the same scale issues as
-the original map. This effect can be seen in illustrations
-`figure_vector_small_scale`{.interpreted-text role="numref"} and
-`figure_vector_large_scale`{.interpreted-text role="numref"}. Many
-issues can arise from making a poor choice of map scale. For example
-using the vector data in illustration
-`figure_vector_small_scale`{.interpreted-text role="numref"} to plan a
-wetland conservation area could result in important parts of the wetland
-being left out of the reserve! On the other hand if you are trying to
-create a regional map, using data captured at 1:1000 000 might be just
-fine and will save you a lot of time and effort capturing the data.
+Създаването и редакцията на векторни данни е сред най-важните функционалности на ГИС, защото позволява създаването на собствен набор от данни. Ако например изследваме завърсяването на водни потоци, най-вероятно ще се наложи да отбележим с точки всички отходни канали, които се вливат в реката. Може да се наложи да изчертаем и реката, ако този слой не е наличен. Ако вземаме проби по течението на реката, може да добавим и тов точков слой с всички места, на които сме взели проба, а като атрибути какви стойност на киселинно, наличие на ценни метали и прочие показатели сме отчели в пробата.
 
-::: {#figure_vector_small_scale}
-![Vector data (red lines) that was digitised from a small scale (1:1000
-000) map.](img/small_scale.png){.align-center width="30em"}
-:::
+Създаването на собствени данни е полезно, но е непосилна задача, ако за всеки необходим слой го правим сами. За щастие има огромни масиви от данни, които са свободнодостъпни за ползване, например данните от [OpenStreetMap](//osm.org). В повечето държави по света има специални институции, които се грижат за свободното споделяне на географска информация с обществото, за съжаление в България тази информация усърдно се крие от институциите и публичнодостъпните официални данни са изключително малко.
 
-::: {#figure_vector_large_scale}
-![Vector data (green lines) that was digitised from a large scale (1:50
-000) map.](img/large_scale.png){.align-center width="30em"}
-:::
 
-Symbology
-=========
+## Симвология
 
-When you add vector layers to the map view in a GIS application, they
-will be drawn with random colours and basic symbols. One of the great
-advantages of using a GIS is that you can create personalised maps very
-easily. The GIS program will let you choose colours to suite the feature
-type (e.g. you can tell it to draw a water bodies vector layer in blue).
-The GIS will also let you adjust the symbol used. So if you have a trees
-point layer, you can show each tree position with a small picture of a
-tree, rather than the basic circle marker that the GIS uses when you
-first load the layer (see illustrations
-`figure_vector_symbology`{.interpreted-text role="numref"},
-`figure_generic_symbology`{.interpreted-text role="numref"} and
-`figure_custom_symbology`{.interpreted-text role="numref"}).
+Когато добавим нов векторен слой в ГИС програма, обектите от слоя ще бъдат визуализирани по някакъв начин - със случайни цветове и прости символи. Едно от мощните преимущества на ГИС е възможността да променяме начина на изобразяване много лесно. За целта в ГИС имаме контрол над цветовете, символите, сенките, етикетите и като цяло почти всичко, което ще ни помогне да изобразим един обект и това се нарича **симвология**. Например ако изобразяваме реки или езера, ще използваме син цвят, ако изобразяваме дървета, ще използваме зелен цвят и символ с дърво, вместо просто кръгчета. По този начин нашата карта е много по-четима дори и без да се сверява в легендата.
 
-::: {#figure_vector_symbology}
-![In the GIS, you can use a panel (like the one above) to adjust how
-features in your layer should be
-drawn.](img/symbology_settings.png){.align-center width="30em"}
-:::
+![В ГИС програмите има специален панел, в който се контролира външния вид на обектите.](img/symbology_settings.png)
 
-::: {#figure_generic_symbology}
-![When a layer (for example the trees layer above) is first loaded, a
-GIS application will give it a generic
-symbol.](img/symbology_generic.png){.align-center width="30em"}
-:::
+![Когато отворим векторен слой за пръв път, ГИС програмата ще зададе някакъв общ външен вид, за да обозначи обектите на картата.](img/symbology_generic.png)
 
-::: {#figure_custom_symbology}
-![After making our adjustments it is much easier to see that our points
-represent trees.](img/symbology_custom.png){.align-center width="30em"}
-:::
+![След като направим необходимите настройки е много по-лесно да разпознаем, че точките всъщност представляват дървета.](img/symbology_custom.png)
 
-Symbology is a powerful feature, making maps come to life and the data
-in your GIS easier to understand. In the topic that follows
-(`gentle_gis_attributes`{.interpreted-text role="ref"}) we will explore
-more deeply how symbology can help the user to understand vector data.
+Символогията е изклюително мощна функционалност, с която картите успяват да комуникират своето предназначение и смисъл по достъпен начин. В следващата глава ще разгледаме в подробности как символогията може да спомогне за по-лесното осмисляне на векторните данни.
 
-What can we do with vector data in a GIS?
-=========================================
 
-At the simplest level we can use vector data in a GIS Application in
-much the same way you would use a normal topographic map. The real power
-of GIS starts to show itself when you start to ask questions like
-\'which houses are within the 100 year flood level of a river?\';
-\'where is the best place to put a hospital so that it is easily
-accessible to as many people as possible?\'; \'which learners live in a
-particular suburb?\'. A GIS is a great tool for answering these types of
-questions with the help of vector data. Generally we refer to the
-process of answering these types of questions as **spatial analysis**.
-In later topics of this tutorial we will look at spatial analysis in
-more detail.
+## Какво можем да постигнем с векторни данни в ГИС
 
-Common problems with vector data
-================================
+Най-простото приложение на векторните данни в ГИС е същото както и върху топографската карта - визуализация на местоположението, размера и вида на обектите. Истинската сила на ГИС обаче е когато започнем да отговаряме на въпроси от заобикалящия ни свят: "Кои къщи се намират на не повече от 100 метра от река и са в риск от наводнение?", "Къде да разположим новата болница, за да бъде бързо и лесно достъпна до най-голям брой хора?", "Кои граждани живеят в определен район?", "Къде са огнищата на сезонния грип?", "Кои са условията, които карат пчелите от прелин А да дават повече мед от пчелин Б?" и т.н. ГИС програмите са идеалния инструмент за отговор на подобни въпроси именно с помощта на векторни данни. Процесът на изготвяне на отговор на подобни въпроси се нарича **пространствен анализ**. В следващите глави ще се запознаем по-подробно с накои видове пространствен анализ в ГИС.
 
-Working with vector data does have some problems. We already mentioned
-the issues that can arise with vectors captured at different scales.
-Vector data also needs a lot of work and maintenance to ensure that it
-is accurate and reliable. Inaccurate vector data can occur when the
-instruments used to capture the data are not properly set up, when the
-people capturing the data aren\'t being careful, when time or money
-don\'t allow for enough detail in the collection process, and so on.
 
-If you have poor quality vector data, you can often detect this when
-viewing the data in a GIS. For example **slivers** can occur when the
-edges of two polygon areas don\'t meet properly (see
-`figure_vector_slivers`{.interpreted-text role="numref"}).
+## Мащаб и векторни данни
 
-::: {#figure_vector_slivers}
-![Slivers occur when the vertices of two polygons do not match up on
-their borders. At a small scale (e.g. 1 on left) you may not be able to
-see these errors. At a large scale they are visible as thin strips
-between two polygons (2 on
-right).](img/vector_slivers.png){.align-center width="30em"}
-:::
+Друг момент при работата с векторни данни, който не бива да пропускаме, е **мащаба**. Когато се създават нови обекти, често информацията за тях идва от вече съществуващи карти или теренни изследвания. В първия случай автоматично мащаба на нашата карта ще съвпада с мащаба на картата първоизточник. Това е важно, защото много проблеми могат да изникнат от несъобразен мащаб. Например при картиране на обхвата на един резерват в дребен мащаб, границите са обобщени и не всяка чупка е отразена във векторния слой. Когато обаче приближим в по-едромащабна карта, да кажем 1:10 000, то ще бъде от излючителна важност да се знае кои точно имоти попадат в обхвата на резервата и кои не. Затова трябва предварително да имаме представа в какъв мащаб ще използваме векторните данни.
 
-**Overshoots** can occur when a line feature such as a road does not
-meet another road exactly at an intersection. **Undershoots** can occur
-when a line feature (e.g. a river) does not exactly meet another feature
-to which it should be connected. Figure
-`figure_vector_shoots`{.interpreted-text role="numref"} demonstrates
-what undershoots and overshoots look like.
+ ![Векторни данни (червено), които са създадени в дребен мащаб (1:1 000 000).](img/small_scale.png)
+ ![Векторни данни (зелено), които са създадени в едър мащаб (1:50 000).](img/large_scale.png)
 
-::: {#figure_vector_shoots}
-![Undershoots (1) occur when digitised vector lines that should connect
-to each other don't quite touch. Overshoots (2) happen if a line ends
-beyond the line it should connect
-to.](img/vector_overshoots.png){.align-center width="30em"}
-:::
 
-Because of these types of errors, it is very important to digitise data
-carefully and accurately. In the upcoming topic on **topology**, we will
-examine some of these types of errors in more detail.
+## Често срещани проблеми при векторните данни
 
-Какво научихме?
-=====================
+Векторните данни страдат от някои добре известни проблеми. Вече коментирахме проблемите при цифроване на данни в различни мащаби. Векторните данни като цяло са трудоемки за събиране и поддръжка. Неточни данни могат да са в резултат на неточни или недобре настроени инструменти (напр. GPS), невнимание на оператора, времеви или финансови ограничения на проекта и т. н.
+
+Качеството на векторните данни лесно може да се провери с бърз преглед в ГИС. Например **разминаванията между полигони** са често срещан проблем, когато два полигона не споделят перфектно общата си граница.
+
+![Разминаванията се случват, когато вертексите на два полигона не съвпадат напълно по общата им граница. При разглеждан в дребен мащаб този проблем може да остане незабелязан (вляво), но при едър мащаб разминаването е очевидно с ясно видима празна ивица между полигоните.](img/vector_slivers.png)
+
+**Задминаването** се случва, когато линеен обект (напр. път) не достига до друг линеен обект в точката на кръстовището. **Недостигането** се получава, когато линеен обект (напр. река) не достигне до логическата си крайна точка (напр. устието за река).
+
+![Недостигането (1) се получава, когато цифрованата линия е по-кратка от необходимото и не достига линията, до която трябва да се допре. Задминаването (2) пък се получава, когато цифрованата линия е по-дълга от неоходимото и пресича линията, до която трябва да се допре. ](img/vector_overshoots.png)
+
+Много е важно да извършим цифроването внимателно и с точно, за да не допускаме такива грешки. Те ще развалят данните ни и съответно възможността да извършим качествен пространствен анализ. В специално отделената глава на тема **топология** ще разгледаме тези и други грешни в по-големи подробности.
+
+
+## Какво научихме?
 
 - **Векторните данни** се използват да пресъздадат **обекти** от реалния живот в ГИС.
 - Векторните обекти имат **геометрия**, която е или **точка**, **линия** или **полигон**.
@@ -255,6 +134,7 @@ examine some of these types of errors in more detail.
 - Векторите се използват за **пространствен анализ** в ГИС програмите, например за откриване на най-близката болница до дадено училище.
 
 ![Диаграмата показва как векторните данни се използват в ГИС среда.](img/vector_summary.png)
+
 
 ## Практика!
 
