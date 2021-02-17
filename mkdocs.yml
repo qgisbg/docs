@@ -28,7 +28,6 @@ theme:
 markdown_extensions:
   - smarty
   - markdown_captions
-  - admonition
   - pymdownx.caret
   - pymdownx.details
   - pymdownx.emoji
@@ -40,7 +39,7 @@ markdown_extensions:
   - pymdownx.tilde
   - mdx_include
   - mdx_iconify:
-      patterns: 
+      patterns:
         qgis:
           width: "36"
           height: "36"
