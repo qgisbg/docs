@@ -3,6 +3,7 @@ repo_url: https://github.com/qgisbg/docs
 extra_css:
   - https://unpkg.com/mermaid@7.1.2/dist/mermaid.css
   - assets/consent.css
+  - assets/qgisbg.css
 extra_javascript:
   - https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js
   - https://cdn.jsdelivr.net/npm/cookies-eu-banner@2.0.1/dist/cookies-eu-banner.js
@@ -17,6 +18,8 @@ theme:
   language: bg
   name: material
   custom_dir: overrides
+  logo: assets/qgis3_text_bg.svg
+  favicon: assets/qgis3_notext.svg
   features:
     - navigation.instant
     - navigation.tabs
@@ -30,7 +33,6 @@ theme:
 markdown_extensions:
   - smarty
   - markdown_captions
-  - admonition
   - pymdownx.caret
   - pymdownx.details
   - pymdownx.emoji
@@ -42,7 +44,7 @@ markdown_extensions:
   - pymdownx.tilde
   - mdx_include
   - mdx_iconify:
-      patterns: 
+      patterns:
         qgis:
           width: "36"
           height: "36"
