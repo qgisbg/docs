@@ -1,6 +1,6 @@
 ---
 title: Средни височини
-tags: git, bash, shell, version control, windows, install
+tags: exercise, processing, modeller, algorithms
 ---
 
 # Средни височини
