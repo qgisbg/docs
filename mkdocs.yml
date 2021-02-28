@@ -1,9 +1,11 @@
 site_name: QGIS.бг докс
 repo_url: https://github.com/qgisbg/docs
 extra_css:
+  - https://unpkg.com/mermaid@7.1.2/dist/mermaid.css
   - assets/consent.css
   - assets/qgisbg.css
 extra_javascript:
+  - https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js
   - https://cdn.jsdelivr.net/npm/cookies-eu-banner@2.0.1/dist/cookies-eu-banner.js
   - assets/consent.js
 plugins:
@@ -51,6 +53,11 @@ markdown_extensions:
           check_suffix: True
   - toc:
       permalink: true
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_div_format
 nav:
   - index.md
   - ... | wiki/*/*.md

@@ -7,165 +7,65 @@ tags: редакция, обработка, векторни данни, баз�
 
 ## Преглед
 
-In the previous two topics we looked at vector data. We saw that there
-are two key concepts to vector data, namely: **geometry** and
-**attributes**. The geometry of a vector feature describes its **shape**
-and **position**, while the **attributes** of a vector feature describe
-its **properties** (colour, size, age etc.).
+В предишните две глави обяснихме двете най-основни концепции при векторни данни - тяхната **геометрия** и техните **атрибути**. Геометрията описва **формата** и **местоположението** на обекта, а атрибутите описват неговите **свойства** (цвят, размер, възраст и т. н.).
 
-In this section we will look more closely at the process of creating and
-editing vector data \---- both the geometry and attributes of vector
-features.
+Но досега работихме с вече събрани данни, време е да създадем свои векторни слоеве.
 
-How does GIS digital data get stored?
-=====================================
+## Как се съхраняват ГИС данните в цифров вид?
 
-Word processors, spreadsheets and graphics packages are all programs
-that let you create and edit digital data. Each type of application
-saves its data into a particular file format. For example, a graphics
-program will let you save your drawing as a `.jpg`{.interpreted-text
-role="file"} JPEG image, word processors let you save your document as
-an `.odt`{.interpreted-text role="file"} OpenDocument or
-`.doc`{.interpreted-text role="file"} Word Document, and so on.
+При компютърните системи различните програми имат специфични **файлови формати**, с които могат да работят, всеки със свое собствено **файлово разширение**. Например при програмите за текстообработка (LibreOffice Writer, Microsoft Office Word) най-честите файлови разширения са `.odt`, `.doc` или `.docx`, за изображения са `.jpg` или `.png`, за музика са `.mp3` и т.н. Файловият формат е начинът, по който се организира информацията в самия файл (едно и също изображение записано в JPEG формат има различна организация на байтове спрямо PNG формат). В същото време файловото разширение е просто конвенция, която подсказва на потребителите и на другите програми какъв формат данни да очакваме вътре във файла. За да не изпадаме в подробности, разликата между двете понятия ще бъде пренебрегната и в това ръководство понятията файлов формат и файлово разширение ще се използват взаимнозаменяемо.
 
-Just like these other applications, GIS Applications can store their
-data in files on the computer hard disk. There are a number of different
-file formats for GIS data, but the most common one is probably the
-\'shape file\'. The name is a little odd in that although we call it a
-shape file (singular), it actually consists of at least three different
-files that work together to store your digital vector data, as shown in
-[table\_shapefile](#table_shapefile).
+ГИС програмите не правят изключение и те също работят с ограничен набор файлови формати, като повечето от тях могат да бъдат четени, създавани и редактирани. Въпреки че използвахме израза "ораничен брой", всъщност се поддържат над 40 файлови формата, всеки със своите специфики. Най-разпространените от тях са **GeoPackage** с разширение `.gpkg` и **ShapeFile** с разширение `.shp`. Макар ShapeFile да беше доминиращ допреди няколко години в индустрията, той страда от редица технически недостатъци и ограничения, което го прави неадекватно решение през третото десетилетие на века и GeoPackage е форматът, който е за предпочитане при нови проекти.
 
-::: {#table_shapefile}
-  ---------------------------------------------------------------------------------------
-  Extension                  Description
-  -------------------------- ------------------------------------------------------------
-  `.shp`{.interpreted-text   The geometry of vector features are stored in this file
-  role="file"}               
 
-  `.dbf`{.interpreted-text   The attributes of vector features are stored in this file
-  role="file"}               
+Разширение | Описание
+-----------|------------------------------------------------------------------------------------------------------------------------
+`.shp`     | Геометрията на обектите се записва тук.
+`.dbf`     | Атрибутите на обектите се записва тук.
+`.prj`     | Данни за проекцията се записва тук.
+`.shx`     | Този файл съдържа индекса на векторния слой. Индексирането спомага за по-бързото откриване на обекти от ГИС програмите.
 
-  `.shx`{.interpreted-text   This file is an index that helps the GIS Application to find
-  role="file"}               features more quickly.
-  ---------------------------------------------------------------------------------------
-:::
+*Таблица ShapeFile: Основните файлове, които са необходими при ShapeFile форматът. Всички файлове, които са част от един ShapeFile слой имат едно и също име и се намират в една и съща директория.*
 
-Table Shapefile 1: The basic files that together make up a
-\'shapefile\'.
+Един от основните недостатъци на ShapeFile като файлов формат е многофайловата му природа. Така един ShapeFile всъщност се състои от поне три файла в една и съща директория, с едно и също име, но с различни файлови разширения (`.shp`, `.dbf` и `.shx`). Важно е винаги когато споделяме пространствени данни в този формат да включим всички файлове, затова и ShapeFile-овете най-често се разпространяват като `.zip` архив, който съдържа тези три файла.
 
-When you look at the files that make up a shapefile on the computer hard
-disk, you will see something like `figure_shapefile`{.interpreted-text
-role="numref"}. If you want to share vector data stored in shapefiles
-with another person, it is important to give them all of the files for
-that layer. So in the case of the trees layer shown in
-`figure_shapefile`{.interpreted-text role="numref"}, you would need to
-give the person `trees.shp`{.interpreted-text role="file"},
-`trees.shx`{.interpreted-text role="file"},
-`trees.dbf`{.interpreted-text role="file"},
-`trees.prj`{.interpreted-text role="file"} and
-`trees.qml`{.interpreted-text role="file"}.
+![Файловете, които се съдържат в слоя `trees` записан като ShapeFile.](img/shapefile_on_disk.png)
 
-::: {#figure_shapefile}
-![The files that make up a 'trees' shapefile as seen in the computer's
-file manager.](img/shapefile_on_disk.png){.align-center width="30em"}
-:::
+Много ГИС програми позволяват съхранението на пространствена информация в специализирани сървърни бази данни (напр. PostgreSQL/PostGIS, MySQL, MS SQL, Oracle и т. н.). В този случай данните не се записват в отделен специален файл, който може всеки да копира и разпространява, ами сървърната база данни съхранява обектите по специален за него начин, който е оптимизиран за бързо четене и писане. Поради тази причина този начин на съхранение се използва за по-големи и трайни масиви от данни, тъй като е много по-бърза и ефективна работата по този начин, като основния недостатък е привнасянето на известна сложност при работа с ГИС. Именно поради тази сложност и въвеждащия характер на това ръководство, ще оставим работата със сървърни бази данни намира.
 
-Many GIS Applications are also able to store digital data inside a
-**database**. In general storing GIS data in a database is a good
-solution because the database can store **large amounts** of data
-**efficiently** and can provide data to the GIS Application quickly.
-Using a database also allows many people to work with the same vector
-data layers at the same time. Setting up a database to store GIS data is
-more complicated than using shapefiles, so for this topic we will focus
-on creating and editing shapefiles.
+## План
 
-Planning before you begin
-=========================
+Преди да създадем нов слой, трябва да сме наясно каква геометрия желаем да съхраняваме в него (точка, линия или полигон) и какви атрибути ще се съдържат. Нека погледнем няколко примера в детайл, за да стане по-ясно.
 
-Before you can create a new vector layer (which will be stored in a
-shapefile), you need know what the geometry of that layer will be
-(point, polyline or polygon), and you need to know what the attributes
-of that layer will be. Let\'s look at a few examples and it will become
-clearer how to go about doing this.
+### Пример 1: Карта на туризма
 
-Example 1: Creating a tourism map
----------------------------------
+Представете си, че трябва да създадете туристическа карта за областта, в която живеете. Крайната цел е карта в мащаб 1:100 000, където потенциалните туристически обекит са отбелязани. Първо трябва да помислим за геометрията. Какво ще се съдържа в нашата карта? С точки можем да обозначим конкретни обекти като паметници, чешми, музеи, панорамни гледки и пр. С линии пък можем да обозначим екопътеки, реки и др. За полигоните остават обекти с големи площи, като защитени територии, пясъчни дюни, архитектурни резервати и пр.
 
-Imagine that you want to create a nice tourism map for your local area.
-Your vision of the final map is a 1:50 000 toposheet with markers
-overlaid for sites of interest to tourists. First, let\'s think about
-the geometry. We know that we can represent a vector layer using point,
-polyline or polygon features. Which one makes the most sense for our
-tourism map? We could use points if we wanted to mark specific locations
-such as look out points, memorials, battle sites and so on. If we wanted
-to take tourists along a route, such as a scenic route through a
-mountain pass, it might make sense to use polylines. If we have whole
-areas that are of tourism interest, such as a nature reserve or a
-cultural village, polygons might make a good choice.
+Както може да се види, не винаги е напълно ясно какъв вид геометрия е подходящо да използваме. Понякога е подходящо да създадем по повече от един слой с различна геометрия, за да опишем един и същи вид геометрия. Например р. Дунав или р. Марица са прекалено широки, за да бъдат описани просто с линия и понякога е подгодящо да се опишат като полигони. По този начин островите по тях могат да бъдат изобразени вътре в тях. За останалите по-малки притоци, линиите най-често са напълно подходящи.
 
-As you can see it\'s often not easy to know what type of geometry you
-will need. One common approach to this problem is to make one layer for
-each geometry type you need. So, for example, if you look at digital
-data provided by the Chief Directorate: Surveys and Mapping, South
-Africa, they provide a river areas (polygons) layer and a rivers
-polyline layer. They use the river areas (polygons) to represent river
-stretches that are wide, and they use river polylines to represent
-narrow stretches of river. In `figure_tourism`{.interpreted-text
-role="numref"} we can see how our tourism layers might look on a map if
-we used all three geometry types.
+![Карта с туристически слоеве. Използвали сме и трите вида геометрия за туристическите данни на нашата област, като успяваме да предадем цялата необходима информация на туристите в района.](img/tourism_map.png)
 
-::: {#figure_tourism}
-![A map with tourism layers. We have used three different geometry types
-for tourism data so that we can properly represent the different kinds
-of features needed for our visitors, giving them all the information
-they need.](img/tourism_map.png){.align-center width="30em"}
-:::
+### Пример 2: Речни проби
 
-Example 2: Creating a map of pollution levels along a river
------------------------------------------------------------
+Ако искаме да измерим нивата на замърсяването по поречието на река, ние трябва да вземем проби от нея през определен интервал по нейното течение и да измерим различни индикатори като нивото на кислород, наличието на колиформни бактерии, турбулентността на водата, киселинност и др. За всяка проба трябва да запишем координатите, от които са взети.
 
-If you wanted to measure pollution levels along the course of a river
-you would typically travel along the river in a boat or walk along its
-banks. At regular intervals you would stop and take various measurements
-such as Dissolved Oxygen (DO) levels, Coliform Bacteria (CB) counts,
-Turbidity levels and pH. You would also need to make a map reading of
-your position or obtain your position using a GPS receiver.
+За да визуализираме това в ГИС, ще трябва да създадем нов точков слой ``. Използването на точков слой е разумно в случая, защото пробата се взема от много конкретно местоположение по поречието.
 
-To store the data collected from an exercise like this in a GIS
-Application, you would probably create a GIS layer with a point
-geometry. Using point geometry makes sense here because each sample
-taken represents the conditions at a very specific place.
+**Полетата** на подобен слой с проби биха били отделна колона за всеки индикатор, който изследваме.
 
-For the attributes we would want a **field** for each thing that
-describes the sample site. So we may end up with an attribute table that
-looks something like
-[table\_river\_attributes](#table_river_attributes).
+| № | pH  | кислород | Колиформи | Турболентност | Автор  | Дата       |
+|---|-----|----------|-----------|---------------|--------|------------|
+| 1 | 7   | 6        | не        | Ниска         | Стамат | 12/01/2009 |
+| 2 | 6.8 | 5        | да        | Средна        | Драгой | 12/01/2009 |
+| 3 | 6.9 | 6        | да        | Висока        | Ценка  | 12/01/2009 |
 
-::: {#table_river_attributes}
-  ---------------------------------------------------------------
-  SampleNo   pH    DO   CB   Turbidity   Collector   Date
-  ---------- ----- ---- ---- ----------- ----------- ------------
-  1          7     6    N    Low         Patience    12/01/2009
+*Таблица атрибути речни проби: Създаването на подобна таблица преди същинското създаване на слоя ще ни ориентира какви полета ще са необходими за новия векторен слой. Самото местоположение на пробата не е в таблицата, защото в ГИС то се съхранява на отделно място.*
 
-  2          6.8   5    Y    Medium      Thabo       12/01/2009
+## Създаване на празен векторен слой
 
-  3          6.9   6    Y    High        Victor      12/01/2009
-  ---------------------------------------------------------------
-:::
+След като имаме конкретна представа какви обекти ще слоеве ще трябва да създадем в ГИС можем да пристъпим към реализацията им.
 
-Table River Attributes 1: Drawing a table like this before you create
-your vector layer will let you decide what attribute fields (columns)
-you will need. Note that the geometry (positions where samples were
-taken) is not shown in the attribute table \---- the GIS Application
-stores it separately!
-
-Creating an empty shapefile
-===========================
-
-Once you have planned what features you want to capture into the GIS,
-and the geometry type and attributes that each feature should have, you
-can move on to the next step of creating an empty shapefile.
+Има различни начини за създаване на нов векторен слой, но ще обхванем най-общия вариант, при който първоначално ще създадем **слой чернова**, а впоследствие ще запишем перманентно данните на диска. Важното в този случай е, че може да има леки
 
 The process usually starts with choosing the \'new vector layer\' option
 in your GIS Application and then selecting a geometry type (see
@@ -214,225 +114,78 @@ say what kind of geometry it will hold, then you create one or more
 fields for the attribute table, and then you save the shapefile to the
 hard disk using an easy to recognise name. Easy as 1-2-3!
 
-Adding data to your shapefile
-=============================
+## Добавяне на данни във векторен слой
 
-So far we have only created an empty shapefile. Now we need to enable
-editing in the shapefile using the \'enable editing\' menu option or
-tool bar icon in the GIS Application. Shapefiles are not enabled for
-editing by default to prevent accidentally changing or deleting the data
-they contain. Next we need to start adding data. There are two steps we
-need to complete for each record we add to the shapefile:
+до момента само създадохме празния векторен слой. Сега ще позволим редакцията на слоя и добавянето на нови обекти. В повечето ГИС програми словете не могат да бъдат редактирани без изрично да се влезе в режим на редакция, с цел предпазване от случайното изтриване или променяне на съдържанието на слоя. След като влезем в режим на редакция, можем да започнем добавянето на нови данни. Добавянето на всеки един нов обект се състои от две стъпки:
 
-1.  Capturing geometry
-2.  Entering attributes
+1. Изчертаване на геометрията.
+2. Попълване на атрибутивната форма.
 
-The process of capturing geometry is different for points, polylines and
-polygons.
+Процесът на изчертаване на геометрията са леко различава според вида геометрия (точка, линия или полигон). След като приключим изчертаването на геометрията излиза диалогов прозорец с формата за попълване на атрибутите на новосъздадения обект. В случай, че нямаме информация или не сме сигурни в стойността на някой от атрибутите, обикновено можем да остави полето празно. Важно е обаче да се знае, че прекомерно честото възползване от тази свобода създава практически безполезен векторен слой, затова трябва да попълването на всичко възможно е изключително важно.
 
-To **capture a point**, you first use the map pan and zoom tools to get
-to the correct geographical area that you are going to be recording data
-for. Next you will need to enable the point capture tool. Having done
-that, the next place you click with the **left mouse button** in the map
-view, is where you want your new point **geometry** to appear. After you
-click on the map, a window will appear and you can enter all of the
-**attribute data** for that point (see
-`figure_attribute_dialog`{.interpreted-text role="numref"}). If you are
-unsure of the data for a given field you can usually leave it blank, but
-be aware that if you leave a lot of fields blank it will be hard to make
-a useful map from your data!
+А сега да разгледаме изчертаването на геометриите в QGIS според вида им. Като начало трябва да активираме режима за редакция, като най-лесно това става или от контекстното меню на слоя, или от лентата с инструменти като натинем `Toggle Editing` :i:qgis:mActionToggleEditing:, за да влезем в режим редакция.
 
-::: {#figure_attribute_dialog}
-![After you have captured the point geometry, you will be asked to
-describe its attributes. The attribute form is based on the fields you
-specified when you created the vector
-layer.](img/attribute_dialog.png){.align-center width="30em"}
-:::
+### Изчертаване на точка
 
-To **capture a polyline** the process is similar to that of a point, in
-that you need to first use the pan and zoom tools to move the map in the
-map view to the correct geographical area. You should be zoomed in
-enough so that your new vector polyline feature will have an appropriate
-scale (see `gentle_gis_vector_data`{.interpreted-text role="ref"} for
-more details on scale issues). When you are ready, you can click the
-polyline capture icon in the tool bar and then start drawing your line
-by clicking on the map. After you make your first click, you will notice
-that the line stretches like an elastic band to follow the mouse cursor
-around as you move it. Each time you click with the **left mouse
-button**, a new vertex will be added to the map. This process is shown
-in `figure_capture_polyline`{.interpreted-text role="numref"}.
+За изчертаването на точка, първо трябва да позиционираме картата и да приближим достатъчно, за да може да отбележим с максимална географска точност местоположението на точката. След като знаем точо къде искаме да поставим новата точка, натискаме веднъж с ляв бутон на мишката, където желаем да се появи новата точка. Това ще предизвика QGIS да създаде геометрията на новата точка и да покаже нов диалогов прозорец с атрибутивната форма, в която да въведем стойностите на атрибутите за новосъздадената точка. Ако междувременно се откажем от новата точка, винаги може да изберем `Cancel`, което ще премахе и новоизчертаната геометрия.  
 
-::: {#figure_capture_polyline}
-![Capturing lines for a tourism map. When editing a line layer, the
-vertices are shown with circular markers which you can move about with
-the mouse to adjust the line\'s geometry. When adding a new line (shown
-in red), each click of the mouse will add a new
-vertex.](img/capture_polyline.png){.align-center width="30em"}
-:::
+![След като сме изчертали точката, нов диалогов прозорец ще изиска въвеждането на атрибутите на обекта. Атрибутивната форма е базирана на полетата на слоя.](img/attribute_dialog.png)
 
-When you have finished defining your line, use the **right mouse
-button** to tell the GIS Application that you have completed your edits.
-As with the procedure for capturing a point feature, you will then be
-asked to enter in the attribute data for your new polyline feature.
+### Изчертаване на линия
 
-The process for **capturing a polygon** is almost the same as capturing
-a polyline except that you need to use the polygon capture tool in the
-toolbar. Also, you will notice that when you draw your geometry on the
-screen, the GIS Application always creates an enclosed area.
+Цифроването на линия също включва позиционирането на картата на мястото на първата точка. Не забравяйте приближението на картата да съответства на мащаба на бъдещата карта. За да добавим първата точка от линията, избираме инструмента за добавяне на линия `Add Polyline Feature` и започваме да натискаме с ляв бутон по картата, за да създаваме отделните вертекси на геометрията. След първото натискане се забелязва линия, която свършва в курсора и започва от последно добавения вертекс, подобно на разтягащо се ластиче.
 
-To add a new feature after you have created your first one, you can
-simply click again on the map with the point, polyline or polygon
-capture tool active and start to draw your next feature.
+![Създаване на слоеве за туристическа карта. Когато редактираме слой с линии, вертексите са показани като специални червени точки, които може да местим с мишката, за да нагласим желаната форма на линията. Когато добавяме нова линия (в червено), всяко натискане на мишката ще добави нов вертекс.](img/capture_polyline.png)
 
-When you have no more features to add, always be sure to click the
-\'allow editing\' icon to toggle it off. The GIS Application will then
-save your newly created layer to the hard disk.
+Когато приключим с изчертаването на линия и не искаме да добавяме нови вертекси, натискаме десен бутон, при което QGIS ни показва атрибутивната форма. След като атрибутивната форма се появи, процедурата за завършване на цифроването е същата като при точковите обекти.
 
-Heads-up digitising
-===================
 
-As you have probably discovered by now if you followed the steps above,
-it is pretty hard to draw the features so that they are **spatially
-correct** if you do not have other features that you can use as a point
-of reference. One common solution to this problem is to use a raster
-layer (such as an aerial photograph or a satellite image) as a backdrop
-layer. You can then use this layer as a reference map, or even trace the
-features off the raster layer into your vector layer if they are
-visible. This process is known as \'heads-up digitising\' and is shown
-in `figure_headsup_digitizing`{.interpreted-text role="numref"}.
+### Изчертаване на полигон
 
-::: {#figure_headsup_digitizing}
-![Heads-up digitising using a satellite image as a backdrop. The image
-is used as a reference for capturing polyline features by tracing over
-them.](img/headsup_digitizing.png){.align-center width="30em"}
-:::
+Процесът на изчертаване на полигон е почти същия като изчертаване на линия, с тази разлика че бутона за добавяне на нов обект  лентата с инструменти е различан и се казва `Add polygon`. Освен това по време на изчертаването се вижда площта на бъдещия полигон.
 
-Digitising using a digitising table
-===================================
+## Край на цифроването
 
-Another method of capturing vector data is to use a digitising table.
-This approach is less commonly used except by GIS professionals, and it
-requires expensive equipment. The process of using a digitising table,
-is to place a paper map on the table. The paper map is held securely in
-place using clips. Then a special device called a \'puck\' is used to
-trace features from the map. Tiny cross-hairs in the puck are used to
-ensure that lines and points are drawn accurately. The puck is connected
-to a computer and each feature that is captured using the puck gets
-stored in the computer\'s memory. You can see what a digitising puck
-looks like in `figure_digitizing_table`{.interpreted-text
-role="numref"}.
+За да добавите нов обект, просто трябва да натиснете върху картата отново и да повторите процеса отначало. 
 
-::: {#figure_digitizing_table}
-![A digitising table and puck are used by GIS professionals when they
-want to digitise features from existing
-maps.](img/digitizing_table.jpg){.align-center width="30em"}
-:::
+След като добавим всички желани обекти, трябва да излезем от режима за редакция за да не повредим новосъдадените данни. Това се случва като повторно натиснем `Toggle Editing` :i:qgis:mActionToggleEditing: на лентата с инструменти.
 
-After your features are digitised\...
-=====================================
 
-Once your features are digitised, you can use the techniques you learned
-in the previous topic to set the symbology for your layer. Choosing an
-appropriate symbology will allow you to better understand the data you
-have captured when you look at the map.
+## Цифроване върху основа (Heads-up digitising)
 
-Common problems / things to be aware of
-=======================================
+Очевидно добавянето на нови обекти "на сляпо" е доста трудно и се нуждаем от някакъв географски ориентир върху която да градим нашите пространствени данни. Най-често се поставя основен растерен слой от птичи поглед на района, било то спътникова или въздушна снимка на района. Този слой може да бъде използван като ориентир или дори собственоръчното откриване на видимите обекти от изображението (напр. горски просеки, поляни, неузаконени сгради и др.). Този процес е известен като цифроване върху основа.
 
-If you are digitising using a backdrop raster layer such as an aerial
-photograph or satellite image, it is very important that the raster
-layer is properly georeferenced. A layer that is georeferenced properly
-displays in the correct position in the map view based on the GIS
-Application\'s internal model of the Earth. We can see the effect of a
-poorly georeferenced image in
-`figure_georeference_issue`{.interpreted-text role="numref"}.
+![Цифроването върху основа на спътниково изображение. Основата се използва за изчертаването в случая на линейни обекти.](img/headsup_digitizing.png)
 
-::: {#figure_georeference_issue}
-![The importance of using properly georeferenced raster images for
-heads-up digitising. On the left we can see the image is properly
-georegistered and the road features (in orange) overlap perfectly. If
-the image is poorly georeferenced (as shown on the right) the features
-will not be well aligned. Worse still, if the image on the right is used
-as a reference when capturing new features, the newly captured data will
-be inaccurate!](img/georeferencing_issue.png){.align-center
-width="30em"}
-:::
+## Автоматично извличане на обекти
 
-Also remember that it is important that you are zoomed in to an
-appropriate scale so that the vector features you create are useful. As
-we saw in the previous topic on vector geometry, it is a bad idea to
-digitise your data when you are zoomed out to a scale of 1:1000 000 if
-you intend to use the data you capture at a scale of 1:50 000 later.
+Възможно е нови слоеве и обекти да бъдат създавани автоматично с по-прости и по-сложни компютърни алгоритми от вече съществуващи векторни или растерни слоеве. Например могат автоматично да бъдат извлечени границите всички водни повърхности от от спътникова или въздушна снимка. Или от линеен слой с границите на общините да се създаде нов полигонен слой на общините. Възможно е дори от свободен текст (имейли, публикации в социалните мрежи) да се създадат отделни векторни обекти с помощта на сложни алгоритми, най-често представяни като "изкуствен интелект". Тези случаи са малко по-сложни от целевата група на това ръководство, затова няма да бъдат разгледани в подробности.
 
-What have we learned?
-=====================
+### След края на цифроването...
 
-Let\'s wrap up what we covered in this worksheet:
+След като цифроваме всички необходими обекти, можем да използваме знанията от предходните глави, за да зададем подходяща симвология. Изборът на правилна симвология ще спомогне за доброто комуникиране на информацията, която сме събрали.
 
--   **Digitising** is the process of capturing knowledge of a feature\'s
-    **geometry** and **attributes** into a **digital format** stored on
-    the computer\'s disk.
--   GIS Data can be stored in a **database** or as **files**.
--   One commonly used file format is the **shapefile** which is actually
-    a group of three or more files (`.shp`{.interpreted-text
-    role="file"}, `.dbf`{.interpreted-text role="file"} and
-    `.shx`{.interpreted-text role="file"}).
--   Before you create a new vector layer you need to plan both what
-    **geometry** type and **attribute** fields it will contain.
--   Geometry can be point, polyline or polygon.
--   Attributes can be **integers** (whole numbers), **floating points**
-    (decimal numbers), **strings** (words) or **dates**.
--   The digitising process consists of **drawing** the geometry in the
-    map view and then entering its attributes. This is repeated for each
-    feature.
--   **Heads-up digitising** is often used to provide orientation during
-    digitising by using a raster image in the background.
--   Professional GIS users sometimes use a **digitising table** to
-    capture information from paper maps.
+## Препъникамъчета
 
-Now you try!
-============
+Много е важно ако използваме растерен слой като картна основа, той да бъде напълно коректно геореференциран. Правилно геореференциран слой е този, който показва показва данните точно на мястото, което съответства с модела на Земята в ГИС програмата. Т.е. ако виждаме аерофотоснимка на община Карлово и цифроваме обектите на такава основа, да сме сигурни, че ГИС програма не възприема и визуализира изображението на територията на община Чирпан.
 
-Here are some ideas for you to try with your learners:
+![Проблеми при неправилно геореференцирано растерно изображение като основа за цифроване. Вляво виждаме изображение, което е правилно геореференцирано и обектите за пътища (оранжево) съвпадат напълно. Вдясно изображението не е така добре геореференцирано и обектите са отместени от реалните им местоположения. Ако използваме такова изображение при цифроване, новосъздадените данни също ще бъдат отместени!](img/georeferencing_issue.png)
 
--   Draw up a list of features in and around your school that you think
-    would be interesting to capture. For example: the school boundary,
-    the position of fire assembly points, the layout of each class room,
-    and so on. Try to use a mix of different geometry types. Now split
-    your learners into groups and assign each group a few features to
-    capture. Have them symbolise their layers so that they are more
-    meaningful to look at. Combine the layers from all the groups to
-    create a nice map of your school and its surroundings!
--   Find a local river and take water samples along its length. Make a
-    careful note of the position of each sample using a GPS or by
-    marking it on a toposheet. For each sample take measurements such as
-    pH, dissolved oxygen etc. Capture the data using the GIS application
-    and make maps that show the samples with a suitable symbology. Could
-    you identify any areas of concern? Was the GIS Application able to
-    help you to identify these areas?
+Важно е да напомним ролята на мащаба при цифроването на нови обекти. Както вече коментирахме в предишните глави, би било лоша идея да цифроваме векторни обекти при мащаб 1:1 000 000, ако крайната карта ще бъде в мащаб 1:50 000.
 
-Something to think about
-========================
+## Какво научихме?
 
-If you don\'t have a computer available, you can follow the same process
-by using transparency sheets and a notebook. Use an aerial photo,
-orthosheet or satellite image printout as your background layer. Draw
-columns down the page in your notebook and write in the column headings
-for each attribute field you want to store information about. Now trace
-the geometry of features onto the transparency sheet, writing a number
-next to each feature so that it can be identified. Now write the same
-number in the first column in your table in your notebook, and then fill
-in all the additional information you want to record.
+- **Цифроването** е процесът на събиране на данни за **геометрията** и **атрибутите** на обект в **цифров формат**, записан на компютърно устройство.
+- ГИС данни се записват в някакъв вид **база данни**, като най-често базата данни е самостоятелен и самодостатъчен **файл**.
+- Един от често използваните формати в миналото е **ShapeFile**, който всъщност се състои от **поне три файла** (`.shp`, `.dbf` и `.shx`), които **притежават едно и също име**, но различно файлово разширение. Тези файлове **не могат** да работят самостоятелно и винаги се копират в група, като задължително трябва да се намират в една и съща директория.
+- Преди да се създаде нов векторен слой, трябва да знаем каква **геометрия** и какви **атрибути** ще съдържа той.
+- Атрибутите могат да бъдат **цели числа** (**integer**), числа с **плаваща запетая** (**float**, **decimal**), **низове** (стригове, **string**, **text**), **дати** (**date**, **datetime**) или **двоични стойности** (булеви стойности, **boolean**).
+- Процесът на цифроване се състои от **изчертаване на геометрията** и **попълване на стойностите на атрибутите**. Този процес се повтаря за всеки отделен обект.
+- Често по време на цифроването се използва картна основа, която да ни помага при ориентирането на картата.
+- **Изчертаване върху основа** използва растерно изображение за фон, чрез който се ориентираме къде да поставим новите обекти.
+- Създаването на нови обекти е възможно и посредством **алгоритмична обработка** на вече съществуващи векторни или растерни данни, или дори интерпретацията на свободен текст.
 
-Further reading
-===============
+## Практика!
 
-The QGIS User Guide has more detailed information on
-`digitising vector data
-<editingvector>`{.interpreted-text role="ref"} in QGIS.
-
-What\'s next?
-=============
-
-In the section that follows we will take a closer look at **raster
-data** to learn all about how image data can be used in a GIS.
+- Помисли за списък от обекти в квартала, които смяташ за интересни. Например - границите на двора на имота, местоположението на улични стълбове, хидранти, разположението на сградите, пътеките. Опитай се обектите да имат от трите основни вида геометрия. За всяка група обекти трябва да има поне няколко атрибута, които го описват. Задай подходяща симвология, така че картата да бъде лесноразбираема. Ако сте група от учещи се на ГИС, разделете се на групи и накрая обединете събраните слоеве в един проект.
+- Съберете данни от квартала, като запишете координатите, типа и други атрибути на всеки открит боклук, който не са на отреденото им място, било то хартийка, фас, опаковка и т.н. За всяка категория боклук добавете правилната симвология. Откривате ли някоя част, в която има притеснително струпване на отпадъци? Как ГИС ви помогна да ги откриете? Имате ли обяснение за струпването на боклуците именно там?
