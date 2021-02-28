@@ -75,8 +75,6 @@ QGIS проект с удобни за попълване формуляри н�
 - (EN) https://docs.qgis.org/3.16/en/docs/user_manual/working_with_vector/attribute_table.html#vector-relations
 - (BG)(WIP) https://qgisbg.github.io/docs/gisintro/05_data_capture/ или в оригинал (EN) https://docs.qgis.org/3.16/en/docs/gentle_gis_introduction/data_capture.html
 
-## Незадължителни допълнителни материали
-
 
 ## Срок на изпълнение
 Както винаги, срокът на задачата е 24:00 на първата неделя след две седмици (14 дни).
