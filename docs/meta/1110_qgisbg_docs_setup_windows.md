@@ -86,7 +86,7 @@ tags: miniconda, conda, vscode, qgis.bg, windows, install, setup, virtual enviro
         Ivan Ivanov@LAPTOP-Q3S31RLD MINGW64 ~/Documents/docs (master)
         $ conda create -y -n qgisbg-docs
         WARNING: A space was detected in your requested environment path
-        'C:\Users\Irena\miniconda3\envs\qgisbg-docs'
+        'C:\Users\Ivan Ivanov\miniconda3\envs\qgisbg-docs'
         Spaces in paths can sometimes be problematic.
         Collecting package metadata (current_repodata.json): done
         Solving environment: done
