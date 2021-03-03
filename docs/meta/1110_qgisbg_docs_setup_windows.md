@@ -78,22 +78,22 @@ tags: miniconda, conda, vscode, qgis.bg, windows, install, setup, virtual enviro
 
     === "Команда"
         ```
-        conda create -y -n qgisbg
+        conda create -y -n qgisbg-docs
         ```
     === "Изход"
         ```
         (base)
         Ivan Ivanov@LAPTOP-Q3S31RLD MINGW64 ~/Documents/docs (master)
-        $ conda create -y -n qgisbg
+        $ conda create -y -n qgisbg-docs
         WARNING: A space was detected in your requested environment path
-        'C:\Users\Ivan Ivanov\miniconda3\envs\qgisbg'
+        'C:\Users\Ivan Ivanov\miniconda3\envs\qgisbg-docs'
         Spaces in paths can sometimes be problematic.
         Collecting package metadata (current_repodata.json): done
         Solving environment: done
 
         ## Package Plan ##
 
-        environment location: C:\Users\Ivan Ivanov\miniconda3\envs\qgisbg
+        environment location: C:\Users\Ivan Ivanov\miniconda3\envs\qgisbg-docs
 
         Preparing transaction: done
         Verifying transaction: done
@@ -101,7 +101,7 @@ tags: miniconda, conda, vscode, qgis.bg, windows, install, setup, virtual enviro
         #
         # To activate this environment, use
         #
-        #     $ conda activate qgisbg
+        #     $ conda activate qgisbg-docs
         #
         # To deactivate an active environment, use
         #
