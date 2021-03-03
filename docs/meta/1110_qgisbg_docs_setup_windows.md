@@ -51,7 +51,7 @@ tags: miniconda, conda, vscode, qgis.bg, windows, install, setup, virtual enviro
                 === "Обяснения"
                     За да можем да използваме `conda` от **Git Bash** е необходимо всеки път при стартирането на **Git Bash**, той да разбере за съществуването на `conda`. Именно затова 
 
-            1. Тъй като мястото на настройка, която `conda` създаде, и мястото на настройка, която **VS Code** използва при стартиране на нов терминал се различават, се налага да копираме един от файловете.
+            1. Тъй като мястото на настройка, която `conda` създаде, и мястото на настройка, която **VS Code** използва при стартиране на нов терминал се различават, се налага да копираме един от файловете. Командата няма изход, освен при грешка.
 
                 === "Команда"
                     ```
@@ -59,10 +59,8 @@ tags: miniconda, conda, vscode, qgis.bg, windows, install, setup, virtual enviro
                     ```
                 === "Изход"
                     ```
-                    (base) 
                     Ivan Ivanov@LAPTOP-Q3S31RLD MINGW64 ~
                     cd ~; cp .bash_profile .bashrc
-                    (base) 
                     Ivan Ivanov@LAPTOP-Q3S31RLD MINGW64 ~
                     ```
                 === "Обяснения"
@@ -145,7 +143,7 @@ tags: miniconda, conda, vscode, qgis.bg, windows, install, setup, virtual enviro
 
     === "Команда"
         ```
-        conda create -y -n qgisbg
+        pip install -r requirements.txt
         ```
     === "Изход"
         ```
