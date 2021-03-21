@@ -63,3 +63,4 @@ nav:
   - ... | gisintro/*.md
   - ... | bgd/*.md
   - ... | meta/*.md
+  - ... | maps/oops/*.md
