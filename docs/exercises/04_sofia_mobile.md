@@ -54,6 +54,7 @@ QGIS проект с удобни за попълване формуляри н�
 
 - (EN) https://qfield.org/docs/
 - (EN) https://docs.qgis.org/3.16/en/docs/user_manual/working_with_vector/vector_properties.html#display-properties
+- (EN) https://docs.qgis.org/3.16/en/docs/user_manual/style_library/symbol_selector.html
 
 
 ## Срок на изпълнение
