@@ -1,0 +1,1701 @@
+
+<!doctype html>
+<html lang="bg" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      <link rel="shortcut icon" href="../../assets/qgis3_notext.svg">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.6">
+    
+    
+      
+        <title>06. Растери - QGIS.бг докс</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.cb6bc1d0.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+      <link rel="stylesheet" href="../../assets/consent.css">
+    
+      <link rel="stylesheet" href="../../assets/qgisbg.css">
+    
+    
+      
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Към съдържанието
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Горен колонтитул">
+    <a href="../.." title="QGIS.бг докс" class="md-header-nav__button md-logo" aria-label="QGIS.бг докс">
+      
+  <img src="../../assets/qgis3_text_bg.svg" alt="logo">
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            QGIS.бг докс
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              06. Растери
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Търси" placeholder="Търси" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Изчисти" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header-nav__source">
+        
+<a href="https://github.com/qgisbg/docs/" title="Към хранилището" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+<nav class="md-tabs" aria-label="Табове" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+
+
+  <li class="md-tabs__item">
+    <a href="../.." class="md-tabs__link">
+      Начало
+    </a>
+  </li>
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../wiki/formats/0000_kakvo_e_csv/" class="md-tabs__link">
+        Уики
+      </a>
+    </li>
+  
+
+  
+
+      
+        
+  
+  
+    
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01_preamble/" class="md-tabs__link md-tabs__link--active">
+        Увод в ГИС
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../bgd/1000_awesome/" class="md-tabs__link">
+        БГД кибер
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../meta/1000_broken_tutorial/" class="md-tabs__link">
+        QGIS.бг мета
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+
+
+  
+  
+  
+    
+
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../maps/oops/001_po_sveta_i_u_nas/" class="md-tabs__link">
+        Карти
+      </a>
+    </li>
+  
+
+  
+
+      
+    </ul>
+  </div>
+</nav>
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QGIS.бг докс" class="md-nav__button md-logo" aria-label="QGIS.бг докс">
+      
+  <img src="../../assets/qgis3_text_bg.svg" alt="logo">
+
+    </a>
+    QGIS.бг докс
+  </label>
+  
+    <div class="md-nav__source">
+      
+<a href="https://github.com/qgisbg/docs/" title="Към хранилището" class="md-source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M439.55 236.05L244 40.45a28.87 28.87 0 00-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 01-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 000 40.81l195.61 195.6a28.86 28.86 0 0040.8 0l194.69-194.69a28.86 28.86 0 000-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        Начало
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" >
+      
+      <label class="md-nav__link" for="nav-2">
+        Уики
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Уики" data-md-level="1">
+        <label class="md-nav__title" for="nav-2">
+          <span class="md-nav__icon md-icon"></span>
+          Уики
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-1" type="checkbox" id="nav-2-1" >
+      
+      <label class="md-nav__link" for="nav-2-1">
+        Формати
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Формати" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-1">
+          <span class="md-nav__icon md-icon"></span>
+          Формати
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_csv/" class="md-nav__link">
+        Какво е CSV (си-ес-ви)?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_geojson/" class="md-nav__link">
+        Какво е Geojson (геоджейсон)?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_shapefile/" class="md-nav__link">
+        Какво е shapefile (шейпфайл)?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_topojson/" class="md-nav__link">
+        Какво е topojson (топоджейсон)?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_koi_vektoren_format_da_izbera/" class="md-nav__link">
+        Кой векторен формат да избера за моите данни?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/markdown/" class="md-nav__link">
+        Какво е Markdown (маркдаун)?
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-2-2" type="checkbox" id="nav-2-2" >
+      
+      <label class="md-nav__link" for="nav-2-2">
+        QGIS рецепти
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="QGIS рецепти" data-md-level="2">
+        <label class="md-nav__title" for="nav-2-2">
+          <span class="md-nav__icon md-icon"></span>
+          QGIS рецепти
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_joins/" class="md-nav__link">
+        Как да свържем (JOIN) данните от два слоя?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kak_da_dobavim_nov_atribut/" class="md-nav__link">
+        Как да добавя атрибут във векторен слой?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kak_da_instalirame_qgis_v_ubuntu/" class="md-nav__link">
+        Как да инсталирам QGIS в Debian/Ubuntu?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kak_da_instalirame_qgis_v_windows/" class="md-nav__link">
+        Как да инсталирам QGIS в Windows?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kak_da_izteglya_dannin_ot_osm/" class="md-nav__link">
+        Как да използвам данни от OpenStreetMap?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kak_da_pokazhem_samo_chast_ot_obektite/" class="md-nav__link">
+        Как да покажем само част от обектите в слоя?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kak_da_pomogna_na_qgis/" class="md-nav__link">
+        Как да помогна в развитието на QGIS?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kak_da_popravya_prevod_v_qgis/" class="md-nav__link">
+        Как да поправя грешен превод в QGIS?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kak_da_sazdam_sloy_chernova/" class="md-nav__link">
+        Как да създам слой чернова и да добавя точки в него?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kak_da_sleem_dva_obekta_v_edin/" class="md-nav__link">
+        Как да слея два обекта в QGIS?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kak_da_sleem_dva_sloya_v_edin/" class="md-nav__link">
+        Как да слея два слоя в един?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kak_da_smenim_proektsiyata/" class="md-nav__link">
+        Как да сменя проекцията на слой?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kak_da_zapisha_samo_chast_ot_obektite_v_daden_sloy/" class="md-nav__link">
+        Как да запиша само част от обектите в нов слой?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kakva_e_razlikata_mezhdu_qgs_i_qgz/" class="md-nav__link">
+        Каква е разликата между .qgs и .qgz?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kakvo_da_napravya_ako_otkriya_bug/" class="md-nav__link">
+        Какво да направя, ако открия бъг в QGIS?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/0000_kakvo_moga_da_pravq_v_atributivnata_tablitsa/" class="md-nav__link">
+        Как да приложа стилове на атрибутивната таблица?
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      
+      <label class="md-nav__link" for="nav-3">
+        Увод в ГИС
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Увод в ГИС" data-md-level="1">
+        <label class="md-nav__title" for="nav-3">
+          <span class="md-nav__icon md-icon"></span>
+          Увод в ГИС
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_preamble/" class="md-nav__link">
+        01. Добре дошли
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_introducing_gis/" class="md-nav__link">
+        02. Въведение в ГИС
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_vector_data/" class="md-nav__link">
+        03. Векторни данни
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_attribute_data/" class="md-nav__link">
+        04. Атрибутивна таблица
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_data_capture/" class="md-nav__link">
+        05. Събиране на данни
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          06. Растери
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        06. Растери
+      </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Съдържание">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Съдържание
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Преглед
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Още за растерните данни
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Геореференциране
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Източници на растери
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Разделителна способност
+  </a>
+  
+    <nav class="md-nav" aria-label="Разделителна способност">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Пространствена разделителна способност (ПСР)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    Спектрална разделителна способност
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    Преобразуване от растер към вектор
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    Преобразуване от вектор към растер
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    Анализ на растери
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    Препъникамъчета
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    Какво научихме?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    Твой ред е!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_topology/" class="md-nav__link">
+        07. Топология
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crs/" class="md-nav__link">
+        08. Координатни системи
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_map_production/" class="md-nav__link">
+        09. Създаване на карти
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_buffers/" class="md-nav__link">
+        10. Анализ с буфери
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_interpolation/" class="md-nav__link">
+        11. Анализ с интерполация
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_raster_calculator/" class="md-nav__link">
+        12. Анализ на растери
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../98_authors/" class="md-nav__link">
+        12. За авторите
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99_licence/" class="md-nav__link">
+        13. Лиценз
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" >
+      
+      <label class="md-nav__link" for="nav-4">
+        БГД кибер
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="БГД кибер" data-md-level="1">
+        <label class="md-nav__title" for="nav-4">
+          <span class="md-nav__icon md-icon"></span>
+          БГД кибер
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bgd/1000_awesome/" class="md-nav__link">
+        ГИС? Яко!
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bgd/1000_data/" class="md-nav__link">
+        ГИС данни
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../bgd/1000_terminology/" class="md-nav__link">
+        ГИС термини
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+      
+      <label class="md-nav__link" for="nav-5">
+        QGIS.бг мета
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="QGIS.бг мета" data-md-level="1">
+        <label class="md-nav__title" for="nav-5">
+          <span class="md-nav__icon md-icon"></span>
+          QGIS.бг мета
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_broken_tutorial/" class="md-nav__link">
+        Какво да направим, ако инструкциите не работят?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_install_git_windows/" class="md-nav__link">
+        Как да инсталираме git в Windows?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_install_miniconda_windows/" class="md-nav__link">
+        Как да инсталираме Miniconda в Windows?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_install_qgis_windows/" class="md-nav__link">
+        Как да инсталираме QGIS в Windows?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_install_vscode_windows/" class="md-nav__link">
+        Как да инсталираме Visual Studio Code в Windows?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_versioning/" class="md-nav__link">
+        Какво означават версиите на програмите?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_git_intro/" class="md-nav__link">
+        Какво е git?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_github_intro/" class="md-nav__link">
+        Как да сътрудничим в GitHub?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_github_modifications/" class="md-nav__link">
+        Как да сътрудничим по проект в GitHub изцяло през браузъра?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_qgisbg_docs_setup_windows/" class="md-nav__link">
+        Как да настроим среда за работа по QGIS.бг докс в Windows?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1120_qgisbg_docs_local_dev/" class="md-nav__link">
+        Как да работим по QGIS.бг докс локално?
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1120_qgisbg_docs_markdown/" class="md-nav__link">
+        Какво поддържа Markdown в QGIS.бг докс?
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+      
+      <label class="md-nav__link" for="nav-6">
+        Карти
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Карти" data-md-level="1">
+        <label class="md-nav__title" for="nav-6">
+          <span class="md-nav__icon md-icon"></span>
+          Карти
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+      
+        <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6-1" type="checkbox" id="nav-6-1" >
+      
+      <label class="md-nav__link" for="nav-6-1">
+        Опа
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+      <nav class="md-nav" aria-label="Опа" data-md-level="2">
+        <label class="md-nav__title" for="nav-6-1">
+          <span class="md-nav__icon md-icon"></span>
+          Опа
+        </label>
+        <ul class="md-nav__list" data-md-scrollfix>
+          
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/001_po_sveta_i_u_nas/" class="md-nav__link">
+        По света и у нас
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/002_aurelian/" class="md-nav__link">
+        Аврелиан - възстановителят на света
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/003_wall_of_shame/" class="md-nav__link">
+        Стена на срама
+      </a>
+    </li>
+  
+
+          
+            
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/004_kitaiski_kanal/" class="md-nav__link">
+        Китайският план за канал през Балканите
+      </a>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+          
+        </ul>
+      </nav>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Съдържание">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Съдържание
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    Преглед
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    Още за растерните данни
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    Геореференциране
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    Източници на растери
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    Разделителна способност
+  </a>
+  
+    <nav class="md-nav" aria-label="Разделителна способност">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    Пространствена разделителна способност (ПСР)
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    Спектрална разделителна способност
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    Преобразуване от растер към вектор
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    Преобразуване от вектор към растер
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    Анализ на растери
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    Препъникамъчета
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    Какво научихме?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    Твой ред е!
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/qgisbg/docs/edit/master/docs/gisintro/06_raster_data.md" title="Редактирай тази страница" class="md-content__button md-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25z"/></svg>
+                  </a>
+                
+                
+                <h1 id="_1">Растери<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">Преглед<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>В предишните глави разгледахме векторните данни в подробности и научихме, че при тях имаме отделни обекти. Всеки обект се представя в пространството с геометрия, било то точка, линия или полигон. Сега е време да обърнем внимание на <strong>растерните данни</strong>, които са не по-малко важни в ГИС. Растерите представляват мрежа от плътно слепени <strong>клетки</strong> с еднаква форма и и размер. Тези клетки наричаме <strong>пиксели</strong>, като най-често това са квадратни пиксели разположени в решетка (мрежа) от <strong>редове</strong> и <strong>колони</strong>. Всеки пиксел съхранява една или повече числови стойности, които са валидни за цялата площ на пиксела.</p>
+<p>Всъщност всяка най-обикновена снимка, било то селфи в огледалото, или спътникова снимка, представлява растерно изображение. То има определена резолюция, което определя броят редове и колони,а всеки пиксел съхранява число, описващо цвета.</p>
+<p>В контекста на ГИС, всеки пиксел покрива определена площ от земната повърхност, като неговата стойност се приема за <strong>хомогенна за цялата му площ</strong>.</p>
+<p>
+<figure><img src="../img/raster_dataset.png" /><figcaption>Растерните данни се състоят от редове (в широчина) и колони (във височина) от пиксели. Всеки един от тях покрива определена площ, а стойността на пиксела определя (стойността на) някакво свойство за тази площ.</figcaption>
+</figure>
+</p>
+<h2 id="_3">Още за растерните данни<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>В ГИС използваме растери, когато представяме информация за непрекъснат (континуален) обект или явление за дадена територия. Когато си обяснявахме за векторните данни, разгледахме пейзаж погледнат от високо. Точки, линии и полигони добре описваха индивидуалните обекти, но как да опишем нещо като цвета на тревата например? Или надморската височина? Или пък температурата на въздуха? За разлика от конкретното дърво, или конкретната къща, измерване на надморската височина може да се случи във всяка една безкрайно малка точка.</p>
+<p>
+<figure><img src="../img/landscape.jpg" /><figcaption>Не всичко от заобикалящата ни среда е така лесно да се представи като точки, линии и полигони, както например дърветата, пътищата или сградите. Например как бихме описали ливадите? Като полигони? Ами тревата е с различен цвят за всеки отделен квадратен метър. При данни за големи площи с непрекъснато променящи се стойности се използват растери, по-просто е.</figcaption>
+</figure>
+</p>
+<p>Възможно решение е да оградим големи участъци в полигони, за които да зададем средната надморска височина. Проблемът е, че дори и в този случай на цялата площ не наблюдаваме еднаква стойност. Това е защото векторните данни са по-удачни за показване на хомогенни обекти по качествен признак. Например полигона и атрибутите, с които се описва територията на някоя община, не се променят за целия обхват на общината, тя си има все същия кмет, все същите граници и все същия общински център.</p>
+<p>Добре, другия вариант за събиране на данни за надморската височина е просто да направим полигоните по-малки, за да гарантираме, че нямаме отклонение с повече от 1 метър за тази площ. Това е правдоподобно решение, но изведнъж ще се окаже, че работим със стотици (хиляди) обекти и това ще затормози както нас, така и ГИС програмата.</p>
+<p>Растерните данни са решението в точно такива случаи. Много често растери се използват като фон на векторни слоеве, за да се опише по-добре контекста на весторните слоеве. Хората са добре приспособени да извличат информация от изображения, именно затова картите с подходяща непрекъсната картна основа успяват да предадат повече информация.</p>
+<p>Макар и най-често асоциирани със спътникови изображения на земната повърхност, растерните данни са приложими и съхранението на по-абстрактни идеи. Примери за това са надморската височина, сума на валежите, сеизмичен риск, гъстота на населението и т.н. Ето например спътниково изображение и извлечена преработена изображение от него.</p>
+<p>
+<figure><img src="../img/raster_types.png" /><figcaption>Изображенията в истински цвят (вляво) са полезни с възможността си да покажат детайли, които не са възможни при работа с векторни данни. Растерите са полезни и за по-абстрактни визуализации, например на средната минимална температура в Източен Кейп през март (вдясно).</figcaption>
+</figure>
+</p>
+<h2 id="_4">Геореференциране<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><strong>Геореференцирането</strong> е процесът на задаване на точния териториален обхват на изображението. Тази информация се съхранява като <strong>метаданни</strong>, за да може ГИС програмата да покаже изображението на правилното място на картата. Информацията необходима за правилното геореференциране в най-простия случай се състои от координатите на горния ляв ъгъл на изображението, широчина и височина на всеки пиксел, която съответства върху земната повърхност, както и с колко е завъртяно изображението. Обикновено тази информация е достатъчна, за да може всяка ГИС програма да покаже снимката привилно. Тя се съхранява най-често вътре в самия растерен файл, но понякога е и като отделен текстови файл придружаващ изображението.</p>
+<h2 id="_5">Източници на растери<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Растери могат да се извлекат по различни начини. Двата най-разпространени са въздушното и спътниковото заснемане. При въздушното заснемане летателен апарат, било то самолет, хеликоптер или дрон, облита дадена територия и я заснема със специално пригодена камера, или по-общо <strong>сензор</strong>. Спътниковите изображения пък се заснемат от много по-голяма височина всеки път когато преминат над територия, която представлява интерес. И в двата случая тези данни и придружаващите ги метаданни се нуждаят от последваща обработка на Земята, която да направи изображенията използваме и георефенцирани. Целия този процес се нарича <strong>дистанционни изследвания</strong>.</p>
+<p>
+<figure><img src="//upload.wikimedia.org/wikipedia/commons/0/0b/Ceberos_estrack_station.jpg" /><figcaption>Част от данните, които спътниците на Европейската космическа агенция изпращат, биват приемани от станцията Цебрерос в Испания.</figcaption>
+</figure>
+</p>
+<p>В други случаи, растерите се изчисляват. Например метеоролозите биха растерен слой на средната температура, валежи, скорост или посока на вятъра за цялата територия на страната, въпреки че тези замервания са се случили само в проделени точки, където има метеорологични станции. За целта са приложили специален метод за пространствен анализ наречен интерполация, който ще разгредаме по-подробно в една от следващите глави.</p>
+<p>Често растери са генерирани и от векторни слоеве, просто защото работата с растери е много по-лесна. Например Гугъл карти или OpenStreetMap, които показват множество векторни обекти като пътища, реки, сгради, гари, паркове, ресторанти и прочие, всъщност се визуализират за крайните потребители като растери. Това е приложимо само ако данните могат да бъдат комуникирани само със симвология и етикети. Ако се налага да работим изключително с атрибутивната таблица, то тогава растеризираните вектори не са най-добрия вариант.</p>
+<p>???! note &ldquo;Забележка&rdquo;
+    OpenStreetMap и подобни услуги всъщност прилагат трик, с който да покажат данните от атрибутивната таблица. Всеки път когато потребителят натисне върху точка от картата, нейните координати се изпращат до сървъра и той връща атрибутите на векторния обект, който се намира точно на това място.</p>
+<h2 id="_6">Разделителна способност<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<h3 id="_7">Пространствена разделителна способност (ПСР)<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>Всеки растер се състои от пиксели с еднакви размери. Именно тези размери определят разделителната способност, или на каква площ от земната повърхност отговаря един пиксел. Това ясно се забелязва, ако приближим достатъчно в някой растерен слой.</p>
+<p>
+<figure><img src="../img/raster_small_scale.png" /><figcaption>Добре изглеждащ растерен слой, но...</figcaption>
+</figure>
+</p>
+<p>
+<figure><img src="../img/raster_large_scale.png" /><figcaption>&hellip; ако приближим прекалено, и изображението става&hellip; пикселизирано.</figcaption>
+</figure>
+</p>
+<p>Различни фактори определят разделителната способност на изображението. За данни от дистанционни изследвания, разделителната способност зависи от възможностите на сензора, с които е снето изображението. Например спътниците от програмата SPOT5 имат разделителна способност 10x10 m, докато MODIS - 500x500 m. Най-мошните съвременни спътникови сензори предлагат изображения с разделителна способност от 0.33x0.33 m. Аерофотоснимките имат още по-малки размери на пикселите - около и под сантиметър.</p>
+<p>Когато размерът на пикселите е малък, т.е. един пиксел покрива малка площ от земната повърхност, тези растери имат <strong>висока разделителна способност</strong>, тъй като предлагат висока степен на детайлност за разграничаване на отделните обекти. Напротив, когато растерите се състоят от пиксели, които покрива големи площи от земната повърхност, говорим за <strong>ниска разделтиелна способност</strong>.</p>
+<p>При растери изчислени след пространствен анализ (напр. средногодишната сума на валежите), разделителната способност на получения растер зависи от гъстотата на изходните данни (напр. гъстотата на метеорологичните станции).</p>
+<p>Един от основните недостатъци на изображенията с висока разделителна способност е техния огромен обем. Да вземем за пример растер съставен от девет пиксела в три реда и три колони (3x3=9). Ако приемем, че изображението има само един канал, то компютърът трябва да съхрани само девет числа. Сега ако се прехвърлим на мащабите на цяла държава, то едноканално растерно изображение на България, където всеки пиксел е 1 km ще отнеме 111 000 байта, което е по-малко от броя на буквите на тази символите на тази страница. Ако обаче решим да съхраним страната в резолюция 1x1 m, тогава изображението ще заеме 111 GB  (гигабайта) пространство, което е повече от 11 двучасови филма в пълно качество. Ами ако увеличим разделителната способност на 33 cm? Тогава България би заемала близо 1 TB (терабайт) пространство, което е повече от капацитета на повечето компютри. Ако добавим и трите цвята червено, зелено и синьо, достигнахме до 3 TB (терабайта) данни. Можем да заключим, че малка промяна на размера на пиксела има огромен ефект върху размера на файловете, най-вече поради големия брой пиксели в едно изображение.</p>
+<p>Всъщност ниската разделителна способност не трябва да се приема за недостатък. С увеличаването на размера на пикселите, техния брой за същата площ намалява, което означава по-бърза обработка от компютърните алгоритми. За големи площи това забързване на обработката не бива да се подценява, особено при по-сложни операции. Освен това високата разделителна способност не би ни донесла допълнителна информация в редица случаи. Ако искаме да покажем карта на облаците за метеорологичната прогноза, разделителна способност от няколко сантиметра определено няма да помогне за по-добро предсказване на времето.</p>
+<p>От друга страна използването на растери с ниска резолюция е проблем, ако искаме да опишем обекти с малка площ. В някои случаи е възможно няколко обекта да попаднат в един и същи пиксел. Така стойностите на тези обекти ще бъде осреднена като стойност на пиксела и те не могат да бъдат разграничени и изследвани.</p>
+<h3 id="_8">Спектрална разделителна способност<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>Когато правим дигитална снимка с телефона си например, камерата използва електрически <strong>сензор</strong>, с който улавя яркостта на червената, зелената и синята светлина и записва тези три стойности за всеки пиксел. Когато екранът показва всеки отделен пиксел, той чете тази информация и настройва екрана да възпроизведе същия цвят светлина. Тъй като нашия сензор е уловил трите цвята червено, зелено и синьо и е записал три стойности, то създадения растер има три <strong>канала</strong>.</p>
+<p>И докато нашите очи могат да виждат само тези три цвята, то електрическите сензори не са ограничени от тези недостатъци на човешкото зрение. Тъй като повечето снимки на потребители са от рода на снимка на вечерята в Инстаграм и са със съмнителен принос за научните среди, тези изображения са сам в тези три цвята. Вече дори някои съвременни мобилни телефони улавят и записват информация за инфрачервената светлина , която е <strong>невидима</strong> за нас.</p>
+<details class="example"><summary>Пример: експеримент с инфарчервена светлина</summary><p>Вземете дистанционно на някой електроуред у дома и го насочете към камерата на вашия телефон. Натиснете някое от копчетата на дистанционното. Виждате ли светлина? В случая сензора улавя светлина, която не е видима за нас и я интерпретира като червено.</p>
+</details>
+<p>Професионалните сензори за дистанционни изследвания могат записват информация и за други невидими цветове за нас. Те се наричат <strong>многоканални</strong> при запис на няколко и <strong>хиперканални</strong> при запис на интензитета на десетки или стотици дължини на вълната. Но защо? Ами например инфрачервената светлина е много добър индикатор за откриване на водни повърхности и вода в растителността. Броят на каналите в едно изображение се нарича <strong>спекрална разделителна способност</strong>.</p>
+<p>Най-често изображенията в ГИС са многоканални, където всеки канал е като отделен растерен слой. ГИС позволява да се комбинират до три от тези канали, за да се покаже изображението в цветове, които човешкото око може да види. Ако избраните канали не съвпадат с реалните цветове за червено, зелено и синьо, това изображение се нарича изображение с <strong>фалшиви цветове</strong>.</p>
+<p>Понякога изображението съдържа само един канал и то се нарича <strong>сиво</strong>. В такива случаи е въможно допълнително да се приложат цветове спрямо стойностите в пикселите и се наричат <strong>псевдоцветове</strong>. Особен случай на едноканалните изображения са <strong>двоичните маски</strong>. При тях имаме черен фон, който съответства на стойност 0, и бели обекти със стойност 1. Те се използват за маркиране на границите на отделни категории обекти (напр. сгради и несгради, улици и неулици, водни площи и суша).</p>
+<p>TODO example grayscale vs pseudocolor</p>
+<p>TODO example binary mask</p>
+<h2 id="_9">Преобразуване от растер към вектор<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>По-рано коментирахме, че често при работа с векторни слоеве изолзваме растерен слой за заден фон. Това улеснява осъзнаването на пространствения контекст на данните, както и цифроването на нови векторни обекти.</p>
+<p>Не е задължително цифроването да става ръчно обаче. Някои особености на земната повърхност, например пътища сред ниви, представляват рязка промяна в цвета между между съседни пиксели. Тази рязка промяна позволява лесното им идентифициране от специализирани компютърни програми, които могат да извлекат данни при алгоритмичното анализиране на изображението. В днешно време автоматичното извличане на данни от изображения може да вземе предвид не само цветовете, но и формата, разположението и шарките, които те образуват. За целта се прилагат различни алгоритми, като в последните години изкуствения интелект е заел особено място в изпълнението на подобни задачи.</p>
+<h2 id="_10">Преобразуване от вектор към растер<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>Преобразуването от вектор към растер се нарича <strong>растеризиране</strong> и се прилага за улеснена обработка на пространствената информация или за разпространение на географската информация към потребители без специализиран ГИС софтуер. Особеност при растеризирането е, че информацията от атрибутивната таблица се изгубва завинаги и не може да бъде възстановена. Въпреки това числовите и категоризиращите атрибути могат да бъдат записани като отделни канали в изображението.</p>
+<h2 id="_11">Анализ на растери<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>Фактът, че растерите са просто поредица от еднакви по размер пиксели по редове и колони ги прави идеален кандидат за авторатизиран анализ с компютърни алгоритми, при това много по-удобен отколкото векторните данни. </p>
+<p>Растери често се използват и в управлението на земеделските и горските ресурси. От спътниково изображение може да се види в къде растенията са със забавено развитие, изпитват воден недостиг, са нападнати от вредител, или да изчисли обема на дървения материал. По този начин собственика на земята може да вземе информирано решение какви действия да предприеме и какво да очаква в бъдеще.</p>
+<p>В условията на променящ се климат, анализирането на растери е незаменим инструмент за предпазване и справяне с все по-засилващите се като честата и сила природните бедствия. Например в хидрологията само с цифров модел на релефа можем да открием повърхностите потоци и съответните им водосбори, както и кои участъци имат затруднено отичане и биха се наводнили при определено количество валеж.</p>
+<h2 id="_12">Препъникамъчета<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>Тъй като растерите покриват големи участъци от земната повърхност, често те са с прекалено големи размери. Това води до няколко нежелани ефекта, като голямо необходимост от голямо пространство за съхранение, покриване на участъци, които не представляват интерес, както и до излишна нужда от изчислителна мощ. Размерът на растерните файлове е правопропорционален на броят канали, размерът на пикселите и обхватът на изображението.</p>
+<h2 id="_13">Какво научихме?<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Растерите са мрежа от еднакви по размер <strong>пиксели</strong>.</li>
+<li>Растерите са подходащи за данни с <strong>голям и непрекъснат обхват</strong>.</li>
+<li>Размерът на пикселите определя <strong>разделителната способност</strong> на изображението.</li>
+<li>Изображенията съдържат един или повече <strong>канали</strong>, които позволяват една или повече стойности за всеки един пиксел.</li>
+</ul>
+<!-- - When raster data contains bands from different parts of the electromagnetic spectrum, they are called **multi-spectral images**. -->
+<ul>
+<li>Изображенията на земната повърхност от спътникови или въздушни сензори най-често са в трите видими за човешкото око цвята червено, зелено и синьо и се съхраняват в триканални растери.</li>
+<li>Изображенията с един канал се наричат grayscale.</li>
+<li>Едноканалните изображения могат да се покажат в неистински цветове в ГИС (напр. надморската височина за всеки пиксел от синьо, през зелено, оранжево, кафяво до бяло за върховете).</li>
+<li>Растерите са изключително удобни за автоматизирана обработка от компютърни алгоритми.</li>
+<li>Растерите могат да заемат огромен обем дисково пространство.</li>
+</ul>
+<h2 id="_14">Твой ред е!<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Опишете ситуации, при които растерните данни са за предпочитане пред векторните данни.</li>
+</ul>
+<details class="example"><summary>Примери</summary><p>Всички данни с непрекъснат териториален обхват, например:
+- надморска височина за определена територия;
+- температура на въздуха за определена територия;
+- годишна сума на валежи за определена територия;
+- изображения на земната повърхност;
+- влажност на почвата за определена територия;
+- гъстота на населението за определена територия;
+- риск от наводнение за определена територия;
+- гъстота на растителността за определена територия.</p>
+</details>
+<ul>
+<li>Създайте собствен растерен слой на хартия, разграфен на ситни квадратчета (0.5 cm). Наложете листа хартия над изображение на района, в който живеете. За всеки вид земно покритие (напр. сграда, игрище, поляна, гора, улица, тротоар, площад и т.н.) изберете различен цвят молив. Оцветете всяко едно квадратче в един единствен цвят според основния обект, който го заема, напр. улиците в сиво, игрищата в оранжево и т.н. Добре ли се открояват отделните обекти на хартиения ни растер? Как размерът на квадратчетата ще повлияе на тази задача? Аргументирайте отговора си.</li>
+</ul>
+<details class="example"><summary>Примери</summary><p>Според размера на квадратчетата върху хартията и приближението на снимката, е възможно новосъздадените растерни данни да са напълно неразбираеми за случаен наблюдател. Всъщност квадратчетата играят ролята на пиксели, а листа хартия - на обхвата на растерния слой. Оптималния размер на пикселите е такъв, че най-малките обекти трябва да заемат поне 3-4 квадратчета. Ако пикселите са прекалено едри, е възможно в един &ldquo;пиксел&rdquo; да попаднат повече от един обекти от изображението, което е проблем при растерите с ниска разделителна способност (големи по площ пиксели).</p>
+</details>
+<ul>
+<li>Дайте примери, в които ниската разделителна способност (голям размер на пикселите) е подходящо.</li>
+</ul>
+<details class="example"><summary>Примери</summary><ul>
+<li>карта на средногодишната сума слънчево греене - границите са прекалено плавни, а площите много големи и разделителна способност от стотици и дори хиляди километри е подходящата.</li>
+<li>карта на вида гори (широколистни или иглолистни) - едно възрастно дърво покрива площ повече от 25 m<sup>2</sup>, по-висока резолюция няма да донесе допълнителна информация за видовия състав.</li>
+<li>Карта на температурата на водните басейни - границите са прекалено плавни, за да има смисъл от разделителна способност от няколко метра.</li>
+</ul>
+</details>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Долен колонтитул">
+        
+          <a href="../05_data_capture/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Предишна
+                </span>
+                05. Събиране на данни
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../07_topology/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Следваща
+                </span>
+                07. Топология
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/vendor.53cc9318.min.js"></script>
+      <script src="../../assets/javascripts/bundle.e9c9f54f.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u0430\u0439", "clipboard.copied": "\u041a\u043e\u043f\u0438\u0440\u0430\u043d\u043e", "search.config.lang": "ru", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "\u0422\u044a\u0440\u0441\u0438", "search.result.placeholder": "\u0417\u0430\u043f\u043e\u0447\u043d\u0435\u0442\u0435 \u0434\u0430 \u043f\u0438\u0448\u0435\u0442\u0435, \u0437\u0430 \u0434\u0430 \u0442\u044a\u0440\u0441\u0438\u0442\u0435", "search.result.none": "\u041d\u044f\u043c\u0430 \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0438", "search.result.one": "1 \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442", "search.result.other": "# \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0430", "search.result.more.one": "\u043e\u0449\u0435 1 \u043d\u0430 \u0442\u0430\u0437\u0438 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430", "search.result.more.other": "\u043e\u0449\u0435 # \u043d\u0430 \u0442\u0430\u0437\u0438 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "../..",
+          features: ['navigation.instant', 'navigation.tabs', 'search.suggest', 'search.highlight', 'search.share'],
+          search: Object.assign({
+            worker: "../../assets/javascripts/worker/search.9c0e82ba.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/cookies-eu-banner@2.0.1/dist/cookies-eu-banner.js"></script>
+      
+        <script src="../../assets/consent.js"></script>
+      
+    
+  </body>
+</html>
