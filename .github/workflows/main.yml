@@ -3,6 +3,7 @@ on:
   push:
     branches:
       - master
+      - deps
 
 jobs:
   build:
@@ -11,6 +12,9 @@ jobs:
     steps:
       - name: Checkout main
         uses: actions/checkout@v1
+        
+      - name: Install dependencies
+        run: apt install gcc
 
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
