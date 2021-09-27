@@ -15,4 +15,5 @@ jobs:
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
+          EXTRA_PACKAGES: build-base
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
