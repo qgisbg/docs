@@ -7,160 +7,66 @@ tags: вектор, буфер, пространствен анализ, гео�
 
 ## Преглед
 
-**Spatial analysis** uses spatial information to extract new and
-additional meaning from GIS data. Usually spatial analysis is carried
-out using a GIS Application. GIS Applications normally have spatial
-analysis tools for feature statistics (e.g. how many vertices make up
-this polyline?) or geoprocessing such as feature buffering. The types of
-spatial analysis that are used vary according to subject areas. People
-working in water management and research (hydrology) will most likely be
-interested in analysing terrain and modelling water as it moves across
-it. In wildlife management users are interested in analytical functions
-that deal with wildlife point locations and their relationship to the
-environment. In this topic we will discuss buffering as an example of a
-useful spatial analysis that can be carried out with vector data.
+**Пространствения анализ** използва пространствени данни, за да извлече нова допълнителна информация. За целта ГИС програмите разполагат с набор от инструменти, които посредством различни алгоритми могат да изведат статистически или геообработени резултати. Статистически анализ са "Колко точки има в тази линия?", "Коя община е с най-голяма средна гъстота?", "Кой е най-високия връх?" и др. Геообработени резултати могат да отговорят на въпроси като "Колко дървета има по протежението на този път?", "През колко общини протича реката?", "Колко е стръмен този склон?" и др. 
+
+В тази глава ще разгледаме буферирането като един от най-простите, но мощни начини за геообработка на векторни данни.
 
 ## Буфериране
 
-**Buffering** usually creates two areas: one area that is **within** a
-specified distance to selected real world features and the other area
-that is **beyond**. The area that is within the specified distance is
-called the **buffer zone**.
+**Буферирането** разделя площта около даден обект на две: една, която е на не по-далеч от зададено разстояние, и останалата, която попада отвъд този обхват. Площта, която попада в обхвата се нарича **буферна зона**.
 
-A **buffer zone** is any area that serves the purpose of keeping real
-world features distant from one another. Buffer zones are often set up
-to protect the environment, protect residential and commercial zones
-from industrial accidents or natural disasters, or to prevent violence.
-Common types of buffer zones may be greenbelts between residential and
-commercial areas, border zones between countries (see
-`figure_buffer_zone`{.interpreted-text role="numref"}), noise protection
-zones around airports, or pollution protection zones along rivers.
+**Буферна зона** е всяка площ, която служи за поддържане на разстояние между два обекта от реалния свят. Най-често буферни зони се създават за опазване на защитени територии, регулации в градската среда, планове за евакуация и др. Буферни зони може да се видят във вододайните зони, по границите на държавите, зоните с различни нива на шумово замърсяване около летища и др.
 
-::: {#figure_buffer_zone}
-![The border between the United States of America and Mexico is
-separated by a buffer zone. (Photo taken by SGT Jim Greenhill
-2006).](img/buffer_zone.png){.align-center width="30em"}
-:::
+![Границата между САЩ и Мексико, разделена с буферна зона. (Снимка SGT Jim Greenhill, 2006).](img/buffer_zone.png)
 
-In a GIS Application, **buffer zones are** always represented as
-**vector polygons** enclosing other polygon, line or point features (see
-`figure_point_buffer`{.interpreted-text role="numref"},
-`figure_line_buffer`{.interpreted-text role="numref"}, ).
+В ГИС програмите, **буферните зони** се представят като **векторни полигони**, които обгръщат точка, линия или полигон.
 
-::: {#figure_point_buffer}
-![A buffer zone around vector
-points.](img/point_buffer.png){.align-center width="30em"}
-:::
+![Буферна зона около точка.](img/point_buffer.png)
+![Буферна зона около линия.](img/line_buffer.png)
+![Буферна зона около полигон.](img/polygon_buffer.png)
 
-::: {#figure_line_buffer}
-![A buffer zone around vector
-polylines.](img/line_buffer.png){.align-center width="30em"}
-:::
+## Видове буфериране
 
-::: {#figure_polygon_buffer}
-![A buffer zone around vector
-polygons.](img/polygon_buffer.png){.align-center width="30em"}
-:::
+Широчината на буферната зона за всеки един обект от даден слой може да е различна и да се контролира от някой негов числов атрибут. Този числов атрибут изразява широчината на буферната зона в картни единици за съответната координатна система на слоя, най-често метри. Така например широчината на буферната зона около бреговете на дадена река може да зависи от формата на земеделие, което се практикува, с цел намаляване на химичното замърсяване на реката с пестициди и торове.
 
-## Variations in buffering
 
-There are several variations in buffering. The **buffer distance** or
-buffer size **can vary** according to numerical values provided in the
-vector layer attribute table for each feature. The numerical values have
-to be defined in map units according to the Coordinate Reference System
-(CRS) used with the data. For example, the width of a buffer zone along
-the banks of a river can vary depending on the intensity of the adjacent
-land use. For intensive cultivation the buffer distance may be bigger
-than for organic farming (see Figure
-`figure_variable_buffer`{.interpreted-text role="numref"} and Table
-[table\_buffer\_attributes](#table_buffer_attributes)).
+![Буферна зона около реките с различна широчина.](img/variable_buffer.png)
 
-::: {#figure_variable_buffer}
-![Buffering rivers with different buffer
-distances.](img/variable_buffer.png){.align-center width="30em"}
-:::
+| Река          | Форма на земеделие                | Буферна зона (метри) |
+|---------------|-----------------------------------|----------------------|
+| Искър         | механизирано зърнопроизводство    | 100                  |
+| Марица        | интензивно отглеждане на царевица | 150                  |
+| Янтра         | органично зеленчукопроизводство   | 50                   |
 
-::: {#table_buffer_attributes}
-  ------------------------------------------------------------------------
-  River          Adjacent land use               Buffer distance (meters)
-  -------------- ------------------------------- -------------------------
-  Breede River   Intensive vegetable cultivation 100
+Таблица 1: Препоръчана буферна зона около реките спрямо формата на земеделие около тях изразени с число в метри в атрибутивната таблица.
 
-  Komati         Intensive cotton cultivation    150
+Буферните зони около линейни обекти като реки и пътища, могат да се буферират само от лявата или дясната страна. В този случай ляво и дясно се определя спрямо посоката на линията, иначе казано края, в която се намира първата точка от линията.
 
-  Oranje         Organic farming                 50
+### Множество буферни зони
 
-  Telle river    Organic farming                 50
-  ------------------------------------------------------------------------
-:::
+Даден обект може да има повече от една буферна зона. Например в случай на авария в ядрена централа, вероятно е да имаме няколко буферни зони на 10, 15, 25 и 30 км със собствен план за евакуация. По този начин се оформят концентрични полигони (окръжности) около централата.
 
-Table Buffer Attributes 1: Attribute table with different buffer
-distances to rivers based on information about the adjacent land use.
+![Буфериране около точка на 10, 15, 25 и 30 км.](img/multiple_buffers.png)
 
-Buffers around polyline features, such as rivers or roads, do not have
-to be on both sides of the lines. They can be on either the left side or
-the right side of the line feature. In these cases the left or right
-side is determined by the direction from the starting point to the end
-point of line during digitising.
+### Буфериране без и със сливане
 
-Multiple buffer zones
----------------------
+Ако извлечената буферната зона е повече от половината от разстоянието между два обекта, очаквано двете буферни зони ще се допрат. ГИС програмите предлагат две решения на проблема - или единия полигон припокрива другия, като и двата буфера си съществуват самостоятелно, или буферната зона се слива в един общ полигон. Изборът на единия или други подход изцяло зависи от целите на анализа. 
 
-A feature can also have more than one buffer zone. A nuclear power plant
-may be buffered with distances of 10, 15, 25 and 30 km, thus forming
-multiple rings around the plant as part of an evacuation plan (see
-`figure_multiple_buffers`{.interpreted-text role="numref"}).
+Например, ако очертаем 1 км буферна зона около две защитени територии на 1.5 км отстояние една от друга, то трябва да преценим от какво се нуждаем.  Ако искаме да покажем индивидуалните буферни зани за всеки обект, трябва да приложим буфериране без сливане. Ако по принцип се интересуваме за обхвата на буферните зони около защитените територии, буферирането трябва да се случи със сливане.
 
-::: {#figure_multiple_buffers}
-![Buffering a point feature with distances of 10, 15, 25 and 30
-km.](img/multiple_buffers.png){.align-center width="30em"}
-:::
+![Буферна зона без сливане (дясно) и със сливане (ляво) в общите площи.](img/buffer_dissolve.png)
 
-Buffering with intact or dissolved boundaries
----------------------------------------------
+### Буфериране навътре и навън
 
-Buffer zones often have dissolved boundaries so that there are no
-overlapping areas between the buffer zones. In some cases though, it may
-also be useful for boundaries of buffer zones to remain intact, so that
-each buffer zone is a separate polygon and you can identify the
-overlapping areas (see Figure `figure_buffer_dissolve`{.interpreted-text
-role="numref"}).
+Буферните зони около полигони обикновено са във външна посока, но е възможно да се създаде буферна зона и навътре, към центъра на геометрията. Например, според закона строителство на 3 метра от границата от имота изисква съгласието на съседите. За целта може да буферираме полигона на парцела навътре с 3 метра и по този начин да проверим дали ще се нуждаем от съгласие.
 
-::: {#figure_buffer_dissolve}
-![Buffer zones with dissolved (left) and with intact boundaries (right)
-showing overlapping areas.](img/buffer_dissolve.png){.align-center
-width="30em"}
-:::
+## Препъникамъчета
 
-Buffering outward and inward
-----------------------------
+При достигане на две съседни буферни зони липсва възможността да се нова образува граница между буферираните обекти, която е на равни отстояния между двата обекта.
 
-Buffer zones around polygon features are usually extended outward from a
-polygon boundary but it is also possible to create a buffer zone inward
-from a polygon boundary. Say, for example, the Department of Tourism
-wants to plan a new road around Robben Island and environmental laws
-require that the road is at least 200 meters inward from the coast line.
-They could use an inward buffer to find the 200 m line inland and then
-plan their road not to go beyond that line.
+## Повече инструменти за пространствен анализ
 
-## Common problems / things to be aware of
-
-Most GIS Applications offer buffer creation as an analysis tool, but the
-options for creating buffers can vary. For example, not all GIS
-Applications allow you to buffer on either the left side or the right
-side of a line feature, to dissolve the boundaries of buffer zones or to
-buffer inward from a polygon boundary.
-
-A buffer distance always has to be defined as a whole number (integer)
-or a decimal number (floating point value). This value is defined in map
-units (meters, feet, decimal degrees) according to the Coordinate
-Reference System (CRS) of the vector layer.
-
-## More spatial analysis tools
-
-Buffering is a an important and often used spatial analysis tool but
-there are many others that can be used in a GIS and explored by the
-user.
+Буферирането е важен и често използван инструмент за пространствен анализ, но с него далеч не се изчерпва списъкът с инструменти за аналаз на векторни данни.
 
 **Spatial overlay** is a process that allows you to identify the
 relationships between two polygon features that share all or part of the
@@ -187,80 +93,26 @@ Typical spatial overlay examples are:
     input layer that do not overlap (intersect) with the second input
     layer.
 
-What have we learned?
-=====================
+## Какво научихме?
 
-Let\'s wrap up what we covered in this worksheet:
+- **Буферната зона** е площта около даден обект.
+- Буферните зони представляват **векторни полигони**.
+- Даден обект може да има **множество** буферни зони.
+- Размерът на буферната зона се контролира чрез **разстояние на буфера**.
+- Разстоянието на буфера може да е **цяло число** или **мисло с плаваща запетая**.
+- Разстоянието на буфера може да е различно за всеки отделен обект в слоя.
+- Полигоните могат да се буферират **навътре** и **навън** спрямо периметъра на полигона.
+- Линиите могат да се буферират **наляво** и **надясно** спрямо посоката на линията.
+- Беферните зони могат да са **със** или **без** сливане.
+- Освен буферирането, в ГИС програмите има множество други инструменти за векторен анализ.
 
--   **Buffer zones** describe areas around real world features.
--   Buffer zones are always **vector polygons**.
--   A feature can have **multiple** buffer zones.
--   The size of a buffer zone is defined by a **buffer distance**.
--   A buffer distance has to be an **integer** or **floating point**
-    value.
--   A buffer distance can be different for each feature within a vector
-    layer.
--   Polygons can be buffered **inward** or **outward** from the polygon
-    boundary.
--   Buffer zones can be created with **intact** or **dissolved**
-    boundaries.
--   Besides buffering, a GIS usually provides a variety of vector
-    analysis tools to solve spatial tasks.
+## Практика
 
-Now you try!
-============
+- Поради рязко влошаване на трафика, общината желае да добави допълнителна лента за ул. "Кюгисова". Създайте буфер около пътя, за да видите кои имоти ще попаднат в обхвата на разширената улица.
 
-Here are some ideas for you to try with your learners:
+![Буферната зона (зелено) в улицата (кафяво). Може да видите кои къщи попадат в буферната зона и да поканите собствениците им на обществено обсъждане относно общинските планове.](img/buffer_road.png)
 
--   Because of dramatic traffic increase, the town planners want to
-    widen the main road and add a second lane. Create a buffer around
-    the road to find properties that fall within the buffer zone (see
-    `figure_buffer_road`{.interpreted-text role="numref"}).
--   For controlling protesting groups, the police want to establish a
-    neutral zone to keep protesters at least 100 meters from a building.
-    Create a buffer around a building and colour it so that event
-    planners can see where the buffer area is.
--   A truck factory plans to expand. The siting criteria stipulate that
-    a potential site must be within 1 km of a heavy-duty road. Create a
-    buffer along a main road so that you can see where potential sites
-    are.
--   Imagine that the city wants to introduce a law stipulating that no
-    bottle stores may be within a 1000 meter buffer zone of a school or
-    a church. Create a 1 km buffer around your school and then go and
-    see if there would be any bottle stores too close to your school.
+- С цел превенция на ескалацията на напрежението, полицията желае 100-метрова буферна зона около сградите на институциите по време на протестите. Направете необходимото буфериране, за да се поставят необходимите оградни съоръжения.
+- Логистична компания търси място за новия си разпределителен център. Целта е да бъде на не повече от 1 км от главен път и 10 км от град с повече от 100 000 души население. Открийте потенциалните местоположения
+- В изборния ден всички агитационни материали трябва да бъдат премахнати в радиус от 50 метра от входа на избирателната секция. Създайте буферна зона, с която да помогнете съблюдаването на изборния закон.
 
-::: {#figure_buffer_road}
-![Buffer zone (green) around a roads map (brown). You can see which
-houses fall within the buffer zone, so now you could contact the owner
-and talk to him about the situation.](img/buffer_road.png){.align-center
-width="30em"}
-:::
-
-## Something to think about
-
-If you don\'t have a computer available, you can use a toposheet and a
-compass to create buffer zones around buildings. Make small pencil marks
-at equal distance all along your feature using the compass, then connect
-the marks using a ruler!
-
-Further reading
-===============
-
-**Books**:
-
--   Galati, Stephen R. (2006). Geographic Information Systems
-    Demystified. Artech House Inc. ISBN: 158053533X
--   Chang, Kang-Tsung (2006). Introduction to Geographic Information
-    Systems. 3rd Edition. McGraw Hill. ISBN: 0070658986
--   DeMers, Michael N. (2005). Fundamentals of Geographic Information
-    Systems. 3rd Edition. Wiley. ISBN: 9814126195
-
-The QGIS User Guide also has more detailed information on analysing
-vector data in QGIS.
-
-What\'s next?
-=============
-
-In the section that follows we will take a closer look at
-**interpolation** as an example of spatial analysis you can do with
-raster data.
