@@ -12,11 +12,8 @@ jobs:
     steps:
       - name: Checkout main
         uses: actions/checkout@v1
-        
-      - name: Install dependencies
-        run: sudo apt install gcc
 
       - name: Deploy docs
-        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        uses: mhausenblas/mkdocs-deploy-gh-pages@1.19
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
