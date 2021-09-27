@@ -14,7 +14,7 @@ jobs:
         uses: actions/checkout@v1
         
       - name: Install dependencies
-        run: apt install gcc
+        run: sudo apt install gcc
 
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
