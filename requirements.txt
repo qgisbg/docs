@@ -16,7 +16,7 @@ mkdocs==1.1.2
 mkdocs-awesome-pages-plugin==2.5.0
 mkdocs-material==6.2.6
 mkdocs-material-extensions==1.0.1
-nltk==3.5
+nltk==3.6.5
 pandoc==1.0.2
 ply==3.11
 Pygments==2.7.4
