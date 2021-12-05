@@ -59,7 +59,18 @@ markdown_extensions:
           format: !!python/name:pymdownx.superfences.fence_div_format
 nav:
   - index.md
-  - ... | wiki/*/*.md
+  - 'Уики':
+    - wiki/about.md
+    - 'Формати':
+      - ... | flat | wiki/formats/*.md
+    - 'QGIS рецепти':
+      - wiki/qgis/kak_da_instalirame_qgis_v_ubuntu.md
+      - wiki/qgis/otkude_da_namerim_geografski_danni_za_bulgaria.md
+      - wiki/qgis/kak_da_filtrirame_i_pokazhem_samo_chast_ot_obektite.md
+      - wiki/qgis/kak_da_smenim_proektsiyata_na_vektoren_sloy.md
+      - wiki/qgis/kak_da_dobavim_novo_pole_na_vektoren_sloy.md
+      - wiki/qgis/kak_da_iztriem_pole_ot_vektoren_sloy.md
+      - wiki/qgis/kak_da_svarzhem_dannite_ot_dva_sloya.md
   - ... | gisintro/*.md
   - ... | bgd/*.md
   - ... | meta/*.md
