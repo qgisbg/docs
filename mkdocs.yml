@@ -64,6 +64,7 @@ nav:
     - 'Формати':
       - ... | flat | wiki/formats/*.md
     - 'QGIS рецепти':
+      - wiki/qgis/kak_da_instalirame_qgis_v_windows.md
       - wiki/qgis/kak_da_instalirame_qgis_v_ubuntu.md
       - wiki/qgis/otkude_da_namerim_geografski_danni_za_bulgaria.md
       - wiki/qgis/kak_da_izpolzvam_danni_ot_osm_s_quickosm.md
