@@ -1,40 +1,36 @@
 ---
-title: 08. Координатни системи
+title: 08. Проекции и координатни системи
 tags: координатна система (КТ), картни проекции, дължина, ширина, географски координатни системи, проекционни координатни системи
 ---
 
-# Координатни системи
+# Проекции и координатни системи
 
 ## Преглед
 
-**Map projections** try to portray the surface of the earth, or a
-portion of the earth, on a flat piece of paper or computer screen. In
-layman\'s term, map projections try to transform the earth from its
-spherical shape (3D) to a planar shape (2D).
+Точното изобразяване на повърхността на сфера върху плосък лист хартия е невъзможна геометрична задача, която винаги води до някакъв вид деформация на изобразените обекти. **Картните проекции** са техниките, с които изобразяваме повърхността на Земята от оригиналната ѝ сферична форма върху плоскост, било то лист хартия или компютърен екран.
 
-A **coordinate reference system** (CRS) then defines how the
-two-dimensional, projected map in your GIS relates to real places on the
-earth. The decision of which map projection and CRS to use depends on
-the regional extent of the area you want to work in, on the analysis you
-want to do, and often on the availability of data.
+**Координатната система (КС)** или още координатна референтна система дефинира математическите правила как двуизмерните обекти от проектираната карта се отнасят към реалните обекти на повърхността на Земята.
 
-Map Projection in detail
-========================
+Решението коя картна проекция и коя КС да използваме зависи от пространствения обхват, методите за анализ и посланието, което се опитваме да предадем с картата на дадена територия.
 
-A traditional method of representing the earth\'s shape is the use of
-globes. There is, however, a problem with this approach. Although globes
-preserve the majority of the earth\'s shape and illustrate the spatial
-configuration of continent-sized features, they are very difficult to
-carry in one\'s pocket. They are also only convenient to use at
-extremely small scales (e.g. 1:100 million).
+## Картната проекция в детайли
 
-Most of the thematic map data commonly used in GIS applications are of
-considerably larger scale. Typical GIS datasets have scales of 1:250 000
-or greater, depending on the level of detail. A globe of this size would
-be difficult and expensive to produce and even more difficult to carry
-around. As a result, cartographers have developed a set of techniques
-called **map projections** designed to show, with reasonable accuracy,
-the spherical earth in two-dimensions.
+Най-точния метод да изобразим земната форма и повърхност е като използваме глобус, но за съжаление той не се събира лесно в джоба на дънките и го прави практически неприложим в повечето случаи. Освен това глобусите не позволяват представянето на земни площи в по-едър мащаб от 1:10 000 000.
+
+Повечето данни в ГИС са в много по-едър мащаб в зависимост от степенна на детайлност.
+Мащаби от порядъка на 1:250 000 или дори 1:5000 в градска среда са нормална практика.
+Глобус с подобен мащаб ще бъде абсурдно голям, труден за съхранение, скъп за производство и крайно неудобен за транспортиране.
+Именно затова картографите използват редица техники, наречени картните проекции, които с голяма точност да пресъздават сферичната повърхност на Земята в двуизмерна равнина.
+
+Сревнена с човешките мащаби, Земята е огромна.
+Именно затова от нашата гледна точка, повърхността ѝ изглежда плоска.
+Погледната от Космоса обаче е очевидно, че планетата ни има кълбовидна форма.
+
+
+
+
+Картите са създадени да комуникират по визуален начин разположението, формата и описанието на обектите по земната повърхност.
+
 
 When viewed at close range the earth appears to be relatively flat.
 However when viewed from space, we can see that the earth is relatively
@@ -51,60 +47,35 @@ features of the map. Some projections are good for small areas, some are
 good for mapping areas with a large East-West extent, and some are
 better for mapping areas with a large North-South extent.
 
-The three families of map projections
-=====================================
+### Трите вида картни проекции
 
-The process of creating map projections is best illustrated by
-positioning a light source inside a transparent globe on which opaque
-earth features are placed. Then project the feature outlines onto a
-two-dimensional flat piece of paper. Different ways of projecting can be
-produced by surrounding the globe in a **cylindrical** fashion, as a
-**cone**, or even as a **flat surface**. Each of these methods produces
-what is called a **map projection family**. Therefore, there is a family
-of **planar projections**, a family of **cylindrical projections**, and
-another called **conical projections** (see
-`figure_projection_families`{.interpreted-text role="numref"})
+Да си представим, че Земята е прозрачна сфера (като топка за коледна украса), в центъра на която сме поставили източник на светлина, а по повърхността сме изрисували континентите с непрозрачна боя.
+Ако направим това в тъмна стая, срещу плосък лист хартия, то ще видим сенките на континентите, т.е. тяхната проекция.
+Има различни начини за поставяне на хартията като **цилиндър**, **конус** или **плоскост**.
+Всеки от тези начини за проектиране на повърхността на сферата се нарича **вид на картната проекция**.
+Поради тази причина можем да говорим за цилиндрични **проекции**, **конусни** и **азимутални проекции**.
 
-::: {#figure_projection_families}
-![The three families of map projections. They can be represented by a)
-cylindrical projections, b) conical projections or c) planar
-projections.](img/projection_families.png){.align-center width="30em"}
-:::
 
-Today, of course, the process of projecting the spherical earth onto a
-flat piece of paper is done using the mathematical principles of
-geometry and trigonometry. This recreates the physical projection of
-light through the globe.
+![Трите вида картни проекции. На графиката се виждат a) цилиндрична проекция, b) конична проекция и c) азимутална проекция.](img/projection_families.png)
 
-Accuracy of map projections
-===========================
+Метафората с проздрачната сфера и лампичка по средата естествено е неприложима в реалността.
+За целта се използват математически принципи, заимствани от геометрията и тригонометрията.
 
-Map projections are never absolutely accurate representations of the
-spherical earth. As a result of the map projection process, every map
-shows **distortions of angular conformity, distance and area**. A map
-projection may combine several of these characteristics, or may be a
-compromise that distorts all the properties of area, distance and
-angular conformity, within some acceptable limit. Examples of compromise
-projections are the **Winkel Tripel projection** and the **Robinson
-projection** (see `figure_robinson_projection`{.interpreted-text
-role="numref"}), which are often used for producing and visualizing
-world maps.
 
-::: {#figure_robinson_projection}
-![The Robinson projection is a compromise where distortions of area,
-angular conformity and distance are
-acceptable.](img/robinson_projection.png){.align-center width="30em"}
-:::
+## Точност на картните проекции
 
-It is usually impossible to preserve all characteristics at the same
-time in a map projection. This means that when you want to carry out
-accurate analytical operations, you need to use a map projection that
-provides the best characteristics for your analyses. For example, if you
-need to measure distances on your map, you should try to use a map
-projection for your data that provides high accuracy for distances.
+Картните проекции никога не са абсолютно точно представяне на повърхността на сферичната ни планета.
+Поради тази причина **всяка** карта страда от деформации на **разстоянията** между обектите на повърхността на Земята, техните **площи** и **ъглите** между тях.
+Всяка картна проекция страда от една или повече от тези деформации в по-малка или по-голяма степен.
+Именно заради това съществуват различни картни проекции, като ролята на ГИС специалиста е да изберат правилната проекция за даденото приложение на картата.
 
-Map projections with angular conformity
----------------------------------------
+Например проекцията на Робинсон, както и тази на Винкел Трипел често се използват при световни карти.
+
+![Проекцията на Робинсон е добър компромис между деформациите по площ, ъгли и разстояния.](img/robinson_projection.png)
+
+Ако искаме да направим анализ на транспортните връзки, добра идея е да се използва проекция, която има малки деформации на разстоянията.
+
+### Конформни картни проекции
 
 When working with a globe, the main directions of the compass rose
 (North, East, South and West) will always occur at 90 degrees to one
@@ -133,8 +104,7 @@ relationships are important, but the relationship of areas are
 distorted.](img/mercator_projection.png){.align-center width="30em"}
 :::
 
-Map projections with equal distance
------------------------------------
+### Еквидистантни проекции
 
 If your goal in projecting a map is to accurately measure distances, you
 should select a projection that is designed to preserve distances well.
@@ -164,8 +134,7 @@ projection.](img/azimuthal_equidistant_projection.png){.align-center
 width="30em"}
 :::
 
-Projections with equal areas
-----------------------------
+### Равноплощни проекции
 
 When a map portrays areas over the entire map, so that all mapped areas
 have the same proportional relationship to the areas on the Earth that
@@ -203,22 +172,17 @@ projection to use, will often be made for you. Most countries have
 commonly used projections and when data is exchanged people will follow
 the **national trend**.
 
-Coordinate Reference System (CRS) in detail
-===========================================
+## Още за координатните реферетни системи
 
-With the help of coordinate reference systems (CRS) every place on the
-earth can be specified by a set of three numbers, called coordinates. In
-general CRS can be divided into **projected coordinate reference
-systems** (also called Cartesian or rectangular coordinate reference
-systems) and **geographic coordinate reference systems**.
+С помощта на координатните реферетни системи (на англ. Coordinate Reference Systems - CRS) всяка точка на Земята може да се опише с три числа, които се наричат **координати**.
+Има два основни вида координатни реферетни системи:**географски координатни системи** и **правоъгълни/проекционни/Декартови координатни системи**.
 
-Geographic Coordinate Systems
------------------------------
+### Географски координатни системи
 
-The use of Geographic Coordinate Reference Systems is very common. They
-use degrees of latitude and longitude and sometimes also a height value
-to describe a location on the earth's surface. The most popular is
-called **WGS 84**.
+Употребата на географски координнатни реферетни системи е честа практика в ГИС.
+Това е координатната система, която повече хора асоциират още от училище, когато чуят "географски координати".
+За описването на местоположение на точка се използват градуси за географска ширина и дължина.
+Най-често срещаната географска координатна система е **WGS 84**.
 
 **Lines of latitude** run parallel to the equator and divide the earth
 into 180 equally spaced sections from North to South (or South to
@@ -269,72 +233,39 @@ are sixty minutes in a degree, and sixty seconds in a minute (3600
 seconds in a degree). So, at the equator, one second of latitude or
 longitude = 30.87624 meters.
 
-Projected coordinate reference systems
---------------------------------------
+### Правоъгълни координатни системи
 
-A two-dimensional coordinate reference system is commonly defined by two
-axes. At right angles to each other, they form a so called **XY-plane**
-(see `figure_projected_crs`{.interpreted-text role="numref"} on the left
-side). The horizontal axis is normally labelled **X**, and the vertical
-axis is normally labelled **Y**. In a three-dimensional coordinate
-reference system, another axis, normally labelled **Z**, is added. It is
-also at right angles to the **X** and **Y** axes. The **Z** axis
-provides the third dimension of space (see
-`figure_projected_crs`{.interpreted-text role="numref"} on the right
-side). Every point that is expressed in spherical coordinates can be
-expressed as an **X Y Z** coordinate.
+Правоъгълните координатни системи, наричани още проекционни или Декартови, са най-често използваните при анализи в ГИС.
 
-::: {#figure_projected_crs}
-![Two and three dimensional coordinate reference
-systems.](img/projected_crs.png){.align-center width="30em"}
-:::
+Още от училище знаем, че простраственото положение на точка в двуизмерна координатна система се определя от стойността на координатите по двете оси на координатната система - X и Y.
+Двете оси се пресичат под прав ъгъл и образуват равнина.
+Обикновено хоризонтална ос се означава с X, а вертикалната с Y.
+Колкото "по-надясно" е дадена точка, толкова повече се увеличава стойността по X, както и колкото "по-нагоре", толкова по-голяма е стойността за Y.
 
-A projected coordinate reference system in the southern hemisphere
-(south of the equator) normally has its origin on the equator at a
-specific **Longitude**. This means that the Y-values increase southwards
-and the X-values increase to the West. In the northern hemisphere (north
-of the equator) the origin is also the equator at a specific
-**Longitude**. However, now the Y-values increase northwards and the
-X-values increase to the East. In the following section, we describe a
-projected coordinate reference system, called Universal Transverse
-Mercator (UTM) often used for South Africa.
+Понякога в ГИС използваме и трета ос **Z**, която е взаимно перпендикулярна на X и Y и измерва височината на обектите.
+Всяка точка със сферични координати може да се бъде изразена с **X Y Z** координати.
 
-Universal Transverse Mercator (UTM) CRS in detail
-=================================================
+![Двуизмерни и триизмерни координатни системи.](img/projected_crs.png)
 
-The Universal Transverse Mercator (UTM) coordinate reference system has
-its origin on the **equator** at a specific **Longitude**. Now the
-Y-values increase southwards and the X-values increase to the West. The
-UTM CRS is a global map projection. This means, it is generally used all
-over the world. But as already described in the section \'accuracy of
-map projections\' above, the larger the area (for example South Africa)
-the more distortion of angular conformity, distance and area occur. To
-avoid too much distortion, the world is divided into **60 equal zones**
-that are all **6 degrees** wide in longitude from East to West. The
-**UTM zones** are numbered **1 to 60**, starting at the **antimeridian**
-(**zone 1** at 180 degrees West longitude) and progressing East back to
-the **antemeridian** (**zone 60** at 180 degrees East longitude) as
-shown in `figure_utm_zones`{.interpreted-text role="numref"}.
+Проекционна координатна система в северното или южното полукълбо обикновено използва точка на Екватора върху определен меридиан като **специфична дължина**. За северното полукълбо това означава, че стойностите по Y се увеличават на север и стойностите по X се увеличават на изток. В южното полукълбо е точно наобратно - стойностите по Y се увеличават на юг, а стойностите по X се увеличават на запад. Универсалната трансверзална меркаторова проекция (UTM) е де факто стандартната проекция използвана по света.
 
-::: {#figure_utm_zones}
-![The Universal Transverse Mercator zones. For South Africa UTM zones
-33S, 34S, 35S, and 36S are used.](img/utm_zones.png){.align-center
-width="30em"}
-:::
+#### Универсална трансверзална меркаторорова(UTM) координатна система
 
-As you can see in `figure_utm_zones`{.interpreted-text role="numref"}
-and `figure_utm_for_sa`{.interpreted-text role="numref"}, South Africa
-is covered by four **UTM zones** to minimize distortion. The **zones**
-are called **UTM 33S**, **UTM 34S**, **UTM 35S** and **UTM 36S**. The
-**S** after the zone means that the UTM zones are located **south of the
-equator**.
+Универсалната трансверзалта меркаторова (UTM) координатна рефертна система има за начало **екватора** на определена **географска дължина**.
+Стойностите по Y се увеличават на юг, а по X се увеличават на запад.
+UTM проекцията е глобална, т.е. се използва по целия свят.
+Но както вече обсъдихме в секцията *Точност на картните проекции*, при по-големи площи (например Европа), деформациите на ъглите, площите и разтоянията се увеличава.
+За да се избегнат подобни изкривявания, светът е разделен на **60 еднакви зони**, всяка от които по **6 градуса широки по географска дължина**. Всяка **UTM зона** си има номер от 1 до 60, започвайки от **антимеридиана** от запад на изток.
+По този начин **UTM зона 1** започва на 180 градуса западна дължина, а **UTM зона 60** приключва на 180 градуса западна дължина.
 
-::: {#figure_utm_for_sa}
-![UTM zones 33S, 34S, 35S, and 36S with their central longitudes
-(meridians) used to project South Africa with high accuracy. The red
-cross shows an Area of Interest
-(AOI).](img/utm_for_sa.png){.align-center width="30em"}
-:::
+![UTM зони. България попада UTM зони 34N и 35N.](img/utm_zones.png)
+
+Площи с правоъгълна форма, която е издължена по паралела, какъвто е случаят на България, могат да попаднат в повече от една зона. Така нашата територия попада в зоните 34N (западната част до р. Искър) и 35N (от р. Искър до Черно море).
+При работа върху цялата територия на страната често се зона 35N като достатъчно добро приближение.
+Буквата **N** указва, че става дума за северното полукълбо, а буквата **S** се използва за площите южно от екватора.
+
+
+![UTM zones 33S, 34S, 35S, and 36S with their central longitudes (meridians) used to project South Africa with high accuracy. The red cross shows an Area of Interest (AOI).](img/utm_for_sa.png)
 
 Say, for example, that we want to define a two-dimensional coordinate
 within the **Area of Interest (AOI)** marked with a red cross in
