@@ -73,6 +73,8 @@ nav:
       - wiki/qgis/kak_da_dobavim_novo_pole_na_vektoren_sloy.md
       - wiki/qgis/kak_da_iztriem_pole_ot_vektoren_sloy.md
       - wiki/qgis/kak_da_svarzhem_dannite_ot_dva_sloya.md
+    - 'Ресурси':
+      - ... | flat | wiki/resources/*.md
   - ... | gisintro/*.md
   - ... | bgd/*.md
   - ... | meta/*.md
