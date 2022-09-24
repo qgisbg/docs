@@ -75,6 +75,7 @@ nav:
       - wiki/qgis/kak_da_svarzhem_dannite_ot_dva_sloya.md
     - 'Ресурси':
       - ... | flat | wiki/resources/*.md
+    - wiki/precision_vs_accuracy.md
   - ... | gisintro/*.md
   - ... | bgd/*.md
   - ... | meta/*.md
