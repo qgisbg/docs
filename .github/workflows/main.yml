@@ -13,6 +13,9 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v1
 
+      - name: Upgrade pip
+        run: sudo pip install --upgrade pip
+
       - name: Deploy docs
         uses: mhausenblas/mkdocs-deploy-gh-pages@1.23
         env:
