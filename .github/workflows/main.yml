@@ -17,7 +17,7 @@ jobs:
         run: sudo /usr/local/bin/python -m pip install --upgrade pip
 
       - name: Deploy docs
-        uses: mhausenblas/mkdocs-deploy-gh-pages@1.23
+        uses: suricactus/mkdocs-deploy-gh-pages@master
         env:
           EXTRA_PACKAGES: build-base
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
