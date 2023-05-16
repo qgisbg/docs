@@ -13,9 +13,6 @@ jobs:
       - name: Checkout main
         uses: actions/checkout@v1
 
-      - name: Upgrade pip
-        run: sudo /usr/local/bin/python -m pip install --upgrade pip
-
       - name: Deploy docs
         uses: suricactus/mkdocs-deploy-gh-pages@master
         env:
