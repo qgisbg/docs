@@ -77,6 +77,6 @@ nav:
       - ... | flat | wiki/resources/*.md
     - wiki/precision_vs_accuracy.md
   - ... | gisintro/*.md
-  - ... | bgd/*.md
+  - ... | external/*.md
   - ... | meta/*.md
   - ... | maps/oops/*.md
