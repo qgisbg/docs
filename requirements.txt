@@ -28,7 +28,7 @@ Pygments==2.10.0
 pymdown-extensions==9.1
 pyparsing==3.0.6
 python-dateutil==2.8.2
-PyYAML==5.3.1
+PyYAML==5.4
 pyyaml-env-tag==0.1
 rcslice==1.1.0
 regex==2021.11.10
