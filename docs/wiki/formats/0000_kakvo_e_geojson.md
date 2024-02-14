@@ -9,7 +9,21 @@ tags: геоджейсон, geojson, geo.json, json, вектор, интерн�
 
 ## Примерен файл
 
-```
+```json
 {
+    "type": "FeatureCollection",
+    "features": [
+        {
+            "type": "Feature",
+            "geometry": {
+                "type":"Point",
+                "coordinates": [1, 1]
+            },
+            "properties": {
+                "id": 1,
+                "name": "one"
+            }
+        }
+    ]
 }
 ```
