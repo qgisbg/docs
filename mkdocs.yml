@@ -34,7 +34,9 @@ markdown_extensions:
   - markdown_captions
   - pymdownx.caret
   - pymdownx.details
-  - pymdownx.emoji
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
   - pymdownx.extra
   - pymdownx.escapeall
   - pymdownx.keys
