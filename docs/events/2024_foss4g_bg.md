@@ -47,7 +47,7 @@ tags: координатна система (КТ), картни проекци�
 
 Натиснете върху връзката, за да добавите календара към собствения си електронен календар:
 
-https://calendar.google.com/calendar/u/0?cid=NGVhNGIxMTg1OGU5YTI4ZTdjZmY2NDI2YTQ3ODRhY2YyNDFhOTZhN2NjZTFhZDUxMDRiMDZhMzc5YzE1M2QzM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t
+[Натисни тук, за да добавиш календара](https://calendar.google.com/calendar/u/0?cid=NGVhNGIxMTg1OGU5YTI4ZTdjZmY2NDI2YTQ3ODRhY2YyNDFhOTZhN2NjZTFhZDUxMDRiMDZhMzc5YzE1M2QzM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t){ .md-button .md-button--primary }
 
 
 ## Място
