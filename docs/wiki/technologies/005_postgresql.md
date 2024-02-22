@@ -5,6 +5,8 @@ tags: technology, PostgreSQL
 
 # PostgreSQL
 
+![PostgreSQL лого](./img/pg_logo.png)
+
 > Най-напредничавата релационна база данни с отворен код в света!
 
 PostgreSQL (постгрескюел), postgres (постгрес), или просто pg (пиджи) e сред най-популярните SQL бази данни.
