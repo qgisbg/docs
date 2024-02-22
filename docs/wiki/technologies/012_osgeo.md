@@ -1,6 +1,6 @@
 ---
-title: OSGEO
-tags: technology, OSGEO
+title: OSGeo
+tags: technology, osgeo
 ---
 
-# OSGEO
+# OSGeo
