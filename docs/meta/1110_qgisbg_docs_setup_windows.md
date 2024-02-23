@@ -8,7 +8,7 @@ tags: miniconda, conda, vscode, qgis.bg, windows, install, setup, virtual enviro
     1. Инсталираме **miniconda**. Как да инсталираме **miniconda** можем да открием [тук](../1000_install_miniconda_windows).
     1. Инсталираме **VS Code**. Как да инсталираме **VS Code** можем да открием [тук](../1000_install_vscode_windows).
         1. Настройваме **VS Code** да работи с нашия GitHub профил.
-        1. Настройваме конзолата по подразбиране във **VS Code** да бъде **Git Bash**. С ++ctrl+shift+p++ отваряме списъкът с команди и търсим и избираме `Terminal: Select Default Shell`. Избираме `Git Bash` от списъка.
+        1. Настройваме конзолата по подразбиране във **VS Code** да бъде **Git Bash**. С ++ctrl+shift+p++ отваряме списъкът с команди и търсим и избираме `Terminal: Select Default Profile`. Избираме `Git Bash` от списъка.
         1. Настройваме `conda` да работи в **Git Bash** терминал. 
             1. Първо отваряме **Git Bash** терминала с ++ctrl+"\`"++ и изпълняваме командата `conda init bash`. Получаваме множество файлове с пълните им пътища, пред които пише `no change` или `modified`. Резултата от командата ще се различава на различните инсталации.
 
