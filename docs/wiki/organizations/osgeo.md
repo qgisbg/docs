@@ -1,6 +1,6 @@
 ---
 title: OSGeo
-tags: technology, osgeo
+tags: organization, osgeo
 ---
 
 # OSGeo

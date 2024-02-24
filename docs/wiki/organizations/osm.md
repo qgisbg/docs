@@ -1,6 +1,6 @@
 ---
 title: GeoForAll
-tags: organization, GeoForAll, osgeo
+tags: organization, GeoForAll
 ---
 
 # GeoForAll
