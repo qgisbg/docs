@@ -1,6 +1,8 @@
 ---
-title: GeoForAll
-tags: organization, GeoForAll
+title: OpenStreetMap (OSM)
+tags: organization, osm, OpenStreetMap
 ---
 
-# GeoForAll
+# OpenStreetMap (OSM)
+
+![](./img/osm_logo.svg)
