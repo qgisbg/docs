@@ -52,6 +52,6 @@ MapServer се използва от публични, частни, изсле�
 
 ## Външни връзки
 
-- Страница - https://mapserver.org
-- Документация - https://mapserver.org/documentation.html
-- Изходен код - https://github.com/MapServer/MapServer
+- Страница: https://mapserver.org
+- Документация: https://mapserver.org/documentation.html
+- Изходен код: https://github.com/MapServer/MapServer
