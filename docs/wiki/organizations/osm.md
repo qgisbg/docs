@@ -5,7 +5,7 @@ tags: organization, osm, OpenStreetMap
 
 # OpenStreetMap (OSM)
 
-![OpenStreetMap лого](./img/osm_logo.svg)
+![OpenStreetMap лого](./img/osm_logo.png)
 
 OpenStreetMap или OSM (оупънстрийт мап или о-ес-ем) е съвместен проект, който има за цел да създаде безплатна, редактируема карта на света.
 Той стартира през 2004 г. и оттогава се е превърнал в една от най-големите и всеобхватни платформи за картографиране в световен мащаб.
