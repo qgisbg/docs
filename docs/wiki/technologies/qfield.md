@@ -73,6 +73,6 @@ QField може да се инсталира директно от [Google Play 
 
 ## Външни връзки
 
-- Официална страница - https://qfield.org
-- Документация - https://docs.qfield.org
-- Изходен код - https://github.com/opengisch/QField
+- Официална страница: https://qfield.org
+- Документация: https://docs.qfield.org
+- Изходен код: https://github.com/opengisch/QField

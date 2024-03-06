@@ -53,8 +53,8 @@ Geonode е проектиран да бъде гъвкава платформа,
 
 ## Външни връзки
 
-- Основна страница на проекта: https://geonode.org
-- Официално хранилище: https://github.com/GeoNode/geonode
+- Страница: https://geonode.org
+- Документация: https://docs.geonode.org/en/master/
 - Официално демо приложение: http://master.demo.geonode.org
-- GeoNode Wiki страница: https://github.com/GeoNode/geonode/wiki
-- Възможност за подаване/проследяване на проблеми/бъгове/нови изисквания: https://github.com/GeoNode/geonode-project/issues
+- GeoNode уики: https://github.com/GeoNode/geonode/wiki
+- Изходен код: https://github.com/GeoNode/geonode
