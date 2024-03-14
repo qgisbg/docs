@@ -1,0 +1,2955 @@
+
+<!doctype html>
+<html lang="bg" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../02_introducing_gis/">
+      
+      
+        <link rel="next" href="../04_attribute_data/">
+      
+      
+      <link rel="icon" href="../../assets/qgis3_notext.svg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+    
+    
+      
+        <title>03. Векторни данни - QGIS.бг докс</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/consent.css">
+    
+      <link rel="stylesheet" href="../../assets/qgisbg.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Към съдържанието
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Горен колонтитул">
+    <a href="../.." title="QGIS.бг докс" class="md-header__button md-logo" aria-label="QGIS.бг докс" data-md-component="logo">
+      
+  <img src="../../assets/qgis3_text_bg.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QGIS.бг докс
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              03. Векторни данни
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Търси" placeholder="Търси" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Търси">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Сподели" aria-label="Сподели" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Изчисти" aria-label="Изчисти" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализирано търсене
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/qgisbg/docs" title="Към хранилището" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Табове" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Начало
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../wiki/about/" class="md-tabs__link">
+          
+  
+  Уики
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01_preamble/" class="md-tabs__link">
+          
+  
+  Увод в ГИС
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../external/1000_awesome/" class="md-tabs__link">
+          
+  
+  Външни препратки
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../meta/1000_broken_tutorial/" class="md-tabs__link">
+          
+  
+  QGIS.бг мета
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../maps/oops/001_po_sveta_i_u_nas/" class="md-tabs__link">
+          
+  
+  Карти
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../events/2024_foss4g_bg/" class="md-tabs__link">
+        
+  
+    
+  
+  Отворена ГИС конференция 2024
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QGIS.бг докс" class="md-nav__button md-logo" aria-label="QGIS.бг докс" data-md-component="logo">
+      
+  <img src="../../assets/qgis3_text_bg.svg" alt="logo">
+
+    </a>
+    QGIS.бг докс
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/qgisbg/docs" title="Към хранилището" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Начало
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Уики
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Уики
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    За уикито
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Формати
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Формати
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_csv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е CSV (си-ес-ви)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_geojson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е Geojson (геоджейсон)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_shapefile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е shapefile (шейпфайл)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_topojson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е topojson (топоджейсон)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_koi_vektoren_format_da_izbera/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Кой векторен формат да избера за моите данни?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е Markdown (маркдаун)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    QGIS рецепти
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            QGIS рецепти
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_instalirame_qgis_v_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме QGIS в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_instalirame_qgis_v_ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталирам QGIS в Debian/Ubuntu?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/otkude_da_namerim_geografski_danni_za_bulgaria/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Откъде да намеря географски данни за България?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_izpolzvam_danni_ot_osm_s_quickosm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да използвам данни от OpenStreetMap с QuickOSM?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_filtrirame_i_pokazhem_samo_chast_ot_obektite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да филтрираме и покажем само част от обектите в слоя?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_smenim_proektsiyata_na_vektoren_sloy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да сменим проекцията на векторен слой?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_dobavim_novo_pole_na_vektoren_sloy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да добавим ново поле на векторен слой?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_iztriem_pole_ot_vektoren_sloy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да изтрием поле от векторен слой?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_svarzhem_dannite_ot_dva_sloya/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да свържем (JOIN) данните от два слоя?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ресурси
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Ресурси
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/resources/yt_gis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ютуб канали на ГИС тематика
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Организации
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Организации
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/foss4g/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FOSS4G
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/geochicas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GeoChicas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/geoforall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Geo for All
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/hot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Humanitarian OpenStreetMap Team
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/ogc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Geospatial Consortium (OGC)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/osgeo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OSGeo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/osm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenStreetMap (OSM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tехнологии
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tехнологии
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/gdal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GDAL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/geonode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GeoNode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/geoserver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GeoServer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/grass/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GRASS GIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/leafletjs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Leaflet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/mapserver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MapServer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/openlayers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenLayers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/pgrouting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PgRouting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/postgis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/qfield/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QField
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/qfieldcloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QFieldCloud
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/qgis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/precision_vs_accuracy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Каква е разликата между прецизност (precision) и точност (accuracy)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Увод в ГИС
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Увод в ГИС
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_preamble/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01. Добре дошли
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_introducing_gis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02. Въведение в ГИС
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    03. Векторни данни
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    03. Векторни данни
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Съдържание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Съдържание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Преглед
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Още за точковите обекти
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Още за линейните обекти
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Още за полигонните обекти
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Векторни слоеве
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Редакция на векторни данни
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Симвология
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какво можем да постигнем с векторни данни в ГИС
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Мащаб и векторни данни
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Често срещани проблеми при векторните данни
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какво научихме?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Практика!
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_attribute_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04. Атрибутивна таблица
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_data_capture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05. Събиране на данни
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_raster_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06. Растери
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_topology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07. Топология
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08_crs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08. Проекции и координатни системи
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_map_production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09. Създаване на карти
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_buffers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10.Анализ с буфери
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_interpolation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Анализ с интерполация
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_raster_calculator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Анализ на растери
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../98_authors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. За авторите
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99_licence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Лиценз
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Външни препратки
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Външни препратки
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external/1000_awesome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ГИС? Яко!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external/1000_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ГИС данни
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external/1000_terminology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ГИС термини
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    QGIS.бг мета
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            QGIS.бг мета
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_broken_tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво да направим, ако инструкциите не работят?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_install_git_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме git в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_install_miniconda_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме Miniconda в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_install_vscode_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме Visual Studio Code в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_versioning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво означават версиите на програмите?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_git_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е git?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_github_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да сътрудничим в GitHub?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_github_modifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да сътрудничим по проект в GitHub изцяло през браузъра?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_qgisbg_docs_setup_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да настроим среда за работа по QGIS.бг докс в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1120_qgisbg_docs_local_dev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да работим по QGIS.бг докс локално?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1120_qgisbg_docs_markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво поддържа Markdown в QGIS.бг докс?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Карти
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Карти
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Опа
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Опа
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/001_po_sveta_i_u_nas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    По света и у нас
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/002_aurelian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Аврелиан - възстановителят на света
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/003_wall_of_shame/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Стена на срама
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/004_kitaiski_kanal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Китайският план за канал през Балканите
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../events/2024_foss4g_bg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Отворена ГИС конференция 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Съдържание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Съдържание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Преглед
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Още за точковите обекти
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Още за линейните обекти
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Още за полигонните обекти
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Векторни слоеве
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Редакция на векторни данни
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Симвология
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какво можем да постигнем с векторни данни в ГИС
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Мащаб и векторни данни
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Често срещани проблеми при векторните данни
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какво научихме?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Практика!
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="_1">Векторни данни<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">Преглед<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p><strong>Векрните данни</strong> в ГИС позволяват изобразяването на <strong>обекти</strong> от заобикалящата ни среда. <strong>Обект</strong> може да бъде всичко около нас. Представете си, че сте на някое високо място. Като се огледате наоколо, виждате дървета, реки, пътища, поля, сгради, селища и т.н. Всяко от тези неща би било &ldquo;обект&rdquo;, когато го представяме в ГИС среда.</p>
+<p>За да разграничаваме обектите един от друг, ние използваме различни техни <strong>атрибути</strong> - имена (река Янтра, река Искър), вид (дърво от вид топола, от вид дъб), количество (сграда с 20 живущи, с 5 живущи) и др. Всеки отделен обект може да има един или повече атрибути, които са допълнителна информация, най-често като текст и числа, <strong>описваща</strong> обекта.</p>
+<p>
+<figure><img src="../img/landscape.jpg" /><figcaption>Когато се огледаме наоколо, виждаме основните обекти - пътища, река, къщи, дървета.</figcaption>
+</figure>
+</p>
+<p>Формата на векторния обект се представя чрез неговата <strong>геометрия</strong>. Векторната геометрия се състои от последователно свързани точки, наречени <strong>вертекси</strong>. Вертексът описва позицията на дадена точка, като съхранява координатите по осите <strong>X</strong>, <strong>Y</strong> и незадължително <strong>Z</strong>. Възможно е да се запишат и други данни за всеки вертекс, но тази функционалност се ползва далеч по-рядко.</p>
+<p>Когато геометрията на обекта съдържа един-единствен вертекс, то геометрия се нарича <strong>точка</strong>. Когато геометрията се състои от два или повече вертекса, като първият и последният не съвпадат, то става дума за <strong>линия</strong>. Когато геометрията се състои от четири или повече вертекса, при които първият и последният съвпадат, полученият затворен многоъгълник се нарича <strong>полигон</strong>.</p>
+<p>
+<figure><img src="../img/point_features.png" /><figcaption>Точката се описва от X, Y и незадължителна Z координата. Атрибутите на точковия обект съхраняват допълнителна информация за точката, например дали е палмово дърво, уличен стълб, място на светкавица или др.</figcaption>
+</figure>
+</p>
+<p>
+<figure><img src="../img/polyline_features.png" /><figcaption>Линията е поредица от свързани вертекси. Всеки вертекс има X, Y
+и незадължителни Z координата. Атрибутите съхраняват допълнителна информация дали линията е река, път, маршрут на колело и др.</figcaption>
+</figure>
+</p>
+<p>
+<figure><img src="../img/polygon_features.png" /><figcaption>И полигонът, и линията са поредица от вертекси, но при полигона първият и последният вертекс винаги съвпадат</figcaption>
+</figure>
+</p>
+<p>Ако погледнем отново панорамната снимка от по-рано и въоръжени със знание за начина, по който съхраняваме обекти в ГИС, лесно можем да си представим различните данни в компютъра.</p>
+<p>
+<figure><img src="../img/landscape_geometry.jpg" /><figcaption>Как бихме представили обектите от пейзажа в ГИС? Реките (в синьо) и пътищата (в зелено) могат да бъдат представени като линии, дърветата като точки (в червено), а къщите като полигони (в бяло).</figcaption>
+</figure>
+</p>
+<h2 id="_3">Още за точковите обекти<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Трябва да сме наясно, че изборът на точки за представяне на обекти е приближение на реалността и е изцяло субективно решение на автора на данните. Основните причини да предпочетем например точки пред полигони са мащабът на картата, удобството за работа и видът на обектите. Например на дребномащабна карта (напр. карта на България) селищата ще бъдат представени най-вероятно като точки. Когато обаче представяме в по-едър мащаб (напр. карта на община или град) обхвата на селищата, те най-вероятно ще се изобразят като полигони. Ако ние ръчно трябва да изчертаем обектите, може би ще предпочетем точки, където е възможно, защото изисква в пъти по-малко усилия, отколкото полигоните (един вертекс срещу четири и повече). А и не на последно място, ако показваме местоположението на улични стълбове, просто няма смисъл да ги представяме като полигони.</p>
+<p>Както вече коментирахме, точковите обекти имат X, Y и евентуално Z стойност.  Стойностите за X и Y ще зависят от <strong>координатната система</strong> (КС). Ще разгледаме координатните системи много по-подробно в следващите глави, а засега нека просто приемем, че записаните стойности запазват с точност местоположението на дадената точка. Най-разпространеният вариант за това е използването на <strong>географска дължина и ширина</strong>.</p>
+<p>Линиите, които описват географската дължина, се наричат <strong>меридиани</strong> и преминават по повърхността на Земята от единия до другия полюс. Един от тези меридиани се нарича за <strong>главен меридиан</strong> и всички точки, които лежат на него имат географска дължина 0 градуса, тези на изток - положителна стойност до 180 градуса, а тези на запад - отрицателна стойност до -180 градуса. Линиите, които описват географската ширина, се наричат <strong>паралели</strong> и обикалят земното кълбо перпендикулярно на меридианите. Главният паралел се нарича <strong>екватор</strong> и всички точки на екватора имат географска ширина 0 градуса, тези на север - положителна стойност до 90 градуса на <strong>Северния полюс</strong>, а тези на юг - отрицателна до -90 градуса на <strong>Южния полюс</strong>.</p>
+<p>С това бързо и непълно въведение в географските координатни системи можем да се досетим, че при наличие на стойности за географската дължина (X) и ширина (Y), е възможно да определим с абсолютна точност позицията на всяка една точка на земната повърхност. Така само с две числа може да отбележим къде се намира дадено дърво, уличен стълб или самите ние.</p>
+<p>Въпреки набиращото популярност движение, Земята не е плоска и в някои ситуации може да съхраним и стойността на измерената надморска височина (Z).</p>
+<h2 id="_4">Още за линейните обекти<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>Ако точката се състои от само един вертекс, то <strong>линията има два или повече вертекса</strong>. Линията е непрекъснатата следа, оставена при последователното свързване на вертексите. Когато два вертекса се свържат, се получава <strong>сегмент</strong>, когато много сегменти се, свържат се получава <strong>линия</strong>.</p>
+<p>Линиите се използват за съхранение на геометрията на <strong>линейни обекти</strong>, а такива са реки, пътища, следи от преминаване, граници, хоризонтали на релефа и т. н. Понякога следваме специални правила освен дефиницията за линия. Например ако имаме карта на хоризонталите на релефа, то хоризонталите може да се допират (напр. много стръмен склон), но никога не могат да се пресичат. Подобно при карта на пътищата всеки пътен участък трябва да започне и свърши на кръстовище. В някои ГИС програми тези правила могат да се зададат като допълнително ограничение и програмата сама ще съблюдава за спазването им.</p>
+<p>Ако линията прави завой, но има прекалено големи разстояния между съседните вертекси, тя ще изглежда много <strong>ъгловата</strong> при по-едри мащаби. Затова е важно при създаването на нов линеен обект да слагаме достатъчно вертекси при завоите според нуждите на мащаба.</p>
+<p>
+<figure><img src="../img/scale_difference.jpg" /><figcaption>Линиите при дребен мащаб (1:20 000 вляво) изглеждат плавни и извити. При приближаване в едър мащаб обаче (1:500 вдясно) линиите могат да приемат много ъгловат вид.</figcaption>
+</figure>
+</p>
+<!-- TODO това малко ни в клин, ни в ръкав тук, трябва да се измести сякаш -->
+<p>Атрибутите на линейните обекти описват свойствата му. Така за слой с пътища може да имаме атрибут за пътната настилка - павета или асфалт, или пък за броя ленти в посока, или пък дали е еднопосочка и т.н. Благодарение на тези атрибути може да визуализираме слоя с подхощят цвят и дебелина на линията.</p>
+<h2 id="_5">Още за полигонните обекти<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Полигоните са <strong>затворени площи</strong> като язовири, острови, общински граници и др. Както линиите, така и полигоните се създават от поредица от вертекси, които са свързани в непрекъсната линия. Разликата е там, че първият и последният вертекс при полигоните са на едно и също място, за да може фигурата да се затвори. Често полигоните имат <strong>споделена геометрия</strong> - границата със съседния полигон съвпада. Например при два полигона за държавите Румъния и България и двата полигона ще имат поредица от вертекси, които напълно ще съвпадат по протежение на общата държавна граница. В следващите глави ще разгледаме този случай в подробности.</p>
+<p>Също като точките и линиите, така и полигонните обекти имат <strong>атрибути</strong>. Атрибутите описват всеки полигон, например името на държавата, дълбочината на язовира, вида на гората и др.</p>
+<h2 id="_6">Векторни слоеве<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>След като си обяснихме какво са векторните данни, нека разгледаме тяхното приложение в ГИС. Повечето ГИС приложения групират векторните обекти в <strong>слоеве</strong>. Всички обекти в един слой имат една и съща геометрия (т.е. винаги са или само точки, или само линии, или само полигони) и имат еднакъв брой и имена на атрибутите (напр. всички обекти имат атрибута вид на дървото, ако става дума за слой с дървета. Ако е събрана информация за дърветата в града (точкови обекти), всички те ще се заредят като един слой в ГИС. Това е удобно, защото може да настроим визуализацията на всички обекти едновременно, да ги показваме и скриваме и общо взето да работим с тях като една логическа група.</p>
+<h2 id="_7">Редакция на векторни данни<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
+<p>ГИС програмите позволяват създаването на нови и редакцията на съществуващи обекти и техните геометрии. Този процес се нарича <strong>цифроване</strong>, който ще разгледаме в подробности в следващите глави. Ако слоят за редакция съдържа полигони, ГИС програмата ще ни позволи да създаваме само полигони за този слой, независимо дали става дума за нови обекти или редакция на вече съществуващи. Така в случай със слой от линии, ГИС програмата няма да ни позволи някоя линия да има само един вертекс, предвид че условието е да са поне два или нагоре.</p>
+<p>Създаването и редакцията на векторни данни е сред най-важните функционалности на ГИС, защото позволява създаването на собствен набор от данни. Ако например изследваме замърсяването на водни потоци, най-вероятно ще се наложи да отбележим с точки всички отходни канали, които се вливат в реката. Може да се наложи да изчертаем и реката при липса на този слой. Ако вземаме проби по течението на реката, може да добавим и такъв точков слой с всички места, на които сме взели проба, а като атрибути - какви показатели сме отчели в пробата (стойности на киселинност, наличие на ценни метали и прочие).</p>
+<p>Създаването на собствени данни е полезно, но е непосилна задача, ако за всеки необходим слой го правим сами. За щастие има огромни масиви от данни, които са свободнодостъпни за ползване, например данните от <a href="//osm.org">OpenStreetMap</a>. В повечето държави по света има специални институции, които се грижат за свободното споделяне на географска информация с обществото. За съжаление в България тази информация усърдно се крие от институциите и публично достъпните официални данни са изключително малко.</p>
+<h2 id="_8">Симвология<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
+<p>Когато добавим нов векторен слой в ГИС програма, обектите от слоя ще бъдат визуализирани по някакъв начин - със случайни цветове и прости символи. Едно от мощните преимущества на ГИС е възможността да променяме начина на изобразяване много лесно. За целта в ГИС имаме контрол над цветовете, символите, сенките, етикетите и като цяло почти всичко, което ще ни помогне да изобразим един обект, и това се нарича <strong>симвология</strong>. Например ако изобразяваме реки или езера, ще използваме син цвят, ако изобразяваме дървета - зелен цвят и символ с дърво, вместо просто кръгчета. По този начин нашата карта е много по-четима дори и без да се сверява в легендата.</p>
+<p>
+<figure><img src="../img/symbology_panel.png" /><figcaption>В ГИС програмите има специален панел, в който се контролира външният вид на обектите.</figcaption>
+</figure>
+</p>
+<p>
+<figure><img src="../img/symbology_default.png" /><figcaption>Когато отворим векторен слой за пръв път, ГИС програмата ще зададе някакъв общ външен вид, за да обозначи обектите на картата.</figcaption>
+</figure>
+</p>
+<p>
+<figure><img src="../img/symbology_trees.png" /><figcaption>След като направим необходимите настройки, е много по-лесно да разпознаем, че точките всъщност представляват дървета.</figcaption>
+</figure>
+</p>
+<p>Символогията е изключително мощна функционалност, с която картите успяват да покажат своето предназначение и смисъл по достъпен начин. В следващата глава ще разгледаме в подробности как символогията може да спомогне за по-лесното осмисляне на векторните данни.</p>
+<h2 id="_9">Какво можем да постигнем с векторни данни в ГИС<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>Най-простото приложение на векторните данни в ГИС е същото, както и върху топографската карта - визуализация на местоположението, размера и вида на обектите. Истинската сила на ГИС е когато започнем да отговаряме на въпроси от заобикалящия ни свят:</p>
+<ul>
+<li>Кои къщи се намират на не повече от 100 метра от река и са в риск от наводнение?</li>
+<li>Къде да разположим новата болница, за да бъде бързо и лесно достъпна до най-голям брой хора?</li>
+<li>Кои граждани живеят в определен район?</li>
+<li>Къде са огнищата на сезонния грип?</li>
+<li>Кои са условията, които карат пчелите от пчелин А да дават повече мед от пчелин Б?</li>
+</ul>
+<p>Отговорите на тези и подобни въпроси се получават след автоматизирана обработка на векторни данни в ГИС програми. Този процес се нарича <strong>пространствен анализ</strong>. В следващите глави ще се запознаем по-подробно с някои видове пространствен анализ в ГИС.</p>
+<h2 id="_10">Мащаб и векторни данни<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
+<p>Mного проблеми могат да изникнат от несъобразен <strong>мащаб</strong>. Например при картиране на обхвата на един резерват в дребен мащаб границите са обобщени и не всяка чупка на геометрията е отразена във векторния слой. При по-едромащабна карта, да кажем 1:10 000, от изключителна важност ще бъде кои точно имоти попадат в обхвата на резервата и кои не. Затова трябва предварително да имаме представа в какъв мащаб ще използваме векторните данни, за да заложим колко подробни или <strong>генерализирани</strong> (обобщени) да бъдат те.</p>
+<p>
+<figure><img src="../img/iskar_simplified.png" /><figcaption>Векторни данни (червено), които са създадени в дребен мащаб.</figcaption>
+</figure>
+<figure><img src="../img/iskar.png" /><figcaption>Векторни данни (зелено), които са създадени в едър мащаб.</figcaption>
+</figure>
+</p>
+<h2 id="_11">Често срещани проблеми при векторните данни<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
+<p>Векторните данни страдат от някои добре известни проблеми. Вече коментирахме проблемите при цифроване на данни в различни мащаби. Векторните данни като цяло са трудоемки за събиране и поддръжка. Неточни данни могат да са в резултат на неточни или недобре настроени инструменти (напр. GPS), невнимание на оператора, времеви или финансови ограничения на проекта и т. н.</p>
+<p>Качеството на векторните данни лесно може да се провери с бърз преглед в ГИС. Например <strong>разминаванията между полигони</strong> са често срещан проблем, когато два полигона не споделят перфектно общата си граница.</p>
+<p>
+<figure><img src="../img/polygon_hole.jpg" /><figcaption>Разминаванията се случват, когато вертексите на два полигона не съвпадат напълно по общата им граница. При разглеждане в дребен мащаб този проблем може да остане незабелязан (вляво), но при едър мащаб разминаването е очевидно с ясно видима празна ивица между полигоните.</figcaption>
+</figure>
+</p>
+<p><strong>Недостигането</strong> се получава, когато линеен обект (напр. река) не достигне до логическата си крайна точка (напр. устието за река).
+ <strong>Задминаването</strong> се случва, когато линеен обект (напр. път) не достига до друг линеен обект в точката на кръстовището.</p>
+<p>
+<figure><img src="../img/vector_topology.png" /><figcaption>Недостигането (1) се получава, когато цифрованата линия е по-къса от необходимото и не достига линията, до която трябва да се допре. Задминаването (2) пък се получава, когато цифрованата линия е по-дълга от необходимото и пресича линията, до която трябва да се допре. </figcaption>
+</figure>
+</p>
+<p>Много е важно да извършим цифроването внимателно и с точност, за да не допускаме такива грешки. Те ще развалят данните ни и съответно възможността да извършим качествен пространствен анализ. В специално отделената глава на тема <strong>топология</strong> ще разгледаме тези и други грешки в по-големи подробности.</p>
+<h2 id="_12">Какво научихме?<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Векторните данни</strong> се използват да пресъздадат <strong>обекти</strong> от реалния живот в ГИС.</li>
+<li>Векторните обекти имат <strong>геометрия</strong>, която е или <strong>точка</strong>, или <strong>линия</strong>, или <strong>полигон</strong>.</li>
+<li>Всеки векторен обект се описва чрез своите <strong>атрибути</strong>.</li>
+<li>Геометрията се състои от <strong>вертекси</strong>.</li>
+<li>За всеки вертекс записваме неговите X и Y координати. По желание може да се добави и Z стойност.</li>
+<li>Точките се състоят от <strong>един-единствен вертекс</strong> (Х, Y и при желание Z).</li>
+<li>Линиите се състоят от <strong>два или повече вертекса</strong>, свързани в определен ред.</li>
+<li>Полигоните се състоят от поне <strong>четири вертекса</strong>, свързани в определен ред, като първият и последният винаги съвпадат.</li>
+<li>Изборът каква геометрия да предпочетем за данните зависи от мащаба, удобството и вида на описваните обекти.</li>
+<li>Повечето ГИС програми и формати не позволяват повече от един вид геометрия за даден слой.</li>
+<li><strong>Цифроването</strong> е процесът на изчертаване на геометрията на нови обекти в ГИС.</li>
+<li>Векторните данни могат да съдържат грешки като <strong>недостигане</strong>, <strong>задминаване</strong> и <strong>разминаване</strong>, за които трябва да внимаваме.</li>
+<li>Векторите се използват за <strong>пространствен анализ</strong> в ГИС програмите, например за откриване на най-близката болница до дадено училище.</li>
+<li><strong>Генерализацията</strong> е метод в ГИС за намаляване на подробността на данните.</li>
+</ul>
+<p><div class="mermaid">graph TD
+  subgraph Обект
+    subgraph Точка
+    point_geom[Геометрия]
+    point_attr[Атрибути]
+    end
+    subgraph Линия
+    line_geom[Геометрия]
+    line_gattr[Атрибути]
+    end
+    subgraph Полигон
+    poly_geom[Геометрия]
+    poly_gattr[Атрибути]
+    end
+  end
+  point_geom--се състои от точно един--&gt;vertex
+  line_geom--се състои от поне два вертекса--&gt;vertex
+  poly_geom--се състои от поне четири вертекса,&lt;br&gt;като първият и последният винаги съвпадат--&gt;vertex
+  vertex[Вертекс]
+  x[x дължина]
+  y[y ширина]
+  z[z незадължителна надморска височина]
+  vertex--&gt;x
+  vertex--&gt;y
+  vertex--&gt;z</div>
+<em>Диаграмата показва как векторните данни се използват в ГИС среда.</em></p>
+<h2 id="_13">Практика!<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<p>Ето някои идеи за упражнения:</p>
+<ul>
+<li>Опитайте се да откриете различни примери за векторни данни на топографски картен лист.</li>
+</ul>
+<p>
+<figure><img src="../img/topomap.png" /><figcaption>Потърсете векторни обекти на картата, описани с точки, линии или полигони.</figcaption>
+</figure>
+</p>
+<ul>
+<li>Помислете как районът около сградата, в която се намирате може да бъде описан като векторни обекти. Изберете няколко категории обекти и създайте таблица за всяка една от тях, където всеки ред е отделен обект, а всяка колона - някой от неговите атрибути. Определете вида на геометрията за всяка категория обекти, както и най-важните атрибути, които ги описват.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Обект от истинския свят</th>
+<th>Подходяща геометрия</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Пейки в парка</td>
+<td></td>
+</tr>
+<tr>
+<td>Пешеходни пътеки</td>
+<td></td>
+</tr>
+<tr>
+<td>Площади в града</td>
+<td></td>
+</tr>
+<tr>
+<td>Пътека в гората</td>
+<td></td>
+</tr>
+<tr>
+<td>Следа на охльов</td>
+<td></td>
+</tr>
+<tr>
+<td>Футбулно игрище</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "content.tabs.link", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u041a\u043e\u043f\u0438\u0440\u0430\u043d\u043e", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u0430\u0439", "search.result.more.one": "\u043e\u0449\u0435 1 \u043d\u0430 \u0442\u0430\u0437\u0438 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430", "search.result.more.other": "\u043e\u0449\u0435 # \u043d\u0430 \u0442\u0430\u0437\u0438 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430", "search.result.none": "\u041d\u044f\u043c\u0430 \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0438", "search.result.one": "1 \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442", "search.result.other": "# \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0430", "search.result.placeholder": "\u0417\u0430\u043f\u043e\u0447\u043d\u0435\u0442\u0435 \u0434\u0430 \u043f\u0438\u0448\u0435\u0442\u0435, \u0437\u0430 \u0434\u0430 \u0442\u044a\u0440\u0441\u0438\u0442\u0435", "search.result.term.missing": "\u041b\u0438\u043f\u0441\u0432\u0430\u0449\u043e", "select.version": "\u0418\u0437\u0431\u0435\u0440\u0438 \u0432\u0435\u0440\u0441\u0438\u044f"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/cookies-eu-banner@2.0.1/dist/cookies-eu-banner.js"></script>
+      
+        <script src="../../assets/consent.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,3283 @@
+
+<!doctype html>
+<html lang="bg" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../../maps/oops/004_kitaiski_kanal/">
+      
+      
+      
+      <link rel="icon" href="../../assets/qgis3_notext.svg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+    
+    
+      
+        <title>Отворена ГИС конференция 2024 - QGIS.бг докс</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/consent.css">
+    
+      <link rel="stylesheet" href="../../assets/qgisbg.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#2024" class="md-skip">
+          Към съдържанието
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Горен колонтитул">
+    <a href="../.." title="QGIS.бг докс" class="md-header__button md-logo" aria-label="QGIS.бг докс" data-md-component="logo">
+      
+  <img src="../../assets/qgis3_text_bg.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QGIS.бг докс
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Отворена ГИС конференция 2024
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Търси" placeholder="Търси" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Търси">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Сподели" aria-label="Сподели" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Изчисти" aria-label="Изчисти" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализирано търсене
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/qgisbg/docs" title="Към хранилището" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Табове" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Начало
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../wiki/about/" class="md-tabs__link">
+          
+  
+  Уики
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../gisintro/01_preamble/" class="md-tabs__link">
+          
+  
+  Увод в ГИС
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../external/1000_awesome/" class="md-tabs__link">
+          
+  
+  Външни препратки
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../meta/1000_broken_tutorial/" class="md-tabs__link">
+          
+  
+  QGIS.бг мета
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../maps/oops/001_po_sveta_i_u_nas/" class="md-tabs__link">
+          
+  
+  Карти
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+    
+  
+  Отворена ГИС конференция 2024
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QGIS.бг докс" class="md-nav__button md-logo" aria-label="QGIS.бг докс" data-md-component="logo">
+      
+  <img src="../../assets/qgis3_text_bg.svg" alt="logo">
+
+    </a>
+    QGIS.бг докс
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/qgisbg/docs" title="Към хранилището" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Начало
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Уики
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Уики
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    За уикито
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Формати
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Формати
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_csv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е CSV (си-ес-ви)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_geojson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е Geojson (геоджейсон)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_shapefile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е shapefile (шейпфайл)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_topojson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е topojson (топоджейсон)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_koi_vektoren_format_da_izbera/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Кой векторен формат да избера за моите данни?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е Markdown (маркдаун)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    QGIS рецепти
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            QGIS рецепти
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_instalirame_qgis_v_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме QGIS в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_instalirame_qgis_v_ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталирам QGIS в Debian/Ubuntu?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/otkude_da_namerim_geografski_danni_za_bulgaria/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Откъде да намеря географски данни за България?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_izpolzvam_danni_ot_osm_s_quickosm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да използвам данни от OpenStreetMap с QuickOSM?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_filtrirame_i_pokazhem_samo_chast_ot_obektite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да филтрираме и покажем само част от обектите в слоя?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_smenim_proektsiyata_na_vektoren_sloy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да сменим проекцията на векторен слой?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_dobavim_novo_pole_na_vektoren_sloy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да добавим ново поле на векторен слой?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_iztriem_pole_ot_vektoren_sloy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да изтрием поле от векторен слой?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_svarzhem_dannite_ot_dva_sloya/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да свържем (JOIN) данните от два слоя?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ресурси
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Ресурси
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/resources/yt_gis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ютуб канали на ГИС тематика
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Организации
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Организации
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/foss4g/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FOSS4G
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/geochicas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GeoChicas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/geoforall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Geo for All
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/hot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Humanitarian OpenStreetMap Team
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/ogc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Geospatial Consortium (OGC)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/osgeo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OSGeo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/osm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenStreetMap (OSM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tехнологии
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tехнологии
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/gdal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GDAL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/geonode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GeoNode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/geoserver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GeoServer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/grass/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GRASS GIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/leafletjs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Leaflet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/mapserver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MapServer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/openlayers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenLayers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/pgrouting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PgRouting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/postgis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/qfield/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QField
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/qfieldcloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QFieldCloud
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/qgis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/precision_vs_accuracy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Каква е разликата между прецизност (precision) и точност (accuracy)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Увод в ГИС
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Увод в ГИС
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/01_preamble/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01. Добре дошли
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/02_introducing_gis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02. Въведение в ГИС
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/03_vector_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03. Векторни данни
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/04_attribute_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04. Атрибутивна таблица
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/05_data_capture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05. Събиране на данни
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/06_raster_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06. Растери
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/07_topology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07. Топология
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/08_crs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08. Проекции и координатни системи
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/09_map_production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09. Създаване на карти
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/10_buffers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10.Анализ с буфери
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/11_interpolation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Анализ с интерполация
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/12_raster_calculator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Анализ на растери
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/98_authors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. За авторите
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/99_licence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Лиценз
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Външни препратки
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Външни препратки
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external/1000_awesome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ГИС? Яко!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external/1000_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ГИС данни
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external/1000_terminology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ГИС термини
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    QGIS.бг мета
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            QGIS.бг мета
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_broken_tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво да направим, ако инструкциите не работят?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_install_git_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме git в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_install_miniconda_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме Miniconda в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_install_vscode_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме Visual Studio Code в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_versioning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво означават версиите на програмите?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_git_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е git?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_github_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да сътрудничим в GitHub?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_github_modifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да сътрудничим по проект в GitHub изцяло през браузъра?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_qgisbg_docs_setup_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да настроим среда за работа по QGIS.бг докс в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1120_qgisbg_docs_local_dev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да работим по QGIS.бг докс локално?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1120_qgisbg_docs_markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво поддържа Markdown в QGIS.бг докс?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Карти
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Карти
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Опа
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Опа
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/001_po_sveta_i_u_nas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    По света и у нас
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/002_aurelian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Аврелиан - възстановителят на света
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/003_wall_of_shame/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Стена на срама
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/004_kitaiski_kanal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Китайският план за канал през Балканите
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Отворена ГИС конференция 2024
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Отворена ГИС конференция 2024
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Съдържание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Съдържание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Регистрация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Комуникация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Програма
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Програма">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Вмъкване в собствен календар
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Място
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Лектори
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Лектори">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Александър Петров
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      проф. Десислава Петрова-Антонова 
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      д-р Джузепе Баиамонте
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Димитър Коритаров
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      доц. Евгения Сарафова 
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      гл. ас. д-р Звезделина Марчева
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Иван Иванов 
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Кристиан Кирилов
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      проф. Лъчезар Филчев 
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Любо Филипов 
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Николай Стойков
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Радослав Станчев
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Теодора Колева 
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      гл. ас. инж. д-р Яна Липийска
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      проф. Янко Герджиков
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как да стана лектор?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      Откъде да взема рекламни материали за събитието?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ще публикувате ли материалите някъде?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как да помогна?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какво са "светкавичките" ⚡️?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      Задачи и срокове
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Съдържание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Съдържание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Регистрация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Комуникация
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Програма
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Програма">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Вмъкване в собствен календар
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Място
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Лектори
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Лектори">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Александър Петров
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-" class="md-nav__link">
+    <span class="md-ellipsis">
+      проф. Десислава Петрова-Антонова 
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      д-р Джузепе Баиамонте
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Димитър Коритаров
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      доц. Евгения Сарафова 
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      гл. ас. д-р Звезделина Марчева
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Иван Иванов 
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Кристиан Кирилов
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_12" class="md-nav__link">
+    <span class="md-ellipsis">
+      проф. Лъчезар Филчев 
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
+    <span class="md-ellipsis">
+      Любо Филипов 
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_14" class="md-nav__link">
+    <span class="md-ellipsis">
+      Николай Стойков
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_15" class="md-nav__link">
+    <span class="md-ellipsis">
+      Радослав Станчев
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_16" class="md-nav__link">
+    <span class="md-ellipsis">
+      Теодора Колева 
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#-_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      гл. ас. инж. д-р Яна Липийска
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_17" class="md-nav__link">
+    <span class="md-ellipsis">
+      проф. Янко Герджиков
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_18" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как да стана лектор?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_19" class="md-nav__link">
+    <span class="md-ellipsis">
+      Откъде да взема рекламни материали за събитието?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_20" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ще публикувате ли материалите някъде?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_21" class="md-nav__link">
+    <span class="md-ellipsis">
+      Как да помогна?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_22" class="md-nav__link">
+    <span class="md-ellipsis">
+      Какво са "светкавичките" ⚡️?
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_23" class="md-nav__link">
+    <span class="md-ellipsis">
+      Задачи и срокове
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="2024">Отворена ГИС конференция 2024<a class="headerlink" href="#2024" title="Permanent link">&para;</a></h1>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>дата</td>
+<td>12 март 2024</td>
+</tr>
+<tr>
+<td>място</td>
+<td>Зала 1 на Ректората на Софийски университет „Св. Климент Охридски“</td>
+</tr>
+<tr>
+<td>вход</td>
+<td>свободен</td>
+</tr>
+</tbody>
+</table>
+<details class="warning" open="open">
+<summary>Внимание!</summary>
+<p>Съдържанието на тази страница подлежи на постоянна промяна. За последните новини или мнения относно събитието, моля влезте в <a href="https://t.me/joinchat/Zxo__KwkcG5mMDU8">Телеграм канала тук</a>.</p>
+</details>
+<p>Конференция за отворени и свободни географски информационни системи, отворени пространствени данни и отворени методи в дистанционните изследвания.</p>
+<p>Състои се от представяния, изрично свързани с отворени и свободни географски технологии.
+Всяко представяне се вмества в твърди 15 минути и е последвано от 5 минути дискусия по темата.</p>
+<p>Езикът на конференцията е български, неформален, лесно-разбираем и не строго академичен.</p>
+<p>Събитието като формат, замисъл и цели наподобява на добре установената практика на <a href="https://foss4g.org/">FOSS4G</a>, ежегодната конференция за отворен геопространствен софтуер, организирана от <a href="https://osgeo.org/">OSGeo</a>.</p>
+<p>Целева група - професионалисти, студенти и ентусиасти.</p>
+<p>Цел на събитието - популяризация на отворен ГИС и социализация на ГИС потребителите в България.</p>
+<h2 id="_1">Регистрация<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Необходимо е попълване на кратък формуляр за предварителна регистрация за събитието, тъй като капацитетът на залата е ограничен (до 100 човека). Когато броят на участниците надвиши капацитета на залата, ще поставим предупреждение, че местата са изчерпани и не гарантираме възможността за присъствие на събитието.</p>
+<details class="warning" open="open">
+<summary>Внимание!</summary>
+<p>Капацитетът на залата е почти запълнен.</p>
+</details>
+<p>Избери някой от двата варианта за попълване на формуляра за регистрация:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Попълни формуляра за регистрация в Google Forms</label><label for="__tabbed_1_2">Попълни формуляра за регистрация на тук</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><a class="md-button md-button--primary" href="https://forms.gle/yADD1aXf7LamimJF9">Натисни тук, за да попълниш формуляра за регистрация</a></p>
+</div>
+<div class="tabbed-block">
+<p><iframe src="https://docs.google.com/forms/d/e/1FAIpQLScEovP6TYljv10B3Fqm3Gawg4vKl1JRdLNMJMSD6n3mVk0hhw/viewform?embedded=true" width="640" height="1765" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe></p>
+</div>
+</div>
+</div>
+<details class="warning" open="open">
+<summary>Внимание</summary>
+<p>Ако си се регистрирал, но нямаш възможност да присъстваш, моля отпиши се с имейл на <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#113;&#103;&#105;&#115;&#46;&#98;&#103;">&#105;&#110;&#102;&#111;&#64;&#113;&#103;&#105;&#115;&#46;&#98;&#103;</a>.</p>
+</details>
+<h2 id="_2">Комуникация<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Цялата комуникация и организация на събитието се случва в <a href="https://t.me/joinchat/Zxo__KwkcG5mMDU8">Телеграм канала</a> на QGIS.bg.</p>
+<h2 id="_3">Програма<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<details class="info" open="open">
+<summary>Забележка</summary>
+<p>Моля, натиснете върху всяко индивидуално събитие за повече информация - начален и краен час, място, лектор, тема и абстракт.</p>
+</details>
+<details class="warning" open="open">
+<summary>Внимание!</summary>
+<p>Подредбата и описанията на събитията подлежи на постоянни промени до започване на събитието.</p>
+</details>
+<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FSofia&bgcolor=%23ffffff&hl=bg&showDate=0&showPrint=0&showNav=0&showCalendars=0&showTabs=0&mode=AGENDA&title=FOSS4G%3ABG%20-%20%D0%BE%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%20%D0%93%D0%98%D0%A1%20%D1%81%D1%8A%D0%B1%D0%BE%D1%80&src=NGVhNGIxMTg1OGU5YTI4ZTdjZmY2NDI2YTQ3ODRhY2YyNDFhOTZhN2NjZTFhZDUxMDRiMDZhMzc5YzE1M2QzM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23EF6C00" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+
+<h3 id="_4">Вмъкване в собствен календар<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Натиснете върху връзката, за да добавите календара към собствения си електронен календар:</p>
+<p><a class="md-button md-button--primary" href="https://calendar.google.com/calendar/u/0?cid=NGVhNGIxMTg1OGU5YTI4ZTdjZmY2NDI2YTQ3ODRhY2YyNDFhOTZhN2NjZTFhZDUxMDRiMDZhMzc5YzE1M2QzM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t">Натисни тук, за да добавиш календара</a></p>
+<h2 id="_5">Място<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Миниконференцията ще се проведе в Зала 1 на Ректората на Софийски университет „Св. Климент Охридски“. Залата е разположена на първия етаж в Южното крило на сградата на Ректората. Може да се достъпи лесно както от Централния вход, така и от Задния вход, или Входа на Северното крило.</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Карта</label><label for="__tabbed_2_2">Схема</label><label for="__tabbed_2_3">Навигация</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><iframe src="//www.openstreetmap.org/export/embed.html?bbox=23.33212,42.69178,23.3383,42.69478&amp;layer=mapnik&amp;marker=42.69350,23.33530" width="100%" height="400" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></p>
+</div>
+<div class="tabbed-block">
+<p>
+<figure><img src="../img/export.svg" /><figcaption>Схема на Ректората на СУ. (1) Зала 1; (2) Зала 2; (3) Централен вход; (4) Заден вход; (5) Вход на Северното крило; (6) Музей по палеонтология;</figcaption>
+</figure>
+</p>
+</div>
+<div class="tabbed-block">
+<p><a href="http://maps.google.com/?daddr=Sofia+University">Отвори навигация</a></p>
+</div>
+</div>
+</div>
+<h2 id="_6">Лектори<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>В тази секция ще откриете лекторите на събитието подредени по азбучен ред, както връзки към техните профили в интернет пространството. На следващия ред е заглавието на лекцията, а в сиво е абстракта.</p>
+<h3 id="_7">Александър Петров<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p><strong>Автоматизация на процеси в QGIS (PyQGIS и плъгини)</strong></p>
+<blockquote>
+<p>В практиката често се налага систематизация и автоматизация на пространствени процеси. Възможностите за това са много и с разнообразен характер. Много от тях обаче изискват интензивно и времеемко допълнително обучение на ГИС експертите (програмиране – Python, SQL и т.н.). Други са лесно достъпни и предполагат широка употреба през потребителския интерфейс на QGIS, но са с ограничени ефективност и приложение (Batch Processing). Целта на лекцията е да запознае публиката с една често подценявана, а същевременно криеща огромен потенциал “сива зона”, в лицето на PyQGIS – скриптовия език за автоматизиране на процеси в QGIS среда. Същият език се използва и при създаването и интегрирането на плъгини за свободното ГИС приложение. Ще бъдат представени, както конкретни добри примери от практиката, така и принципни положения при употребата на PyQGIS.</p>
+</blockquote>
+<hr />
+<p>Александър е трето поколение ландшафтен архитект. Завършил е висшето си образование в ЛТУ – София. В началото на 2018 г. се присъединява към екипа на ОП „Софияплан“, където работи и до днес. Неговата работа в общинското предприятие е свързана с всички аспекти на зелената система в Столична община. Паралелно, от есента на 2019 г. е хоноруван преподавател в УАСГ – София. От април 2022 г. до декември 2023 г. Александър работи и като инженер на данни в екипа на института GATE (Големи данни в полза на интелигентно общество). Съосновател е на Фондация „ЕдноДърво“ – неправителствена инициатива, фокусирана върху по-доброто планиране и управление на градското озеленяване. Основен инструмент за постигане целите на фондацията е онлайн ГИС платформата ednodarvo.io, която е базирана изключително върху приложения и технологии с отворен код.</p>
+<p>Интересува се от теми като: генеративна граматика, изкуствен интелект и оптимизация на процеси. Вярва, че интелигентно е онова общество, което мъдро управлява ресурсите си.</p>
+<h3 id="-">проф. Десислава Петрова-Антонова <a href="https://www.linkedin.com/in/dessislava-petrova-antonova/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/></svg></span></a><a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
+<p><strong>Цифров двойник на града: предизвикателства и приложения</strong></p>
+<blockquote>
+<p>В приложната област „Градове на бъдещето“ Институт GATE се фокусира върху създаването на т.нар. „цифров двойник“ на града и пространство за данни като допълващи се технологии за иновации. Ръководителят на приложната област, проф. д-р Десислава Петрова-Антонова, ще сподели своя опит в разработването на цифров двойник за пилотния Район &ldquo;Лозенец&rdquo;. Тя ще представи 3D модела на Район &ldquo;Лозенец&rdquo;, реализиран спрямо отворения стандарт CityGML на OGC, и ще покаже как анализите и симулациите на градските процеси и среда могат да подпомогнат информираното вземане на решения за повишаване на качеството на живот на гражданите и създаване на устойчиви градове.</p>
+</blockquote>
+<hr />
+<p>Десислава Петрова-Антонова е професор във Факултета по математика и информатика на СУ „Св. Климент Охридски“. Тя притежава магистърска степен по „Компютърни системи и технологии“ (2000 г.) и докторска степен по „Системно програмиране“ (2007 г.) от Технически университет – София. От 2020 г. e ръководител на приложната област „Градове на бъдещето“ в GATE Институт, където под нейно ръководство се разработва първият цифров двойник на града в София с пилотна област Район „Лозенец“. Автор е на над 80 научни публикации и участва в над 30 научноизследователски и образователни проекти с национално и Европейско финансиране. Текущо ръководи българските екипи на 4 Европейски проекта в сферата на мобилността, енергетиката и съвременните технологични решения за обработка и анализ на големи данни.</p>
+<h3 id="-_1">д-р Джузепе Баиамонте<a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h3>
+<p><strong>How Open Source gave me (GIS) superpowers / Как отворения код ми даде (ГИС) супер сили (на английски)</strong></p>
+<blockquote>
+<p>Д-р Баиамонте има богат опит с редица международни организации и ще сподели опита си в използване на ГИС с отворен код, включвайки се дистанционно чак от Австралия (но с обещание да ни посети при следващи сбирки!)</p>
+</blockquote>
+<h3 id="_8">Димитър Коритаров<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p><strong>QGIS - да се възползваме от отворени данни. Използване на QGIS за достъп до споделените пространствени данни от различни институции, администрации и агенции.</strong></p>
+<blockquote>
+<p>Презентацията има за цел да покаже колко близо до нас са ГИС технологиите с помощта на отворените и свободни за употреба географски информационни системи. Как можем да влезем в света на ГИС и да използваме успешно неговите „неограничени“ възможности или ограничени само от нашето мислене и задачи. Ще бъдат показани стъпките, в които само чрез компютър и интернет ще можем да създадем първия си ГИС проект. Как веднъж влезли в света на ГИС технологиите, можем да използваме наличните външни данни и ресурси като достъп до кадастралните данни в „реално време“, и да интегрираме множество таблични и пространствени данни. Как всичко това да стане достъпно не само за колегите в общината, а и за всички, гражданите и бизнеса. Как можем да работим всички с актуалните данни и да поставим основата на по-сложни проекти и персонализирани ГИС приложения.</p>
+<p>И не на последно място, лекторът се надява, че всичко, което ще ви покаже в презентацията, съвсем скоро ще може да се създава с помощта и на самообучаващите се алгоритми (по известни като изкуствен интелект), което ще популяризира ГИС технологията до повече хора по света.</p>
+</blockquote>
+<hr />
+<p>Димитър Коритаров е магистър по геодезия. Започва работа в ГИС сферата преди повече от 25 години, участвал е като ГИС експерт в десетки проекти за Столична община, АГКК, МОСВ, МВР, МРРБ, МОН, МО, НКЖИ, АПИ, ЕСО, МТС, Софийска Вода, ВиК Русе, Овъргаз ИНК, общини и много други.</p>
+<h3 id="_9">доц. Евгения Сарафова <a href="https://www.linkedin.com/in/evgeniasarafova/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/></svg></span></a><a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
+<p><strong>Отворените данни и отворен софтуер - ускорител на иновациите</strong></p>
+<blockquote>
+<p>Презентацията ще демонстрира успешни практики за обучение на студенти, учители и специалисти от държавни и общински администрации в използването на отворени данни и софтуер. Ще бъде разгледана важността на отворените данни за създаване на нови бизнес модели и иновации в различни области, а също и това как тези ресурси допринасят за развитието на обществото и подобряват живота на гражданите.</p>
+</blockquote>
+<hr />
+<p>Доц. Евгения Сарафова е преподавател в Геолого-географския факултет на СУ „Св. Климент Охридски“. Работи с ГИС от над 20 г. и вярва, че една от основните движещи сили на обществото днес е именно отварянето на все повече продукти, услуги и данни.</p>
+<h3 id="-_2">гл. ас. д-р Звезделина Марчева<a class="headerlink" href="#-_2" title="Permanent link">&para;</a></h3>
+<p><strong>Приложение на R в екологичната хидрология - статистически анализи и визуализация на данни</strong></p>
+<blockquote>
+<p>През последното десетилетие софтуерният продукт за статистически анализи и визуализация R заема важно място в научните изследвания. Програмният език позволява обработката на големи масиви от данни и прилагането на различни статистически техники за анализ, както и подходяща визуализация на получените резултати. Количествените и качествените анализи в хидрологията често изискват обработката на голям набор от данни. В R данните могат да се подреждат, почистват, да се изследват линейни и нелинейни връзки между променливите. С R e възможно създаването на регресионни модели, генерализирани регресионни модели и частична регресия на най-малките квадрати за моделиране на концентрациите на даден замърсител в речни и подземни води. С техники от машинното обучение като регресионни дървета (дърво на решенията) може да се изследва сезонната динамика на дадено замърсяване и да се определят периоди с опасно високи стойности на конкретни вещества.</p>
+</blockquote>
+<hr />
+<p>Звезделина Марчева – гл. ас. по хидрология в катедра „Климатология, хидрология и геоморфология“, ГГФ, СУ „Св. Климент Охридски“ и доктор по Физическа география и ландшафтознание. Досегашната ми научна работа е свързана с изследване на замърсяването с арсен в долината на р. Огоста, както и създаването на модели за прогнозиране на концентрациите на елемента в речни и подземни води.</p>
+<h3 id="_10">Иван Иванов <a href="https://www.linkedin.com/in/suricactus"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/></svg></span></a><a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p><strong>QField - данните са на терен!</strong></p>
+<blockquote>
+<p>Откъде идват данните, с които правим карти и пространствени анализи? Дори и днес с най-модерните сензори в космоса или монтирани върху дронове, теренната работа е все така неотменима част от живота.</p>
+<p>QField е мобилно приложение с отворен код, което помага за събиране на данни директно от центъра на събитията, при това с перфектна интеграция с QGIS. Защото QField e QGIS с адаптиран за мобилни устройства интерфейс.</p>
+</blockquote>
+<hr />
+<p>Иван Иванов е <a href="https://github.com/suricactus/">разработчик на ГИС софтуер с отворен код като QGIS, QField и QFieldCloud</a>, <a href="https://www.osgeo.org/member/ivanov/">член на световната OSGeo организация</a> и основател на онлайн платформата QGIS.bg, чиято цел е популяризиране на FOSS4G сред българските потребители.</p>
+<h3 id="_11">Кристиан Кирилов<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p><strong>След земетресението в Турция - crowdmapping за спасяване на животи</strong></p>
+<blockquote>
+<p>6-ти февруари 2023, 4:17 местно време. Мощно земетресение разлюлява територията на Турция и Сирия. Часове по-късно втори силен трус заличава цели населени места от картата.</p>
+<p>Кои са Humanitarian OpenStreetMap Team (HOT) и как със силата на картографията и отворените ГИС данни помагат при търсенето и спасяването на оцелели изпод отломките ще разберете в лекцията.</p>
+</blockquote>
+<hr />
+<p>Кристиан Кирилов е студент на ГГФ от първия випуск на новата специалност &ldquo;Геопространствени системи и технологии&rdquo;. В момента прави магистратура във факултета със специалност &ldquo;Картография и ГИС&rdquo;.</p>
+<h3 id="_12">проф. Лъчезар Филчев <a href="https://www.linkedin.com/in/lachezarfilchev/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/></svg></span></a><a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p><strong>Приложения на QGIS в областта на дистанционните изследвания на Земята и планетите (ИКИТ-БАН)</strong></p>
+<blockquote>
+<p>Автори: Лъчезар Филчев, Петър Димитров, Златомир Димитров, Илина Каменова, Искрен Иванов</p>
+<p>QGIS е мощен, безплатен софтуер с отворен код, който се използва в областта на дистанционните изследвания. Той поддържа разнообразие от плъгини, които разширяват функционалността му, и позволяват анализ на спътникови изображения, изчисляване на спектрални индекси, неконтролирано и контролирано класифициране и прилагане на персонализирани алгоритми. Някои от плъгините, които се използват широко за дистанционни изследвания, включват EO classification plugin, EO Time Series Viewer, Sentinel-2 Download, OpenLayers, Orfeo ToolBox, Semi-Automatic Classification, Temporal/Spectral Profile Tool, MapFlow. QGIS е бил използван в множество проекти и приложни разработки като например анализ на покритието на растителността в град Ню Делхи. Тези приложения показват потенциала на QGIS и неговите плъгини в областта на дистанционните изследвания.</p>
+</blockquote>
+<hr />
+<p>проф. Лъчезар Филчев е ръководител на секция &ldquo;ДИ и ГИС&rdquo; в ИКИТ-БАН. Областите му на професионален интерес са ландшафтна екология, земеползване и земно покритие, управление на околната среда, инфраструктури за пространствени данни, системи за подпомагане на вземането на пространствени решения, оценка на въздействието върху околната среда и пространствено планиране.</p>
+<h3 id="_13">Любо Филипов <a href="https://www.linkedin.com/in/lubomirfilipov/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/></svg></span></a><a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p><strong>Отворени ГИС: от първите свободни пространствени данни у нас до актуални приложения по света</strong></p>
+<blockquote>
+<p>През 2006 г. направихме изключително качествени ГИС данни за МОСВ, финансирани от Японската Агенция за Международно Сътрудничество (JICA), с изричното изискване данните да се споделят свободно. Това промени изцяло &ldquo;пазара&rdquo; в България и данните по JICA се преизползваха на практика във всички министерства, редица агенции, университети и десетки последващи проекти. Веднъж направени качествено и многократно преизползвани = огромна добавена стойност за държавата и спестени средства на обществото. &ldquo;Скачайки&rdquo; 20тина години по-късно ще направим невъзможното сравнение с &ldquo;океана от свободни данни в момента&rdquo; с интересни примерни за нетрадиционни източници на данни в реални проекти в Етиопия, Пакистан и др. места: как се картографира бедността, как се визуализират бъдещите климатични влияния върху икономическото развитие на наднационално ниво.</p>
+</blockquote>
+<hr />
+<p>Любо Филипов е Магистър по ГИС и Картография от СУ, консултант в редица национални и международни проекти в над 30 държави, с организации като Европейската комисия, Световна Банка, ООН, JICA, OSCE, UNFPA и много други.</p>
+<h3 id="_14">Николай Стойков<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p><strong>Open Source инструменти за данни от безпилотни летателни апарати. (QGIS, WebODM, OpenDB)</strong></p>
+<blockquote>
+<p>В днешно време необходимостта да работим с пространствени данни от различни източници и формати ни принуждават да търсим решения, които да ни предоставят възможност за обработката и визуализацията в единна среда и съвместими по стандарти и анализите им в QGIS. Ще се запознаем с няколко софтуерни решения с отворен код, които да ни предоставят възможност да използваме в QGIS данни от безпилотни летателни апарати (БЛС), за да ги съпоставим с други източници на информация и да успеем да вникнем в цялостната картина на обектите ни на изследване. Целта е да може да взимаме оптимални информирани решения в полза на нас и заобикалящата ни среда.</p>
+</blockquote>
+<hr />
+<p>Инж. Николай Стойков е специалист с дългогодишен опит в разработването на ГИС решения в общински администрации и международни проекти. Експертизата му покрива разработването на цялостни корпоративни пространствени сървърни системи и решения, решения за събиране на теренни данни, обработване на данни от безпилотни летателни системи и др. Основният му фокус е насочен към ГИС решения с отворен код и изграждане на техническа инфраструктура за тяхната работоспособност и поддръжка. Работи с ГИС над 15г. и има зад гъба си над 200 пространствени приложения и модели, разработени в различни организации. Завършил магистратура &ldquo;ГИС и картография&rdquo; в Софийския университет.</p>
+<h3 id="_15">Радослав Станчев<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
+<p><strong>Приложение на отворени ГИС приложения при мониторинг на биологичното разнообразие</strong></p>
+<blockquote>
+<p>Основните ми интереси и задължения са поддържане на информационните масиви от данни за биологичното разнообразие в България. Отговарям за валидирането на данните, постъпващи в базата данни към Националната система за мониторинг на биологичното разннообрази, както и бази данни, свързани с оценка състоянието на екосистемите, природните местообитания и таксономична база данни. Участвам в организирането на мониторинг на биологични видове, включително и инвазивни чужди видове, като участвам пряко в мониторинга на птици, кафява мечка и дива коза.</p>
+<p>В практиката ми работя с различни ГИС приложения, необходими ми за изготвянето на анализи на разпространението и оценка на състоянието на различни биологични видове растения, животни и природни местообитания.</p>
+</blockquote>
+<hr />
+<p>Радослав Станчев, експерт биологично разнообразие към Изпълнителна агенция по околна среда.</p>
+<h3 id="_16">Теодора Колева <a href="https://www.linkedin.com/in/teodora-koleva-4939aa2b4/"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.79M6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37h2.77Z"/></svg></span></a><a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p><strong>Как направихме QGIS плъгин в GATE Institute?</strong></p>
+<blockquote>
+<p>QGIS плъгините предоставят възможност за автоматизиране на процеси и персонализиране на работата със софтуера.</p>
+<p>Вижте как в института GATE създадохме плъгин за изчисляване на индекс на пешеходността на жилищни сгради и оптимизирахме повтарящи се задачи.</p>
+</blockquote>
+<hr />
+<p>Теодора Колева е студент трети курс в ГГФ, специалност &ldquo;Геопространствени системи и технологии&rdquo; и стажант в института GATE.</p>
+<h3 id="-_3">гл. ас. инж. д-р Яна Липийска<a class="headerlink" href="#-_3" title="Permanent link">&para;</a></h3>
+<p><strong>Използване на данни с отворен достъп при обучението на студенти от УАСГ, специалност Геодезия</strong></p>
+<blockquote>
+<p>Свободите данни, свободният софтуер и свободното използване на публичен ресурс е концепция, много трудно приемана в академичните среди. Геодезията по дефиниция е наука, която се занимава с измерването и картографирането на земната повърхност. В своята същност тя се занимава с набирането на данни. Геодезистите се обучават да работят с данни от различен тип и точност, затова и често подхождат с недоверие към свободните данни. Необходимо е младите специалисти, които се обучават не само в специалност Геодезия, но и всички науки, свързани със Земята, да бъдат запознати с отворените данни, свободно достъпните софтуери и как да ги внедрят в професионалната си дейност. </p>
+</blockquote>
+<hr />
+<p>гл. ас. д-р инж. Яна Липийска. Преподавател в Университета по Архитектура, Строителство и Геодезия, Геодезически факултет, катедра „Фотограметрия и Картография” и студенти по Геодезия.</p>
+<h3 id="_17">проф. Янко Герджиков<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p><strong>Приложение на програми с отворен код в геологията: конкретни примери от наскорошни изследвания</strong></p>
+<blockquote>
+<p>От повече от 5 години не само в преподаването, но и в редица приложни геоложки разработки се налага използването на софтуер с отворен код. Към момента за планиране, реализиране и представяне на резултатите от теренни геоложки изследвания се използва системата QGIS-QField. За някои допълнителни анализи, визуализация и създаване на презентации се налага продукта RStudio.</p>
+<p>Ще бъдат представени най-новите аспекти от използването на софтуер с отворен код при провеждането на специализирани геоложки изследвания.</p>
+</blockquote>
+<hr />
+<p>Проф. д-р Янко Герджиков e ръководител катедра &ldquo;Регионална геология, структурна геология и геотектоника&rdquo; в Геолого-географския факултет на СУ „Св. Климент Охридски“.</p>
+<h2 id="_18">Как да стана лектор?<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>Включи се в <a href="https://t.me/joinchat/Zxo__KwkcG5mMDU8">Телеграм канала</a> на QGIS.bg и предложи темата заедно с абстракт не по-късно от 2024-02-25 24:00.</p>
+<p>Подготви и изпрати представянето си като <code>.pdf</code> или публично достъпен линк за визуализация в интернет на <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#105;&#110;&#102;&#111;&#64;&#113;&#103;&#105;&#115;&#46;&#111;&#114;&#103;">&#105;&#110;&#102;&#111;&#64;&#113;&#103;&#105;&#115;&#46;&#111;&#114;&#103;</a>.
+Прехвърлянето на файлове като <code>.pptx</code> или <code>.ppt</code> формати или флаш памет в деня на събитието може да доведе до технически проблеми.</p>
+<h2 id="_19">Откъде да взема рекламни материали за събитието?<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h2>
+<p>Рекламни материали за събитието можеш да вземеш от тук:</p>
+<ul>
+<li><a href="../docs/2024_foss4gbg_nologo_v2.png">2024_foss4gbg_nologo_v2.png</a></li>
+<li><a href="../docs/2024_foss4gbg_nologo_v2.pdf">2024_foss4gbg_nologo_v2.pdf</a></li>
+<li><a href="../docs/2024_foss4gbg_nologo_v2.svg">2024_foss4gbg_nologo_v2.svg</a> - Inkscape</li>
+<li><a href="../docs/2024_foss4gbg_logo_v2.png">2024_foss4gbg_logo_v2.png</a></li>
+<li><a href="../docs/2024_foss4gbg_logo_v2.pdf">2024_foss4gbg_logo_v2.pdf</a></li>
+<li><a href="../docs/2024_foss4gbg_logo_v2.svg">2024_foss4gbg_logo_v2.svg</a> - Inkscape</li>
+</ul>
+<h2 id="_20">Ще публикувате ли материалите някъде?<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<p>Да, ще ги публикуваме тук.</p>
+<h2 id="_21">Как да помогна?<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p>Включи се в <a href="https://t.me/joinchat/Zxo__KwkcG5mMDU8">Телеграм канала</a> на QGIS.bg и предложи помощта си.</p>
+<h2 id="_22">Какво са &ldquo;светкавичките&rdquo; ⚡️?<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h2>
+<p>Светкавичките са формат на кратко представяне на идея, технология или проект, която се вмества в 5 минути. &ldquo;Светкавичка&rdquo; е опит за превод на &ldquo;lightning talk&rdquo;, понякога се превежда и като &ldquo;блицдоклад&rdquo;.</p>
+<h2 id="_23">Задачи и срокове<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h2>
+<ul>
+<li>✅ 2024-02-18 24:00 (неделя): Избор на име на събитието.</li>
+<li>✅ 2024-02-25 24:00 (неделя): Финални заглавия на представянията. Моля, към всяко едно събитие да има абстракт от 3-4 изречения, за да може участниците да се ориентират в програмата. В допълнение 1-2 изречения и за самия автор.</li>
+<li>✅ 2024-02-25 24:00 (неделя): Попълване на съдържанието на български за различни географски технологии в уикито на <a href="http://127.0.0.1:8000/wiki/technologies/001_qgis/">QGIS.bg докс</a>.</li>
+<li>✅ 2024-02-28 24:00 (неделя): Финализирана програма.</li>
+<li>✅ 2024-02-29 24:00 (неделя): Масово разгласяване на събитието.</li>
+</ul>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "content.tabs.link", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u041a\u043e\u043f\u0438\u0440\u0430\u043d\u043e", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u0430\u0439", "search.result.more.one": "\u043e\u0449\u0435 1 \u043d\u0430 \u0442\u0430\u0437\u0438 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430", "search.result.more.other": "\u043e\u0449\u0435 # \u043d\u0430 \u0442\u0430\u0437\u0438 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430", "search.result.none": "\u041d\u044f\u043c\u0430 \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0438", "search.result.one": "1 \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442", "search.result.other": "# \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0430", "search.result.placeholder": "\u0417\u0430\u043f\u043e\u0447\u043d\u0435\u0442\u0435 \u0434\u0430 \u043f\u0438\u0448\u0435\u0442\u0435, \u0437\u0430 \u0434\u0430 \u0442\u044a\u0440\u0441\u0438\u0442\u0435", "search.result.term.missing": "\u041b\u0438\u043f\u0441\u0432\u0430\u0449\u043e", "select.version": "\u0418\u0437\u0431\u0435\u0440\u0438 \u0432\u0435\u0440\u0441\u0438\u044f"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/cookies-eu-banner@2.0.1/dist/cookies-eu-banner.js"></script>
+      
+        <script src="../../assets/consent.js"></script>
+      
+    
+  </body>
+</html>

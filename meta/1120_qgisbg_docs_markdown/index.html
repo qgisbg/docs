@@ -1,0 +1,3478 @@
+
+<!doctype html>
+<html lang="bg" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../1120_qgisbg_docs_local_dev/">
+      
+      
+        <link rel="next" href="../../maps/oops/001_po_sveta_i_u_nas/">
+      
+      
+      <link rel="icon" href="../../assets/qgis3_notext.svg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+    
+    
+      
+        <title>Какво поддържа Markdown в QGIS.бг докс? - QGIS.бг докс</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/consent.css">
+    
+      <link rel="stylesheet" href="../../assets/qgisbg.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#markdown-qgis" class="md-skip">
+          Към съдържанието
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Горен колонтитул">
+    <a href="../.." title="QGIS.бг докс" class="md-header__button md-logo" aria-label="QGIS.бг докс" data-md-component="logo">
+      
+  <img src="../../assets/qgis3_text_bg.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QGIS.бг докс
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Какво поддържа Markdown в QGIS.бг докс?
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Търси" placeholder="Търси" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Търси">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Сподели" aria-label="Сподели" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Изчисти" aria-label="Изчисти" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализирано търсене
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/qgisbg/docs" title="Към хранилището" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Табове" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Начало
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../wiki/about/" class="md-tabs__link">
+          
+  
+  Уики
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../gisintro/01_preamble/" class="md-tabs__link">
+          
+  
+  Увод в ГИС
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../external/1000_awesome/" class="md-tabs__link">
+          
+  
+  Външни препратки
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../1000_broken_tutorial/" class="md-tabs__link">
+          
+  
+  QGIS.бг мета
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../maps/oops/001_po_sveta_i_u_nas/" class="md-tabs__link">
+          
+  
+  Карти
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../events/2024_foss4g_bg/" class="md-tabs__link">
+        
+  
+    
+  
+  Отворена ГИС конференция 2024
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QGIS.бг докс" class="md-nav__button md-logo" aria-label="QGIS.бг докс" data-md-component="logo">
+      
+  <img src="../../assets/qgis3_text_bg.svg" alt="logo">
+
+    </a>
+    QGIS.бг докс
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/qgisbg/docs" title="Към хранилището" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Начало
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Уики
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Уики
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    За уикито
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Формати
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Формати
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_csv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е CSV (си-ес-ви)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_geojson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е Geojson (геоджейсон)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_shapefile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е shapefile (шейпфайл)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_topojson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е topojson (топоджейсон)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_koi_vektoren_format_da_izbera/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Кой векторен формат да избера за моите данни?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е Markdown (маркдаун)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    QGIS рецепти
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            QGIS рецепти
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_instalirame_qgis_v_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме QGIS в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_instalirame_qgis_v_ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталирам QGIS в Debian/Ubuntu?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/otkude_da_namerim_geografski_danni_za_bulgaria/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Откъде да намеря географски данни за България?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_izpolzvam_danni_ot_osm_s_quickosm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да използвам данни от OpenStreetMap с QuickOSM?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_filtrirame_i_pokazhem_samo_chast_ot_obektite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да филтрираме и покажем само част от обектите в слоя?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_smenim_proektsiyata_na_vektoren_sloy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да сменим проекцията на векторен слой?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_dobavim_novo_pole_na_vektoren_sloy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да добавим ново поле на векторен слой?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_iztriem_pole_ot_vektoren_sloy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да изтрием поле от векторен слой?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_svarzhem_dannite_ot_dva_sloya/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да свържем (JOIN) данните от два слоя?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ресурси
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Ресурси
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/resources/yt_gis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ютуб канали на ГИС тематика
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Организации
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Организации
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/foss4g/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FOSS4G
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/geochicas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GeoChicas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/geoforall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Geo for All
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/hot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Humanitarian OpenStreetMap Team
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/ogc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Geospatial Consortium (OGC)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/osgeo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OSGeo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/osm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenStreetMap (OSM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tехнологии
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tехнологии
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/gdal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GDAL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/geonode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GeoNode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/geoserver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GeoServer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/grass/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GRASS GIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/leafletjs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Leaflet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/mapserver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MapServer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/openlayers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenLayers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/pgrouting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PgRouting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/postgis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/qfield/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QField
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/qfieldcloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QFieldCloud
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/qgis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/precision_vs_accuracy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Каква е разликата между прецизност (precision) и точност (accuracy)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Увод в ГИС
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Увод в ГИС
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/01_preamble/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01. Добре дошли
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/02_introducing_gis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02. Въведение в ГИС
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/03_vector_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03. Векторни данни
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/04_attribute_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04. Атрибутивна таблица
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/05_data_capture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05. Събиране на данни
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/06_raster_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06. Растери
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/07_topology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07. Топология
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/08_crs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    08. Проекции и координатни системи
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/09_map_production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09. Създаване на карти
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/10_buffers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10.Анализ с буфери
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/11_interpolation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Анализ с интерполация
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/12_raster_calculator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Анализ на растери
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/98_authors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. За авторите
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../gisintro/99_licence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Лиценз
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Външни препратки
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Външни препратки
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external/1000_awesome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ГИС? Яко!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external/1000_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ГИС данни
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external/1000_terminology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ГИС термини
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    QGIS.бг мета
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            QGIS.бг мета
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1000_broken_tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво да направим, ако инструкциите не работят?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1000_install_git_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме git в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1000_install_miniconda_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме Miniconda в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1000_install_vscode_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме Visual Studio Code в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1000_versioning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво означават версиите на програмите?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1110_git_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е git?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1110_github_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да сътрудничим в GitHub?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1110_github_modifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да сътрудничим по проект в GitHub изцяло през браузъра?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1110_qgisbg_docs_setup_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да настроим среда за работа по QGIS.бг докс в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../1120_qgisbg_docs_local_dev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да работим по QGIS.бг докс локално?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Какво поддържа Markdown в QGIS.бг докс?
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Какво поддържа Markdown в QGIS.бг докс?
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Съдържание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Съдържание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qgis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Разширения специално за QGIS.бг
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Разширения специално за QGIS.бг">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qgis_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Икони от QGIS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Общодостъпни Markdown разширения
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Общодостъпни Markdown разширения">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meta_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Мета данни (meta_data)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smarty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Специални символи (smarty)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#footnotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Бележки под линия (footnotes)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definition_lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Речници (definition_lists)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Таблици (tables)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Разширения от pymdownx
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Разширения от pymdownx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxcaret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Горен индекс и подчертан текст (pymdownx.caret)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxtilde" class="md-nav__link">
+    <span class="md-ellipsis">
+      Долен индекс и зачеркнат текст (pymdownx.tilde)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxkeys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Клавишни комбинации (pymdownx.keys)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxemoji" class="md-nav__link">
+    <span class="md-ellipsis">
+      Емоджита (pymdownx.emoji)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxescapeall" class="md-nav__link">
+    <span class="md-ellipsis">
+      Специални символи (pymdownx.escapeall)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxmagiclinks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Автоматични връзки (pymdownx.magiclinks)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxdetails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Детайли (pymdownx.details)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxtabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Табове (pymdownx.tabs)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Карти
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Карти
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Опа
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Опа
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/001_po_sveta_i_u_nas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    По света и у нас
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/002_aurelian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Аврелиан - възстановителят на света
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/003_wall_of_shame/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Стена на срама
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/004_kitaiski_kanal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Китайският план за канал през Балканите
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../events/2024_foss4g_bg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Отворена ГИС конференция 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Съдържание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Съдържание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#qgis" class="md-nav__link">
+    <span class="md-ellipsis">
+      Разширения специално за QGIS.бг
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Разширения специално за QGIS.бг">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#qgis_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Икони от QGIS
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#markdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Общодостъпни Markdown разширения
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Общодостъпни Markdown разширения">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#meta_data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Мета данни (meta_data)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#smarty" class="md-nav__link">
+    <span class="md-ellipsis">
+      Специални символи (smarty)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#footnotes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Бележки под линия (footnotes)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#definition_lists" class="md-nav__link">
+    <span class="md-ellipsis">
+      Речници (definition_lists)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      Таблици (tables)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownx" class="md-nav__link">
+    <span class="md-ellipsis">
+      Разширения от pymdownx
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Разширения от pymdownx">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxcaret" class="md-nav__link">
+    <span class="md-ellipsis">
+      Горен индекс и подчертан текст (pymdownx.caret)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxtilde" class="md-nav__link">
+    <span class="md-ellipsis">
+      Долен индекс и зачеркнат текст (pymdownx.tilde)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxkeys" class="md-nav__link">
+    <span class="md-ellipsis">
+      Клавишни комбинации (pymdownx.keys)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxemoji" class="md-nav__link">
+    <span class="md-ellipsis">
+      Емоджита (pymdownx.emoji)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxescapeall" class="md-nav__link">
+    <span class="md-ellipsis">
+      Специални символи (pymdownx.escapeall)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxmagiclinks" class="md-nav__link">
+    <span class="md-ellipsis">
+      Автоматични връзки (pymdownx.magiclinks)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxdetails" class="md-nav__link">
+    <span class="md-ellipsis">
+      Детайли (pymdownx.details)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#pymdownxtabs" class="md-nav__link">
+    <span class="md-ellipsis">
+      Табове (pymdownx.tabs)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="markdown-qgis">Какво поддържа Markdown в QGIS.бг докс?<a class="headerlink" href="#markdown-qgis" title="Permanent link">&para;</a></h1>
+<p>QGIS.бг докс е написан изцяло в текстовия формат <a href="../../wiki/formats/markdown/">Markdown</a>. Освен базовия синтаксис, в този QGIS.бг докс се използват и редица разширения на езика, които позволяват по-описателно съдържание.</p>
+<h2 id="qgis">Разширения специално за QGIS.бг<a class="headerlink" href="#qgis" title="Permanent link">&para;</a></h2>
+<h3 id="qgis_1"><a href="https://github.com/suricactus/mdx_iconify">Икони от QGIS</a><a class="headerlink" href="#qgis_1" title="Permanent link">&para;</a></h3>
+<p>Поради тенденцията съдържанието на сайта да съдържа все повече съдържание свързано с QGIS, често се налага иконите от сайта на QGIS да се унагледят в ръководството. За целта има специално създаден Markdown таг, който е във формат <code>:i:qgis:&lt;ICON_FILENAME&gt;:</code>, където <code>&lt;ICON_FILENAME&gt;</code> е името на файла директно от <a href="https://github.com/qgis/QGIS/tree/master/images/themes/default">хранилището на QGIS</a>.</p>
+<!-- TODO пайтън скрипт, който да извлече имената на всички файлове с иконки и да създаде Markdown файл с таблица с две колони - Markdown синтаксис за показване на иконката и самата иконка,  -->
+
+<details class="example" open="open">
+<summary>Пример: икони от QGIS</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Изход</label><label for="__tabbed_1_2">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Иконка филтър <img alt=":i:qgis:mActionFilter:" height="36" src="https://raw.githubusercontent.com/qgis/QGIS/master/images/themes/default/mActionFilter.svg" width="36" /></p>
+<p>Иконка карта <img alt=":i:qgis:svgbase/worldmap:" height="36" src="https://raw.githubusercontent.com/qgis/QGIS/master/images/themes/default/svgbase/worldmap.svg" width="36" /></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Иконка филтър :i:qgis:mActionFilter:
+
+Иконка карта :i:qgis:svgbase/worldmap:
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h2 id="markdown">Общодостъпни Markdown разширения<a class="headerlink" href="#markdown" title="Permanent link">&para;</a></h2>
+<p>Следните разширения за Markdown са често използвани в различни проекти извън qgisbg и са разрешени за използване тук по подразбиране.</p>
+<h3 id="meta_data"><a href="https://python-markdown.github.io/extensions/meta_data/">Мета данни (meta_data)</a><a class="headerlink" href="#meta_data" title="Permanent link">&para;</a></h3>
+<p>Наичието на допълнителни мета данни към файловете освен основното съдържание на документа, е важна част от добрата организация на един проект. Всеки един документ в QGIS.бг трябва да започва с метаданни за заглавието на документа и тагове, с които може да се опише асоциира съдържанието. Заглавието от метаданните се използва за създаването на връзки към страницата в менюто.</p>
+<details class="example" open="open">
+<summary>Пример: мета данни</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="2:1"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><div class="tabbed-labels"><label for="__tabbed_2_1">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>---
+title: Markdown в QGIS.бг докс
+tags: qgis.бг, докс
+---
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h3 id="smarty"><a href="https://python-markdown.github.io/extensions/smarty/">Специални символи (smarty)</a><a class="headerlink" href="#smarty" title="Permanent link">&para;</a></h3>
+<p>Някои специални символи нямат възможност да бъдат въведени директно от клавиатурата. Такива са например триеточието (&hellip;), както и дългите тирета (&ndash; или &mdash;).</p>
+<details class="example" open="open">
+<summary>Пример: специални символи</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="3:2"><input checked="checked" id="__tabbed_3_1" name="__tabbed_3" type="radio" /><input id="__tabbed_3_2" name="__tabbed_3" type="radio" /><div class="tabbed-labels"><label for="__tabbed_3_1">Изход</label><label for="__tabbed_3_2">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<table>
+<thead>
+<tr>
+<th>ASCII</th>
+<th>заместител</th>
+<th>име</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>...</td>
+<td>&hellip;</td>
+<td>триеточие (ellipsis)</td>
+</tr>
+<tr>
+<td>--</td>
+<td>&ndash;</td>
+<td>тире</td>
+</tr>
+<tr>
+<td>---</td>
+<td>&mdash;</td>
+<td>много дълго тире</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>ASCII  | заместител | име
+-------|------------|---------------------
+\.\.\. | ...        | триеточие (ellipsis)
+\-\-   | --         | тире
+\-\-\- | ---        | много дълго тире
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h3 id="footnotes"><a href="https://python-markdown.github.io/extensions/footnotes/">Бележки под линия (footnotes)</a><a class="headerlink" href="#footnotes" title="Permanent link">&para;</a></h3>
+<p>Бележките под линия са удобен начин за предоставяне на допълнителна информация, без накъсване на контекста на изречението с линкове или скоби. Употребата им в QGIS.бг се окуражава.</p>
+<details class="example" open="open">
+<summary>Пример: бележки под линия</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="4:2"><input checked="checked" id="__tabbed_4_1" name="__tabbed_4" type="radio" /><input id="__tabbed_4_2" name="__tabbed_4" type="radio" /><div class="tabbed-labels"><label for="__tabbed_4_1">Изход</label><label for="__tabbed_4_2">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Бележки<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> имат етикет<sup id="fnref:@#$%"><a class="footnote-ref" href="#fn:@#$%">2</a></sup> и съдържание на етикета <sup id="fnref:or_a_name"><a class="footnote-ref" href="#fn:or_a_name">3</a></sup>.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Бележки[^1] имат етикет[^@#$%] и съдържание на етикета [^or_a_name].
+
+[^1]: Бележка под линия.
+[^@#$%]: и още бележки под линия за: &quot;@#$%&quot;.
+[^or_a_name]: и още бележки под линия за: &quot;or_a_name&quot;.
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<details class="note" open="open">
+<summary>Забележка!</summary>
+<p>Демото на този плъгин се намира в края на страницата.</p>
+</details>
+<!-- 
+### [Забележки (admonition)](https://python-markdown.github.io/extensions/admonition/)
+
+Понякога особена част от съдържанието трябва да бъде подчертана на читателя. Блоковете със забележки трябва да се използват само с фиксираните заглавия по-долу и да се използват само в описаните ситуации.
+
+=== "Изход"
+
+    !!! note "Забележка!"
+        Допълнително уточняващо съдържание, на което потребителите да обърнат внимание.
+
+    !!! important "Важно!"
+        Допълнително уточняващо съдържание, което е от особена важност за читателя.
+
+    !!! warning "Внимание!"
+        Допълнително уточняващо съдържание, което за риск от повреда на данните, програмата или системата.
+
+    !!! danger "Опасност!"
+        Допълнително уточняващо съдържание, което за риск от непоправима повреда на данните, програмата или системата.
+
+=== "Markdown"
+    ```
+    !!! note "Забележка!"
+        Допълнително уточняващо съдържание, на което потребителите да обърнат внимание.
+
+    !!! important "Важно!"
+        Допълнително уточняващо съдържание, което е от особена важност за читателя.
+
+    !!! warning "Внимание!"
+        Допълнително уточняващо съдържание, което за риск от повреда на данните, програмата или системата.
+
+    !!! danger "Опасност!"
+        Допълнително уточняващо съдържание, което за риск от непоправима повреда на данните, програмата или системата.
+    ``` -->
+
+<h3 id="definition_lists"><a href="https://python-markdown.github.io/extensions/definition_lists/">Речници (definition_lists)</a><a class="headerlink" href="#definition_lists" title="Permanent link">&para;</a></h3>
+<p>Макар и рядко, може да се наложи списък с дефиниции. В такива ситуации речниците са от изключителна полза.</p>
+<details class="example" open="open">
+<summary>Пример: речници</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="5:2"><input checked="checked" id="__tabbed_5_1" name="__tabbed_5" type="radio" /><input id="__tabbed_5_2" name="__tabbed_5" type="radio" /><div class="tabbed-labels"><label for="__tabbed_5_1">Изход</label><label for="__tabbed_5_2">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<dl>
+<dt>Ябълка</dt>
+<dd>Най-вкусен този представител на розоцветни е на кекс.</dd>
+<dt>Портокал</dt>
+<dd>Тази година цитруси има не само на Коледа.</dd>
+</dl>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Ябълка
+:   Най-вкусен този представител на розоцветни е на кекс.
+
+Портокал
+:   Тази година цитруси има не само на Коледа.
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h3 id="tables"><a href="https://python-markdown.github.io/extensions/tables/">Таблици (tables)</a><a class="headerlink" href="#tables" title="Permanent link">&para;</a></h3>
+<details class="example" open="open">
+<summary>Пример: таблици</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="6:2"><input checked="checked" id="__tabbed_6_1" name="__tabbed_6" type="radio" /><input id="__tabbed_6_2" name="__tabbed_6" type="radio" /><div class="tabbed-labels"><label for="__tabbed_6_1">Изход</label><label for="__tabbed_6_2">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Добре форматирата таблица изглежда по този начин.</p>
+<table>
+<thead>
+<tr>
+<th>първо заглавие 1</th>
+<th>второ заглавие 2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>клетка 1.1</td>
+<td>клетка 2.1</td>
+</tr>
+<tr>
+<td>клетка 1.2</td>
+<td>клетка 2.2</td>
+</tr>
+</tbody>
+</table>
+<p>Но всъщност таблиците може да не бъдат с перфектно подредени колони (виж Markdown). Всяка колона може да бъде подравнена в избрана от нас посока. Например всички колони с числа (суми, бройки и пр.) се подравняват задължително вдясно.</p>
+<table>
+<thead>
+<tr>
+<th>ляво подравнен текст</th>
+<th style="text-align: right;">дясно подравнен текст</th>
+<th style="text-align: center;">централно подравнен текст</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>клетка 1.1</td>
+<td style="text-align: right;">клетка 2.1</td>
+<td style="text-align: center;">клетка 3.1</td>
+</tr>
+<tr>
+<td>клетка 1.2</td>
+<td style="text-align: right;">клетка 2.2</td>
+<td style="text-align: center;">клетка 3.2</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Добре форматирата таблица изглежда по този начин.
+
+първо заглавие 1 | второ заглавие 2
+-----------------|-----------------
+клетка 1.1       | клетка 2.1
+клетка 1.2       | клетка 2.2
+
+Но всъщност таблиците може да не бъдат с перфектно подредени колони. А и всяка колона може да бъде подравнена в избрана от нас посока. Например всички колони с числа (суми, бройки и пр.) се подравняват задължително вдясно.
+
+ляво подравнен текст   | дясно подравнен текст |централно подравнен текст|
+-----|-------:|:------:
+клетка 1.1 | клетка 2.1 | клетка 3.1
+клетка 1.2 | клетка 2.2 | клетка 3.2
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h3 id="pymdownx">Разширения от pymdownx<a class="headerlink" href="#pymdownx" title="Permanent link">&para;</a></h3>
+<h4 id="pymdownxcaret"><a href="https://facelessuser.github.io/pymdown-extensions/extensions/caret/">Горен индекс и подчертан текст (pymdownx.caret)</a><a class="headerlink" href="#pymdownxcaret" title="Permanent link">&para;</a></h4>
+<p>Символът <strong>^</strong> (циркумфлекс или колибка) може да се използва за горен индекс или подчертаване на текст.</p>
+<details class="example" open="open">
+<summary>Пример: горен индекс и подчертан текст</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="7:2"><input checked="checked" id="__tabbed_7_1" name="__tabbed_7" type="radio" /><input id="__tabbed_7_2" name="__tabbed_7" type="radio" /><div class="tabbed-labels"><label for="__tabbed_7_1">Изход</label><label for="__tabbed_7_2">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><ins>Подчертан текст с две колибки</ins></p>
+<p>H<sup>2</sup>0</p>
+<p>текст<sup>горен индекс</sup></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>^^Подчертан текст с две колибки^^
+
+H^2^0
+
+текст^горен\ индекс^
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h4 id="pymdownxtilde"><a href="https://facelessuser.github.io/pymdown-extensions/extensions/tilde/">Долен индекс и зачеркнат текст (pymdownx.tilde)</a><a class="headerlink" href="#pymdownxtilde" title="Permanent link">&para;</a></h4>
+<p>Символът <strong>~</strong> (тилда или вълничка) може да се използва за долен индекс или зачеркване на текст.</p>
+<details class="example" open="open">
+<summary>Пример: долен индекс и зачеркнат текст</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="8:2"><input checked="checked" id="__tabbed_8_1" name="__tabbed_8" type="radio" /><input id="__tabbed_8_2" name="__tabbed_8" type="radio" /><div class="tabbed-labels"><label for="__tabbed_8_1">Изход</label><label for="__tabbed_8_2">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><del>зачеркнат текст</del></p>
+<p>CH<sub>3</sub>CH<sub>2</sub>OH</p>
+<p>текст<sub>долен индекс</sub></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>~~зачеркнат текст~~
+
+CH~3~CH~2~OH
+
+текст~долен\ индекс~
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h4 id="pymdownxkeys"><a href="https://facelessuser.github.io/pymdown-extensions/extensions/keys/">Клавишни комбинации (pymdownx.keys)</a><a class="headerlink" href="#pymdownxkeys" title="Permanent link">&para;</a></h4>
+<p>Често за описване на дадана функционалност използваме и клавишни компинации и този таг спомага за повишаване на четимостта. Списък с имената на бутоните може да откриете <a href="https://facelessuser.github.io/pymdown-extensions/extensions/keys/#alphanumeric-and-space-keys">тук</a>.</p>
+<details class="example" open="open">
+<summary>Пример: клавишни комбинации</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="9:2"><input checked="checked" id="__tabbed_9_1" name="__tabbed_9" type="radio" /><input id="__tabbed_9_2" name="__tabbed_9" type="radio" /><div class="tabbed-labels"><label for="__tabbed_9_1">Изход</label><label for="__tabbed_9_2">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><span class="keys"><kbd class="key-control">Ctrl</kbd><span>+</span><kbd class="key-alt">Alt</kbd><span>+</span><kbd class="key-delete">Del</kbd></span>.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>++ctrl+alt+delete++
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<details class="warning" open="open">
+<summary>Внимание!</summary>
+<p>Изписването на имената на бутоните задължително се случва с малки букви на латиница.</p>
+</details>
+<h4 id="pymdownxemoji"><a href="https://facelessuser.github.io/pymdown-extensions/extensions/emoji/">Емоджита (pymdownx.emoji)</a><a class="headerlink" href="#pymdownxemoji" title="Permanent link">&para;</a></h4>
+<p>Пълен списък на поддържаните емоджита и техните имена може да откриете <a href="https://www.webfx.com/tools/emoji-cheat-sheet/">тук</a>.</p>
+<details class="example" open="open">
+<summary>Пример: емоджита</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="10:2"><input checked="checked" id="__tabbed_10_1" name="__tabbed_10" type="radio" /><input id="__tabbed_10_2" name="__tabbed_10" type="radio" /><div class="tabbed-labels"><label for="__tabbed_10_1">Изход</label><label for="__tabbed_10_2">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p><img alt="😄" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f604.svg" title=":smile:" /> <img alt="❤" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/2764.svg" title=":heart:" /> <img alt="🌍" class="twemoji" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.0.3/assets/svg/1f30d.svg" title=":earth_africa:" /></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>:smile: :heart: :earth_africa:
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h4 id="pymdownxescapeall"><a href="https://facelessuser.github.io/pymdown-extensions/extensions/escapeall/">Специални символи (pymdownx.escapeall)</a><a class="headerlink" href="#pymdownxescapeall" title="Permanent link">&para;</a></h4>
+<p>Понякога се налага да изпишем някои специални символи, които обаче са част от синтаксиса на Markdown. За целта пред всеки един символ може да постави наклонена черта <strong>\</strong>, с което символа губи специалното си значение в Markdown.</p>
+<details class="example" open="open">
+<summary>пример: специални символи</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="11:2"><input checked="checked" id="__tabbed_11_1" name="__tabbed_11" type="radio" /><input id="__tabbed_11_2" name="__tabbed_11" type="radio" /><div class="tabbed-labels"><label for="__tabbed_11_1">Изход</label><label for="__tabbed_11_2">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Този <code>пример</code> е такъв. Този `пример` обаче не.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Този `пример` е такъв. Този \`пример\` обаче не.
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h4 id="pymdownxmagiclinks"><a href="https://facelessuser.github.io/pymdown-extensions/extensions/magiclinks/">Автоматични връзки (pymdownx.magiclinks)</a><a class="headerlink" href="#pymdownxmagiclinks" title="Permanent link">&para;</a></h4>
+<details class="example" open="open">
+<summary>пример: автоматични връзки</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="12:2"><input checked="checked" id="__tabbed_12_1" name="__tabbed_12" type="radio" /><input id="__tabbed_12_2" name="__tabbed_12" type="radio" /><div class="tabbed-labels"><label for="__tabbed_12_1">Изход</label><label for="__tabbed_12_2">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<ul>
+<li>Когато показваме самият линк, просто го принтираме така: <a href="https://google.com">https://google.com</a>.</li>
+<li>Дори и имейли адреси: <a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#102;&#97;&#107;&#101;&#46;&#101;&#109;&#97;&#105;&#108;&#64;&#101;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;">&#102;&#97;&#107;&#101;&#46;&#101;&#109;&#97;&#105;&#108;&#64;&#101;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#109;</a>.</li>
+</ul>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>- Когато показваме самият линк, просто го принтираме така: https://google.com.
+- Дори и имейли адреси: fake.email@email.com.
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h4 id="pymdownxdetails"><a href="https://facelessuser.github.io/pymdown-extensions/extensions/details/">Детайли (pymdownx.details)</a><a class="headerlink" href="#pymdownxdetails" title="Permanent link">&para;</a></h4>
+<p>Понякога особена част от съдържанието трябва да бъде подчертана на читателя. Блоковете със забележки трябва да се използват само с фиксираните заглавия по-долу и да се използват само в описаните ситуации.</p>
+<details class="example" open="open">
+<summary>Пример: детайли</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="13:2"><input checked="checked" id="__tabbed_13_1" name="__tabbed_13" type="radio" /><input id="__tabbed_13_2" name="__tabbed_13" type="radio" /><div class="tabbed-labels"><label for="__tabbed_13_1">Изход</label><label for="__tabbed_13_2">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<details open="open">
+<summary>Забележка!</summary>
+<p>Отворено съдържание заради плюсчето в <code>???+</code></p>
+<details class="danger">
+<summary>Вложени детайли!</summary>
+<p>И още повече информация тук.</p>
+</details>
+</details>
+<details class="example" open="open">
+<summary>Пример</summary>
+<p>Съдържа примери за употреба.</p>
+</details>
+<details class="note" open="open">
+<summary>Забележка!</summary>
+<p>Допълнително уточняващо съдържание, на което потребителите да обърнат внимание.</p>
+</details>
+<details class="important" open="open">
+<summary>Важно!</summary>
+<p>Допълнително уточняващо съдържание, което е от особена важност за читателя.</p>
+</details>
+<details class="success" open="open">
+<summary>Успех!</summary>
+<p>Описва ситуация или краен резултат, които се смятат за успешен завършек.</p>
+</details>
+<details class="warning" open="open">
+<summary>Внимание!</summary>
+<p>Допълнително уточняващо съдържание, което за риск от повреда на данните, програмата или системата.</p>
+</details>
+<details class="danger" open="open">
+<summary>Опасност!</summary>
+<p>Допълнително уточняващо съдържание, което за риск от непоправима повреда на данните, програмата или системата.</p>
+</details>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>???+ &quot;Забележка!&quot;
+    Отворено съдържание заради плюсчето в `???+`
+
+    ??? danger &quot;Вложени детайли!&quot;
+        И още повече информация тук.
+
+
+???+ example &quot;Пример&quot;
+    Съдържа примери за употреба.
+
+???+ note &quot;Забележка!&quot;
+    Допълнително уточняващо съдържание, на което потребителите да обърнат внимание.
+
+???+ important &quot;Важно!&quot;
+    Допълнително уточняващо съдържание, което е от особена важност за читателя.
+
+???+ success &quot;Успех!&quot;
+    Описва ситуация или краен резултат, които се смятат за успешен завършек.
+
+???+ warning &quot;Внимание!&quot;
+    Допълнително уточняващо съдържание, което за риск от повреда на данните, програмата или системата.
+
+???+ danger &quot;Опасност!&quot;
+    Допълнително уточняващо съдържание, което за риск от непоправима повреда на данните, програмата или системата.
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<h4 id="pymdownxtabs"><a href="https://facelessuser.github.io/pymdown-extensions/extensions/tabs/">Табове (pymdownx.tabs)</a><a class="headerlink" href="#pymdownxtabs" title="Permanent link">&para;</a></h4>
+<details class="example" open="open">
+<summary>Пример: табове</summary>
+<div class="tabbed-set tabbed-alternate" data-tabs="14:2"><input checked="checked" id="__tabbed_14_1" name="__tabbed_14" type="radio" /><input id="__tabbed_14_2" name="__tabbed_14" type="radio" /><div class="tabbed-labels"><label for="__tabbed_14_1">Изход</label><label for="__tabbed_14_2">Markdown</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="tabbed-set tabbed-alternate" data-tabs="15:2"><input checked="checked" id="__tabbed_15_1" name="__tabbed_15" type="radio" /><input id="__tabbed_15_2" name="__tabbed_15" type="radio" /><div class="tabbed-labels"><label for="__tabbed_15_1">Таб 1</label><label for="__tabbed_15_2">Таб 2</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Всеки таб започва с <code>===</code>, последвано от заглавието му в двойни кавички, на пример <code>=== Таб 1</code>.</p>
+<p>Съдържанието е един отстъп навътре и може да съдържа всякакъв Markdown.</p>
+</div>
+<div class="tabbed-block">
+<p>Още съдържание в <strong>табовете</strong>.</p>
+<ul>
+<li>елемент а</li>
+<li>елемент б</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="tabbed-set tabbed-alternate" data-tabs="16:2"><input checked="checked" id="__tabbed_16_1" name="__tabbed_16" type="radio" /><input id="__tabbed_16_2" name="__tabbed_16" type="radio" /><div class="tabbed-labels"><label for="__tabbed_16_1">Таб А</label><label for="__tabbed_16_2">Таб Б</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<p>Започването на нова група от табове може да стане с <code>===!</code>.</p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>Още съдържание.
+</code></pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>=== &quot;Таб 1&quot;
+    Всеки таб започва с `===`, последвано от заглавието му в двойни кавички, на пример `=== Таб 1`.
+
+    Съдържанието е един отстъп навътре и може да съдържа всякакъв Markdown.
+
+=== &quot;Таб 2&quot;
+    Още съдържание в **табовете**.
+
+    - елемент а
+    - елемент б
+
+===! &quot;Таб А&quot;
+    Започването на нова група от табове може да стане с `===!`.
+
+=== &quot;Таб Б&quot;
+    ```
+    Още съдържание.
+    ```
+</code></pre></div>
+</div>
+</div>
+</div>
+</details>
+<details class="warning" open="open">
+<summary>Внимание!</summary>
+<p>Използването на табове има един огромен недостатък, а именно че не цялото съдържание на страницата е видимо във всеки един момент. Табовете трябва да са използват само за взаимноизключващи се елементи, както в случая за комбинацията пример и Markdown.</p>
+</details>
+<details class="important" open="open">
+<summary>Употреба</summary>
+<p>Употребата на табо е приета само и единствено при показване на примери и изходния код към тях. В този случай съдържанието се организира по следния начин:</p>
+<div class="highlight"><pre><span></span><code>???+ example &quot;Пример: табове&quot;
+
+    === &quot;Изход&quot;
+        Hello world!
+    === &quot;Python&quot;
+        ```python
+        print(&#39;Hello world!&#39;)
+        ```
+</code></pre></div>
+</details>
+<!--
+#### [pymdownx.critic](https://facelessuser.github.io/pymdown-extensions/extensions/critic/)
+
+???+ example "critic пример"
+
+    === "Изход"
+        Ето малко {--*грешен*--} Markdown.  Или пък добавям {++още ++}нещо.  Ето малко повече {--пример
+         с многоредов --}текст.  Или дори повече {++текст
+         добавен ++}тук.{~~
+
+        ~>  ~~}В крайна сметка този параграф си замина, заменен с празно място.{~~  ~>
+
+        ~~}Сега останахме само на нов текст.
+
+        Ето и коментар {==тук
+         върху текста==}{>>Работи прилично. Първия ми коментар.<<}. Заместванията {~~е~>са~~} чудесни!
+
+        И малко блокове.
+
+        {--
+
+        * тест за изтриване
+        * тест за изтриване
+        * тест за изтриване
+            * тест за изтриване
+        * тест за изтриване
+
+        --}
+
+        {++
+
+        * тест за добавяне
+        * тест за добавяне
+        * тест за добавяне
+            * тест за добавяне
+        * тест за добавяне
+
+        ++}
+
+    === "Markdown"
+        <div class="highlight"><pre><span></span><code>Ето малко {--*грешен*--} Markdown.  Или пък добавям {++още ++}нещо.  Ето малко повече {--пример
+ с многоредов --}текст.  Или дори повече {++текст
+ добавен ++}тук.{~~
+
+~&gt;  ~~}В крайна сметка този параграф си замина, заменен с празно място.{~~  ~&gt;
+
+~~}Сега останахме само на нов текст.
+
+Ето и коментар {==тук
+ върху текста==}{&gt;&gt;Работи прилично. Първия ми коментар.&lt;&lt;}. Заместванията {~~е~&gt;са~~} чудесни!
+
+И малко блокове.
+
+{--
+
+* тест за изтриване
+* тест за изтриване
+* тест за изтриване
+    * тест за изтриване
+* тест за изтриване
+
+--}
+
+{++
+
+* тест за добавяне
+* тест за добавяне
+* тест за добавяне
+    * тест за добавяне
+* тест за добавяне
+
+++}
+</code></pre></div>
+-->
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>Бележка под линия.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:@#$%">
+<p>и още бележки под линия за: &ldquo;@#$%&rdquo;.&#160;<a class="footnote-backref" href="#fnref:@#$%" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:or_a_name">
+<p>и още бележки под линия за: &ldquo;or_a_name&rdquo;.&#160;<a class="footnote-backref" href="#fnref:or_a_name" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "content.tabs.link", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u041a\u043e\u043f\u0438\u0440\u0430\u043d\u043e", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u0430\u0439", "search.result.more.one": "\u043e\u0449\u0435 1 \u043d\u0430 \u0442\u0430\u0437\u0438 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430", "search.result.more.other": "\u043e\u0449\u0435 # \u043d\u0430 \u0442\u0430\u0437\u0438 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430", "search.result.none": "\u041d\u044f\u043c\u0430 \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0438", "search.result.one": "1 \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442", "search.result.other": "# \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0430", "search.result.placeholder": "\u0417\u0430\u043f\u043e\u0447\u043d\u0435\u0442\u0435 \u0434\u0430 \u043f\u0438\u0448\u0435\u0442\u0435, \u0437\u0430 \u0434\u0430 \u0442\u044a\u0440\u0441\u0438\u0442\u0435", "search.result.term.missing": "\u041b\u0438\u043f\u0441\u0432\u0430\u0449\u043e", "select.version": "\u0418\u0437\u0431\u0435\u0440\u0438 \u0432\u0435\u0440\u0441\u0438\u044f"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/cookies-eu-banner@2.0.1/dist/cookies-eu-banner.js"></script>
+      
+        <script src="../../assets/consent.js"></script>
+      
+    
+  </body>
+</html>
