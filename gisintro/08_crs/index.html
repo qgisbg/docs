@@ -1,0 +1,3196 @@
+
+<!doctype html>
+<html lang="bg" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../07_topology/">
+      
+      
+        <link rel="next" href="../09_map_production/">
+      
+      
+      <link rel="icon" href="../../assets/qgis3_notext.svg">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.11">
+    
+    
+      
+        <title>08. Проекции и координатни системи - QGIS.бг докс</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e359304.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/consent.css">
+    
+      <link rel="stylesheet" href="../../assets/qgisbg.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          Към съдържанието
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Горен колонтитул">
+    <a href="../.." title="QGIS.бг докс" class="md-header__button md-logo" aria-label="QGIS.бг докс" data-md-component="logo">
+      
+  <img src="../../assets/qgis3_text_bg.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            QGIS.бг докс
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              08. Проекции и координатни системи
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="green" data-md-color-accent="green"  aria-hidden="true"  type="radio" name="__palette" id="__palette_0">
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Търси" placeholder="Търси" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Търси">
+        
+          <a href="javascript:void(0)" class="md-search__icon md-icon" title="Сподели" aria-label="Сподели" data-clipboard data-clipboard-text="" data-md-component="search-share" tabindex="-1">
+            
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M18 16.08c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7 0-.24-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3c0 .24.04.47.09.7L8.04 9.81C7.5 9.31 6.79 9 6 9a3 3 0 0 0-3 3 3 3 0 0 0 3 3c.79 0 1.5-.31 2.04-.81l7.12 4.15c-.05.21-.08.43-.08.66 0 1.61 1.31 2.91 2.92 2.91 1.61 0 2.92-1.3 2.92-2.91A2.92 2.92 0 0 0 18 16.08Z"/></svg>
+          </a>
+        
+        <button type="reset" class="md-search__icon md-icon" title="Изчисти" aria-label="Изчисти" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Инициализирано търсене
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/qgisbg/docs" title="Към хранилището" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Табове" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  Начало
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../wiki/about/" class="md-tabs__link">
+          
+  
+  Уики
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../01_preamble/" class="md-tabs__link">
+          
+  
+  Увод в ГИС
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../external/1000_awesome/" class="md-tabs__link">
+          
+  
+  Външни препратки
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../meta/1000_broken_tutorial/" class="md-tabs__link">
+          
+  
+  QGIS.бг мета
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../maps/oops/001_po_sveta_i_u_nas/" class="md-tabs__link">
+          
+  
+  Карти
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../events/2024_foss4g_bg/" class="md-tabs__link">
+        
+  
+    
+  
+  Отворена ГИС конференция 2024
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Навигация" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="QGIS.бг докс" class="md-nav__button md-logo" aria-label="QGIS.бг докс" data-md-component="logo">
+      
+  <img src="../../assets/qgis3_text_bg.svg" alt="logo">
+
+    </a>
+    QGIS.бг докс
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/qgisbg/docs" title="Към хранилището" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Начало
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Уики
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Уики
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/about/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    За уикито
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Формати
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            Формати
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_csv/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е CSV (си-ес-ви)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_geojson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е Geojson (геоджейсон)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_shapefile/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е shapefile (шейпфайл)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_kakvo_e_topojson/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е topojson (топоджейсон)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/0000_koi_vektoren_format_da_izbera/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Кой векторен формат да избера за моите данни?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/formats/markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е Markdown (маркдаун)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    QGIS рецепти
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            QGIS рецепти
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_instalirame_qgis_v_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме QGIS в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_instalirame_qgis_v_ubuntu/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталирам QGIS в Debian/Ubuntu?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/otkude_da_namerim_geografski_danni_za_bulgaria/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Откъде да намеря географски данни за България?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_izpolzvam_danni_ot_osm_s_quickosm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да използвам данни от OpenStreetMap с QuickOSM?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_filtrirame_i_pokazhem_samo_chast_ot_obektite/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да филтрираме и покажем само част от обектите в слоя?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_smenim_proektsiyata_na_vektoren_sloy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да сменим проекцията на векторен слой?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_dobavim_novo_pole_na_vektoren_sloy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да добавим ново поле на векторен слой?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_iztriem_pole_ot_vektoren_sloy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да изтрием поле от векторен слой?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/qgis/kak_da_svarzhem_dannite_ot_dva_sloya/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да свържем (JOIN) данните от два слоя?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Ресурси
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            Ресурси
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/resources/yt_gis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Ютуб канали на ГИС тематика
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Организации
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_5">
+            <span class="md-nav__icon md-icon"></span>
+            Организации
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/foss4g/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    FOSS4G
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/geochicas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GeoChicas
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/geoforall/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Geo for All
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/hot/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Humanitarian OpenStreetMap Team
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/ogc/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Open Geospatial Consortium (OGC)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/osgeo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OSGeo
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/organizations/osm/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenStreetMap (OSM)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tехнологии
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            Tехнологии
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/gdal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GDAL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/geonode/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GeoNode
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/geoserver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GeoServer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/grass/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    GRASS GIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/leafletjs/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Leaflet
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/mapserver/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    MapServer
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/openlayers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenLayers
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/pgrouting/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PgRouting
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/postgis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/postgresql/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    PostgreSQL
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/qfield/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QField
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/qfieldcloud/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QFieldCloud
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/technologies/qgis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    QGIS
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../wiki/precision_vs_accuracy/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Каква е разликата между прецизност (precision) и точност (accuracy)?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Увод в ГИС
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Увод в ГИС
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01_preamble/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    01. Добре дошли
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02_introducing_gis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    02. Въведение в ГИС
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03_vector_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    03. Векторни данни
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04_attribute_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    04. Атрибутивна таблица
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05_data_capture/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    05. Събиране на данни
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06_raster_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    06. Растери
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07_topology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    07. Топология
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    08. Проекции и координатни системи
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    08. Проекции и координатни системи
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Съдържание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Съдържание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Преглед
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Картната проекция в детайли
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Картната проекция в детайли">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Трите вида картни проекции
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Точност на картните проекции
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Точност на картните проекции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Конформни картни проекции
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Еквидистантни проекции
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Равноплощни проекции
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Още за координатните реферетни системи
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Още за координатните реферетни системи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Географски координатни системи
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Правоъгълни координатни системи
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Правоъгълни координатни системи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#utm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Универсална трансверзална меркаторорова(UTM) координатна система
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-northing-y-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      The northing (Y) value
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-easting-x-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      The easting (X) value
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09_map_production/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    09. Създаване на карти
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../10_buffers/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    10.Анализ с буфери
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../11_interpolation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    11. Анализ с интерполация
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../12_raster_calculator/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. Анализ на растери
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../98_authors/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    12. За авторите
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../99_licence/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    13. Лиценз
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Външни препратки
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            Външни препратки
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external/1000_awesome/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ГИС? Яко!
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external/1000_data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ГИС данни
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../external/1000_terminology/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ГИС термини
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    QGIS.бг мета
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            QGIS.бг мета
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_broken_tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво да направим, ако инструкциите не работят?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_install_git_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме git в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_install_miniconda_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме Miniconda в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_install_vscode_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да инсталираме Visual Studio Code в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1000_versioning/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво означават версиите на програмите?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_git_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво е git?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_github_intro/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да сътрудничим в GitHub?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_github_modifications/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да сътрудничим по проект в GitHub изцяло през браузъра?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1110_qgisbg_docs_setup_windows/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да настроим среда за работа по QGIS.бг докс в Windows?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1120_qgisbg_docs_local_dev/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Как да работим по QGIS.бг докс локално?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../meta/1120_qgisbg_docs_markdown/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Какво поддържа Markdown в QGIS.бг докс?
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Карти
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Карти
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_6_1" id="__nav_6_1_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Опа
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_6_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6_1">
+            <span class="md-nav__icon md-icon"></span>
+            Опа
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/001_po_sveta_i_u_nas/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    По света и у нас
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/002_aurelian/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Аврелиан - възстановителят на света
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/003_wall_of_shame/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Стена на срама
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../maps/oops/004_kitaiski_kanal/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Китайският план за канал през Балканите
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../events/2024_foss4g_bg/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Отворена ГИС конференция 2024
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Съдържание">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Съдържание
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Преглед
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Картната проекция в детайли
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Картната проекция в детайли">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Трите вида картни проекции
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      Точност на картните проекции
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Точност на картните проекции">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      Конформни картни проекции
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_7" class="md-nav__link">
+    <span class="md-ellipsis">
+      Еквидистантни проекции
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_8" class="md-nav__link">
+    <span class="md-ellipsis">
+      Равноплощни проекции
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_9" class="md-nav__link">
+    <span class="md-ellipsis">
+      Още за координатните реферетни системи
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Още за координатните реферетни системи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_10" class="md-nav__link">
+    <span class="md-ellipsis">
+      Географски координатни системи
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_11" class="md-nav__link">
+    <span class="md-ellipsis">
+      Правоъгълни координатни системи
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Правоъгълни координатни системи">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#utm" class="md-nav__link">
+    <span class="md-ellipsis">
+      Универсална трансверзална меркаторорова(UTM) координатна система
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-northing-y-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      The northing (Y) value
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-easting-x-value" class="md-nav__link">
+    <span class="md-ellipsis">
+      The easting (X) value
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="_1">Проекции и координатни системи<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<h2 id="_2">Преглед<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Точното изобразяване на повърхността на сфера върху плосък лист хартия е невъзможна геометрична задача, която винаги води до някакъв вид деформация на изобразените обекти. <strong>Картните проекции</strong> са техниките, с които изобразяваме повърхността на Земята от оригиналната ѝ сферична форма върху плоскост, било то лист хартия или компютърен екран.</p>
+<p><strong>Координатната система (КС)</strong> или още координатна референтна система дефинира математическите правила как двуизмерните обекти от проектираната карта се отнасят към реалните обекти на повърхността на Земята.</p>
+<p>Решението коя картна проекция и коя КС да използваме зависи от пространствения обхват, методите за анализ и посланието, което се опитваме да предадем с картата на дадена територия.</p>
+<h2 id="_3">Картната проекция в детайли<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Най-точния метод да изобразим земната форма и повърхност е като използваме глобус, но за съжаление той не се събира лесно в джоба на дънките и го прави практически неприложим в повечето случаи. Освен това глобусите не позволяват представянето на земни площи в по-едър мащаб от 1:10 000 000.</p>
+<p>Повечето данни в ГИС са в много по-едър мащаб в зависимост от степенна на детайлност.
+Мащаби от порядъка на 1:250 000 или дори 1:5000 в градска среда са нормална практика.
+Глобус с подобен мащаб ще бъде абсурдно голям, труден за съхранение, скъп за производство и крайно неудобен за транспортиране.
+Именно затова картографите използват редица техники, наречени картните проекции, които с голяма точност да пресъздават сферичната повърхност на Земята в двуизмерна равнина.</p>
+<p>Сревнена с човешките мащаби, Земята е огромна.
+Именно затова от нашата гледна точка, повърхността ѝ изглежда плоска.
+Погледната от Космоса обаче е очевидно, че планетата ни има кълбовидна форма.</p>
+<p>Картите са създадени да комуникират по визуален начин разположението, формата и описанието на обектите по земната повърхност.</p>
+<p>When viewed at close range the earth appears to be relatively flat.
+However when viewed from space, we can see that the earth is relatively
+spherical. Maps, as we will see in the upcoming map production topic,
+are representations of reality. They are designed to not only represent
+features, but also their shape and spatial arrangement. Each map
+projection has <strong>advantages</strong> and <strong>disadvantages</strong>. The best projection
+for a map depends on the <strong>scale</strong> of the map, and on the purposes for
+which it will be used. For example, a projection may have unacceptable
+distortions if used to map the entire African continent, but may be an
+excellent choice for a <strong>large-scale (detailed) map</strong> of your country.
+The properties of a map projection may also influence some of the design
+features of the map. Some projections are good for small areas, some are
+good for mapping areas with a large East-West extent, and some are
+better for mapping areas with a large North-South extent.</p>
+<h3 id="_4">Трите вида картни проекции<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Да си представим, че Земята е прозрачна сфера (като топка за коледна украса), в центъра на която сме поставили източник на светлина, а по повърхността сме изрисували континентите с непрозрачна боя.
+Ако направим това в тъмна стая, срещу плосък лист хартия, то ще видим сенките на континентите, т.е. тяхната проекция.
+Има различни начини за поставяне на хартията като <strong>цилиндър</strong>, <strong>конус</strong> или <strong>плоскост</strong>.
+Всеки от тези начини за проектиране на повърхността на сферата се нарича <strong>вид на картната проекция</strong>.
+Поради тази причина можем да говорим за цилиндрични <strong>проекции</strong>, <strong>конусни</strong> и <strong>азимутални проекции</strong>.</p>
+<p>
+<figure><img src="../img/projection_families.png" /><figcaption>Трите вида картни проекции. На графиката се виждат a) цилиндрична проекция, b) конична проекция и c) азимутална проекция.</figcaption>
+</figure>
+</p>
+<p>Метафората с проздрачната сфера и лампичка по средата естествено е неприложима в реалността.
+За целта се използват математически принципи, заимствани от геометрията и тригонометрията.</p>
+<h2 id="_5">Точност на картните проекции<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Картните проекции никога не са абсолютно точно представяне на повърхността на сферичната ни планета.
+Поради тази причина <strong>всяка</strong> карта страда от деформации на <strong>разстоянията</strong> между обектите на повърхността на Земята, техните <strong>площи</strong> и <strong>ъглите</strong> между тях.
+Всяка картна проекция страда от една или повече от тези деформации в по-малка или по-голяма степен.
+Именно заради това съществуват различни картни проекции, като ролята на ГИС специалиста е да изберат правилната проекция за даденото приложение на картата.</p>
+<p>Например проекцията на Робинсон, както и тази на Винкел Трипел често се използват при световни карти.</p>
+<p>
+<figure><img src="../img/robinson_projection.png" /><figcaption>Проекцията на Робинсон е добър компромис между деформациите по площ, ъгли и разстояния.</figcaption>
+</figure>
+</p>
+<p>Ако искаме да направим анализ на транспортните връзки, добра идея е да се използва проекция, която има малки деформации на разстоянията.</p>
+<h3 id="_6">Конформни картни проекции<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<p>When working with a globe, the main directions of the compass rose
+(North, East, South and West) will always occur at 90 degrees to one
+another. In other words, East will always occur at a 90 degree angle to
+North. Maintaining correct <strong>angular properties</strong> can be preserved on a
+map projection as well. A map projection that retains this property of
+angular conformity is called a <strong>conformal</strong> or <strong>orthomorphic
+projection</strong>.</p>
+<p>These projections are used when the <strong>preservation of angular
+relationships</strong> is important. They are commonly used for navigational or
+meteorological tasks. It is important to remember that maintaining true
+angles on a map is difficult for large areas and should be attempted
+only for small portions of the earth. The conformal type of projection
+results in distortions of areas, meaning that if area measurements are
+made on the map, they will be incorrect. The larger the area the less
+accurate the area measurements will be. Examples are the <strong>Mercator
+projection</strong> (as shown in <code>figure_mercator_projection</code>{.interpreted-text
+role=&rdquo;numref&rdquo;}) and the <strong>Lambert Conformal Conic projection</strong>. The U.S.
+Geological Survey uses a conformal projection for many of its
+topographic maps.</p>
+<p>::: {#figure_mercator_projection}
+<figure class="align-center" width="30em"><img src="../img/mercator_projection.png" /><figcaption>The Mercator projection, for example, is used where angular
+relationships are important, but the relationship of areas are
+distorted.</figcaption></figure>
+:::</p>
+<h3 id="_7">Еквидистантни проекции<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
+<p>If your goal in projecting a map is to accurately measure distances, you
+should select a projection that is designed to preserve distances well.
+Such projections, called <strong>equidistant projections</strong>, require that the
+<strong>scale</strong> of the map is <strong>kept constant</strong>. A map is equidistant when it
+correctly represents distances from the centre of the projection to any
+other place on the map. <strong>Equidistant projections</strong> maintain accurate
+distances from the centre of the projection or along given lines. These
+projections are used for radio and seismic mapping, and for navigation.
+The <strong>Plate Carree Equidistant Cylindrical</strong> (see
+<code class="interpreted-text" role="numref">figure_plate_caree_projection</code>) and
+the <strong>Equirectangular projection</strong> are two good examples of equidistant
+projections. The <strong>Azimuthal Equidistant projection</strong> is the projection
+used for the emblem of the United Nations (see
+<code>figure_azimuthal_equidistant_projection</code>{.interpreted-text
+role=&rdquo;numref&rdquo;}).</p>
+<p>::: {#figure_plate_caree_projection}
+<figure class="align-center" width="30em"><img src="../img/plate_carree_projection.png" /><figcaption>The Plate Carree Equidistant Cylindrical projection, for example, is
+used when accurate distance measurement is
+important.</figcaption></figure>
+:::</p>
+<p>::: {#figure_azimuthal_equidistant_projection}
+<figure><img src="../img/azimuthal_equidistant_projection.png" /><figcaption>The United Nations Logo uses the Azimuthal Equidistant
+projection.</figcaption>
+</figure>{.align-center
+width=&rdquo;30em&rdquo;}
+:::</p>
+<h3 id="_8">Равноплощни проекции<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
+<p>When a map portrays areas over the entire map, so that all mapped areas
+have the same proportional relationship to the areas on the Earth that
+they represent, the map is an <strong>equal area map</strong>. In practice, general
+reference and educational maps most often require the use of <strong>equal
+area projections</strong>. As the name implies, these maps are best used when
+calculations of area are the dominant calculations you will perform. If,
+for example, you are trying to analyse a particular area in your town to
+find out whether it is large enough for a new shopping mall, equal area
+projections are the best choice. On the one hand, the larger the area
+you are analysing, the more precise your area measures will be, if you
+use an equal area projection rather than another type. On the other
+hand, an equal area projection results in <strong>distortions of angular
+conformity</strong> when dealing with large areas. Small areas will be far less
+prone to having their angles distorted when you use an equal area
+projection. <strong>Alber's equal area</strong>, <strong>Lambert's equal area</strong> and
+<strong>Mollweide Equal Area Cylindrical projections</strong> (shown in
+<code>figure_mollweide_equal_area_projection</code>{.interpreted-text
+role=&rdquo;numref&rdquo;}) are types of equal area projections that are often
+encountered in GIS work.</p>
+<p>::: {#figure_mollweide_equal_area_projection}
+<figure><img src="../img/mollweide_equal_area_projection.png" /><figcaption>The Mollweide Equal Area Cylindrical projection, for example, ensures
+that all mapped areas have the same proportional relationship to the
+areas on the
+Earth.</figcaption>
+</figure>{.align-center
+width=&rdquo;30em&rdquo;}
+:::</p>
+<p>Keep in mind that map projection is a very complex topic. There are
+hundreds of different projections available world wide each trying to
+portray a certain portion of the earth's surface as faithfully as
+possible on a flat piece of paper. In reality, the choice of which
+projection to use, will often be made for you. Most countries have
+commonly used projections and when data is exchanged people will follow
+the <strong>national trend</strong>.</p>
+<h2 id="_9">Още за координатните реферетни системи<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>С помощта на координатните реферетни системи (на англ. Coordinate Reference Systems - CRS) всяка точка на Земята може да се опише с три числа, които се наричат <strong>координати</strong>.
+Има два основни вида координатни реферетни системи:<strong>географски координатни системи</strong> и <strong>правоъгълни/проекционни/Декартови координатни системи</strong>.</p>
+<h3 id="_10">Географски координатни системи<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<p>Употребата на географски координнатни реферетни системи е честа практика в ГИС.
+Това е координатната система, която повече хора асоциират още от училище, когато чуят &ldquo;географски координати&rdquo;.
+За описването на местоположение на точка се използват градуси за географска ширина и дължина.
+Най-често срещаната географска координатна система е <strong>WGS 84</strong>.</p>
+<p><strong>Lines of latitude</strong> run parallel to the equator and divide the earth
+into 180 equally spaced sections from North to South (or South to
+North). The reference line for latitude is the equator and each
+<strong>hemisphere</strong> is divided into ninety sections, each representing one
+degree of latitude. In the northern hemisphere, degrees of latitude are
+measured from zero at the equator to ninety at the north pole. In the
+southern hemisphere, degrees of latitude are measured from zero at the
+equator to ninety degrees at the south pole. To simplify the
+digitisation of maps, degrees of latitude in the southern hemisphere are
+often assigned negative values (0 to -90°). Wherever you are on the
+earth&rsquo;s surface, the distance between the lines of latitude is the same
+(60 nautical miles). See <code>figure_geographic_crs</code>{.interpreted-text
+role=&rdquo;numref&rdquo;} for a pictorial view.</p>
+<p>::: {#figure_geographic_crs}
+<figure class="align-center" width="30em"><img src="../img/geographic_crs.png" /><figcaption>Geographic coordinate system with lines of latitude parallel to the
+equator and lines of longitude with the prime meridian through
+Greenwich.</figcaption></figure>
+:::</p>
+<p><strong>Lines of longitude</strong>, on the other hand, do not stand up so well to
+the standard of uniformity. Lines of longitude run perpendicular to the
+equator and converge at the poles. The reference line for longitude (the
+prime meridian) runs from the North pole to the South pole through
+Greenwich, England. Subsequent lines of longitude are measured from zero
+to 180 degrees East or West of the prime meridian. Note that values West
+of the prime meridian are assigned negative values for use in digital
+mapping applications. See <code>figure_geographic_crs</code>{.interpreted-text
+role=&rdquo;numref&rdquo;} for a pictorial view.</p>
+<p>At the equator, and only at the equator, the distance represented by one
+line of longitude is equal to the distance represented by one degree of
+latitude. As you move towards the poles, the distance between lines of
+longitude becomes progressively less, until, at the exact location of
+the pole, all 360° of longitude are represented by a single point that
+you could put your finger on (you probably would want to wear gloves
+though). Using the geographic coordinate system, we have a grid of lines
+dividing the earth into squares that cover approximately 12363.365
+square kilometres at the equator --- a good start, but not very useful
+for determining the location of anything within that square.</p>
+<p>To be truly useful, a map grid must be divided into small enough
+sections so that they can be used to describe (with an acceptable level
+of accuracy) the location of a point on the map. To accomplish this,
+degrees are divided into <strong>minutes</strong> (<code>'</code>) and <strong>seconds</strong> (<code>"</code>). There
+are sixty minutes in a degree, and sixty seconds in a minute (3600
+seconds in a degree). So, at the equator, one second of latitude or
+longitude = 30.87624 meters.</p>
+<h3 id="_11">Правоъгълни координатни системи<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<p>Правоъгълните координатни системи, наричани още проекционни или Декартови, са най-често използваните при анализи в ГИС.</p>
+<p>Още от училище знаем, че простраственото положение на точка в двуизмерна координатна система се определя от стойността на координатите по двете оси на координатната система - X и Y.
+Двете оси се пресичат под прав ъгъл и образуват равнина.
+Обикновено хоризонтална ос се означава с X, а вертикалната с Y.
+Колкото &ldquo;по-надясно&rdquo; е дадена точка, толкова повече се увеличава стойността по X, както и колкото &ldquo;по-нагоре&rdquo;, толкова по-голяма е стойността за Y.</p>
+<p>Понякога в ГИС използваме и трета ос <strong>Z</strong>, която е взаимно перпендикулярна на X и Y и измерва височината на обектите.
+Всяка точка със сферични координати може да се бъде изразена с <strong>X Y Z</strong> координати.</p>
+<p>
+<figure><img src="../img/projected_crs.png" /><figcaption>Двуизмерни и триизмерни координатни системи.</figcaption>
+</figure>
+</p>
+<p>Проекционна координатна система в северното или южното полукълбо обикновено използва точка на Екватора върху определен меридиан като <strong>специфична дължина</strong>. За северното полукълбо това означава, че стойностите по Y се увеличават на север и стойностите по X се увеличават на изток. В южното полукълбо е точно наобратно - стойностите по Y се увеличават на юг, а стойностите по X се увеличават на запад. Универсалната трансверзална меркаторова проекция (UTM) е де факто стандартната проекция използвана по света.</p>
+<h4 id="utm">Универсална трансверзална меркаторорова(UTM) координатна система<a class="headerlink" href="#utm" title="Permanent link">&para;</a></h4>
+<p>Универсалната трансверзалта меркаторова (UTM) координатна рефертна система има за начало <strong>екватора</strong> на определена <strong>географска дължина</strong>.
+Стойностите по Y се увеличават на юг, а по X се увеличават на запад.
+UTM проекцията е глобална, т.е. се използва по целия свят.
+Но както вече обсъдихме в секцията <em>Точност на картните проекции</em>, при по-големи площи (например Европа), деформациите на ъглите, площите и разтоянията се увеличава.
+За да се избегнат подобни изкривявания, светът е разделен на <strong>60 еднакви зони</strong>, всяка от които по <strong>6 градуса широки по географска дължина</strong>. Всяка <strong>UTM зона</strong> си има номер от 1 до 60, започвайки от <strong>антимеридиана</strong> от запад на изток.
+По този начин <strong>UTM зона 1</strong> започва на 180 градуса западна дължина, а <strong>UTM зона 60</strong> приключва на 180 градуса западна дължина.</p>
+<p>
+<figure><img src="../img/utm_zones.png" /><figcaption>UTM зони. България попада UTM зони 34N и 35N.</figcaption>
+</figure>
+</p>
+<p>Площи с правоъгълна форма, която е издължена по паралела, какъвто е случаят на България, могат да попаднат в повече от една зона. Така нашата територия попада в зоните 34N (западната част до р. Искър) и 35N (от р. Искър до Черно море).
+При работа върху цялата територия на страната често се зона 35N като достатъчно добро приближение.
+Буквата <strong>N</strong> указва, че става дума за северното полукълбо, а буквата <strong>S</strong> се използва за площите южно от екватора.</p>
+<p>
+<figure><img src="../img/utm_for_sa.png" /><figcaption>UTM zones 33S, 34S, 35S, and 36S with their central longitudes (meridians) used to project South Africa with high accuracy. The red cross shows an Area of Interest (AOI).</figcaption>
+</figure>
+</p>
+<p>Say, for example, that we want to define a two-dimensional coordinate
+within the <strong>Area of Interest (AOI)</strong> marked with a red cross in
+<code class="interpreted-text" role="numref">figure_utm_for_sa</code>. You can see, that
+the area is located within the <strong>UTM zone 35S</strong>. This means, to minimize
+distortion and to get accurate analysis results, we should use <strong>UTM
+zone 35S</strong> as the coordinate reference system.</p>
+<p>The position of a coordinate in UTM south of the equator must be
+indicated with the <strong>zone number</strong> (35) and with its <strong>northing (Y)
+value</strong> and <strong>easting (X) value</strong> in meters. The <strong>northing value</strong> is
+the distance of the position from the <strong>equator</strong> in meters. The
+<strong>easting value</strong> is the distance from the <strong>central meridian</strong>
+(longitude) of the used UTM zone. For UTM zone 35S it is <strong>27 degrees</strong>
+<strong>East</strong> as shown in <code>figure_utm_for_sa</code>{.interpreted-text
+role=&rdquo;numref&rdquo;}. Furthermore, because we are south of the equator and
+negative values are not allowed in the UTM coordinate reference system,
+we have to add a so called <strong>false northing value</strong> of 10,000,000 m to
+the northing (Y) value and a false easting value of 500,000 m to the
+easting (X) value. This sounds difficult, so, we will do an example that
+shows you how to find the correct <strong>UTM 35S</strong> coordinate for the <strong>Area
+of Interest</strong>.</p>
+<h2 id="the-northing-y-value">The northing (Y) value<a class="headerlink" href="#the-northing-y-value" title="Permanent link">&para;</a></h2>
+<p>The place we are looking for is 3,550,000 meters south of the equator,
+so the northing (Y) value gets a <strong>negative sign</strong> and is -3,550,000 m.
+According to the UTM definitions we have to add a <strong>false northing
+value</strong> of 10,000,000 m. This means the northing (Y) value of our
+coordinate is 6,450,000 m (-3,550,000 m + 10,000,000 m).</p>
+<h2 id="the-easting-x-value">The easting (X) value<a class="headerlink" href="#the-easting-x-value" title="Permanent link">&para;</a></h2>
+<p>First we have to find the <strong>central meridian</strong> (longitude) for the <strong>UTM
+zone 35S</strong>. As we can see in <code>figure_utm_for_sa</code>{.interpreted-text
+role=&rdquo;numref&rdquo;} it is <strong>27 degrees East</strong>. The place we are looking for
+is <strong>85,000 meters West</strong> from the central meridian. Just like the
+northing value, the easting (X) value gets a negative sign, giving a
+result of <strong>-85,000 m</strong>. According to the UTM definitions we have to add
+a <strong>false easting value</strong> of 500,000 m. This means the easting (X) value
+of our coordinate is 415,000 m (-85,000 m + 500,000 m). Finally, we have
+to add the <strong>zone number</strong> to the easting value to get the correct
+value.</p>
+<p>As a result, the coordinate for our <strong>Point of Interest</strong>, projected in
+<strong>UTM zone 35S</strong> would be written as: <strong>35 415,000 m E / 6,450,000 m
+N</strong>. In some GIS, when the correct UTM zone 35S is defined and the units
+are set to meters within the system, the coordinate could also simply
+appear as <strong>415,000 6,450,000</strong>.</p>
+<h1 id="on-the-fly-projection">On-The-Fly Projection<a class="headerlink" href="#on-the-fly-projection" title="Permanent link">&para;</a></h1>
+<p>As you can probably imagine, there might be a situation where the data
+you want to use in a GIS are projected in different coordinate reference
+systems. For example, you might get a vector layer showing the
+boundaries of South Africa projected in UTM 35S and another vector layer
+with point information about rainfall provided in the geographic
+coordinate system WGS 84. In GIS these two vector layers are placed in
+totally different areas of the map window, because they have different
+projections.</p>
+<p>To solve this problem, many GIS include a functionality called
+<strong>on-the-fly</strong> projection. It means, that you can <strong>define</strong> a certain
+projection when you start the GIS and all layers that you then load, no
+matter what coordinate reference system they have, will be automatically
+displayed in the projection you defined. This functionality allows you
+to overlay layers within the map window of your GIS, even though they
+may be in <strong>different</strong> reference systems. In QGIS, this functionality
+is applied by default.</p>
+<h1 id="common-problems-things-to-be-aware-of">Common problems / things to be aware of<a class="headerlink" href="#common-problems-things-to-be-aware-of" title="Permanent link">&para;</a></h1>
+<p>The topic <strong>map projection</strong> is very complex and even professionals who
+have studied geography, geodetics or any other GIS related science,
+often have problems with the correct definition of map projections and
+coordinate reference systems. Usually when you work with GIS, you
+already have projected data to start with. In most cases these data will
+be projected in a certain CRS, so you don't have to create a new CRS or
+even re project the data from one CRS to another. That said, it is
+always useful to have an idea about what map projection and CRS means.</p>
+<h1 id="what-have-we-learned">What have we learned?<a class="headerlink" href="#what-have-we-learned" title="Permanent link">&para;</a></h1>
+<p>Let's wrap up what we covered in this worksheet:</p>
+<ul>
+<li><strong>Map projections</strong> portray the surface of the earth on a
+    two-dimensional, flat piece of paper or computer screen.</li>
+<li>There are global map projections, but most map projections are
+    created and <strong>optimized to project smaller areas</strong> of the earth's
+    surface.</li>
+<li>Map projections are never absolutely accurate representations of the
+    spherical earth. They show <strong>distortions of angular conformity,
+    distance and area.</strong> It is impossible to preserve all these
+    characteristics at the same time in a map projection.</li>
+<li>A <strong>Coordinate reference system</strong> (CRS) defines, with the help of
+    coordinates, how the two-dimensional, projected map is related to
+    real locations on the earth.</li>
+<li>There are two different types of coordinate reference systems:
+    <strong>Geographic Coordinate Systems</strong> and <strong>Projected Coordinate
+    Systems</strong>.</li>
+<li><strong>On the Fly</strong> projection is a functionality in GIS that allows us
+    to overlay layers, even if they are projected in different
+    coordinate reference systems.</li>
+</ul>
+<h1 id="now-you-try">Now you try!<a class="headerlink" href="#now-you-try" title="Permanent link">&para;</a></h1>
+<p>Here are some ideas for you to try with your learners:</p>
+<ol>
+<li>Start QGIS</li>
+<li>In <code>Project --&gt; Properties... --&gt; CRS</code>{.interpreted-text
+    role=&rdquo;menuselection&rdquo;} check <code>No
+    projection (or unknown/non-Earth projection)</code>{.interpreted-text
+    role=&rdquo;guilabel&rdquo;}</li>
+<li>Load two layers of the same area but with different projections</li>
+<li>Let your pupils find the coordinates of several places on the two
+    layers. You can show them that it is not possible to overlay the two
+    layers.</li>
+<li>Then define the coordinate reference system as Geographic/WGS 84
+    inside the <code class="interpreted-text" role="guilabel">Project Properties</code>
+    dialog</li>
+<li>Load the two layers of the same area again and let your pupils see
+    how setting a CRS for the project (hence, enabling "on-the-fly"
+    projection) works.</li>
+<li>You can open the <code>Project Properties</code>{.interpreted-text
+    role=&rdquo;guilabel&rdquo;} dialog in QGIS and show your pupils the many
+    different Coordinate Reference Systems so they get an idea of the
+    complexity of this topic. You can select different CRSs to display
+    the same layer in different projections.</li>
+</ol>
+<h1 id="something-to-think-about">Something to think about<a class="headerlink" href="#something-to-think-about" title="Permanent link">&para;</a></h1>
+<p>If you don't have a computer available, you can show your pupils the
+principles of the three map projection families. Get a globe and paper
+and demonstrate how cylindrical, conical and planar projections work in
+general. With the help of a transparency sheet you can draw a
+two-dimensional coordinate reference system showing X axes and Y axes.
+Then, let your pupils define coordinates (X and Y values) for different
+places.</p>
+<h1 id="further-reading">Further reading<a class="headerlink" href="#further-reading" title="Permanent link">&para;</a></h1>
+<p><strong>Books</strong>:</p>
+<ul>
+<li>Chang, Kang-Tsung (2006). Introduction to Geographic Information
+    Systems. 3rd Edition. McGraw Hill. ISBN: 0070658986</li>
+<li>DeMers, Michael N. (2005). Fundamentals of Geographic Information
+    Systems. 3rd Edition. Wiley. ISBN: 9814126195</li>
+<li>Galati, Stephen R. (2006): Geographic Information Systems
+    Demystified. Artech House Inc. ISBN: 158053533X</li>
+</ul>
+<p><strong>Websites</strong>:</p>
+<ul>
+<li><a href="https://foote.geography.uconn.edu/gcraft/notes/mapproj/mapproj_f.html">https://foote.geography.uconn.edu/gcraft/notes/mapproj/mapproj_f.html</a></li>
+<li><a href="http://geology.isu.edu/wapi/geostac/Field_Exercise/topomaps/index.htm">http://geology.isu.edu/wapi/geostac/Field_Exercise/topomaps/index.htm</a></li>
+</ul>
+<p>The QGIS User Guide also has more detailed information on working with
+map projections in QGIS.</p>
+<h1 id="whats-next">What's next?<a class="headerlink" href="#whats-next" title="Permanent link">&para;</a></h1>
+<p>In the section that follows we will take a closer look at <strong>Map
+Production</strong>.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.instant", "navigation.tabs", "content.tabs.link", "search.suggest", "search.highlight", "search.share"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u041a\u043e\u043f\u0438\u0440\u0430\u043d\u043e", "clipboard.copy": "\u041a\u043e\u043f\u0438\u0440\u0430\u0439", "search.result.more.one": "\u043e\u0449\u0435 1 \u043d\u0430 \u0442\u0430\u0437\u0438 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430", "search.result.more.other": "\u043e\u0449\u0435 # \u043d\u0430 \u0442\u0430\u0437\u0438 \u0441\u0442\u0440\u0430\u043d\u0438\u0446\u0430", "search.result.none": "\u041d\u044f\u043c\u0430 \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0438", "search.result.one": "1 \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442", "search.result.other": "# \u0440\u0435\u0437\u0443\u043b\u0442\u0430\u0442\u0430", "search.result.placeholder": "\u0417\u0430\u043f\u043e\u0447\u043d\u0435\u0442\u0435 \u0434\u0430 \u043f\u0438\u0448\u0435\u0442\u0435, \u0437\u0430 \u0434\u0430 \u0442\u044a\u0440\u0441\u0438\u0442\u0435", "search.result.term.missing": "\u041b\u0438\u043f\u0441\u0432\u0430\u0449\u043e", "select.version": "\u0418\u0437\u0431\u0435\u0440\u0438 \u0432\u0435\u0440\u0441\u0438\u044f"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.8fd75fb4.min.js"></script>
+      
+        <script src="https://unpkg.com/mermaid@8.9.2/dist/mermaid.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/cookies-eu-banner@2.0.1/dist/cookies-eu-banner.js"></script>
+      
+        <script src="../../assets/consent.js"></script>
+      
+    
+  </body>
+</html>
