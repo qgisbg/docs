@@ -34,6 +34,6 @@ tags: qgis, DEM
 Пример за изтегляне на цифров модел на релефа за община Рила и последващо изрязване по границите на общината.
 
 <video controls width="100%">
-    <source src="https://qgis.bg/media/open_topography.mp4" type="video/mp4">
+    <source src="..img/opentopography.webm" type="video/webm">
     Sorry, your browser doesn't support embedded videos.
 </video>
