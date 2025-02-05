@@ -26,6 +26,7 @@ tags: qgis, DEM
 ![](./img/opentopography_step1.png)
 
 ## Заявяване на API ключ
+
 След като сте създали регистрация в [OpenTopography](https://opentopography.org), заявете своя API ключ в секцията `MyOpenTopo`:
 ![](./img/opentopography_api_key.png)
 
