@@ -43,6 +43,8 @@ tags: координатна система (КТ), картни проекци�
 
 === "Попълни формуляра за регистрация в Google Forms"
     [Натисни тук, за да попълниш формуляра за регистрация](https://forms.gle/FmoyLEwmLmVHd6vz6){ .md-button .md-button--primary }
+
+    [Натисни тук, за да попълниш формуляра за регистрация за работилница](https://forms.gle/gnTBxz29PPJ1o6TM7){ .md-button .md-button--primary }
 === "Попълни формуляра за регистрация тук"
     <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf1qn9DR72tLUoC9bG2xXBYe6FfFJktNTXGOtsMTHJaFaP3ig/viewform?embedded=true" width="640" height="2676" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
 === "Попълни формуляра за регистрация за работилница тук"
