@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   x="0"
+   y="0"
+   width="468.39545"
+   height="235.498"
+   viewBox="0 0 468.39545 235.498"
+   id="svg25"
+   sodipodi:docname="qgis3_notext_bg.svg"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   inkscape:export-filename="/home/suricactus/bitmap2.png"
+   inkscape:export-xdpi="120.952"
+   inkscape:export-ydpi="120.952">
+  <metadata
+     id="metadata29">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1016"
+     id="namedview27"
+     showgrid="false"
+     inkscape:zoom="1.3037281"
+     inkscape:cx="286.57593"
+     inkscape:cy="70.577861"
+     inkscape:window-x="0"
+     inkscape:window-y="27"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg25"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <defs
+     id="defs15">
+    <linearGradient
+       id="Gradient_1"
+       gradientUnits="userSpaceOnUse"
+       x1="200.78799"
+       y1="249.007"
+       x2="197.17"
+       y2="11.232">
+      <stop
+         offset="0"
+         stop-color="#589632"
+         id="stop5" />
+      <stop
+         offset="1"
+         stop-color="#93B023"
+         id="stop7" />
+    </linearGradient>
+    <linearGradient
+       id="Gradient_2"
+       gradientUnits="userSpaceOnUse"
+       x1="129.939"
+       y1="252.718"
+       x2="126.351"
+       y2="16.927999">
+      <stop
+         offset="0"
+         stop-color="#589632"
+         id="stop10" />
+      <stop
+         offset="1"
+         stop-color="#93B023"
+         id="stop12" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#SVGID_3_"
+       id="linearGradient1527"
+       x1="446.60657"
+       y1="141.14322"
+       x2="446.60657"
+       y2="23.583311"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(1.9847977,0,0,1.9847977,-751.1926,-45.820447)" />
+    <linearGradient
+       id="SVGID_3_"
+       gradientUnits="userSpaceOnUse"
+       x1="553.50677"
+       y1="244.6875"
+       x2="551.26642"
+       y2="97.388199"
+       gradientTransform="translate(-110.928,-98.765001)">
+      <stop
+         offset="0"
+         style="stop-color:#589632"
+         id="stop20" />
+      <stop
+         offset="1"
+         style="stop-color:#93B023"
+         id="stop22" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#SVGID_3_"
+       id="linearGradient1601"
+       x1="446.60657"
+       y1="141.14322"
+       x2="446.60657"
+       y2="-7.7193837"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.96231269,0,0,0.96231269,19.232918,7.2143156)" />
+  </defs>
+  <g
+     id="g17"
+     transform="translate(-5.36,-10.251)" />
+  <g
+     id="Layer_1"
+     transform="translate(-5.36,-10.251)">
+    <path
+       d="m 137.607,136.899 h 34.437 L 142.898,108.083 H 107.19 v 34.309 l 30.417,30.316 z"
+       id="polygon3"
+       inkscape:connector-curvature="0"
+       style="fill:#ee7913" />
+    <path
+       d="M 248.061,212.048 186.618,151.306 H 152.01 v 35.761 l 58.881,58.682 h 37.17 z"
+       id="polygon10"
+       inkscape:connector-curvature="0"
+       style="fill:url(#Gradient_1)" />
+    <path
+       d="m 152.01,151.306 h 34.608 l -14.574,-14.407 h -34.437 v 35.809 l 14.403,14.359 z"
+       id="polygon12"
+       inkscape:connector-curvature="0"
+       style="fill:#f0e64a" />
+    <path
+       d="m 144.826,199.3 c -5.22,1.202 -10.643,1.854 -16.238,1.854 -40.027,0 -74.072,-32.914 -74.072,-75.59 0,-42.677 33.666,-74.869 74.072,-74.869 40.401,0 72.57,32.187 72.57,74.869 0,6.937 -0.863,13.619 -2.461,19.945 l 37.047,37.042 c 9.552,-16.736 14.896,-36.197 14.896,-57.274 0,-65.778 -52.493,-115.026 -122.801,-115.026 -69.99,0 -122.479,48.927 -122.479,115.026 0,66.421 52.489,116.321 122.479,116.321 18.066,0 34.952,-3.323 50.077,-9.371 z"
+       id="path19"
+       inkscape:connector-curvature="0"
+       style="fill:url(#Gradient_2)" />
+    <path
+       d="M 107.19,108.083 248.061,245.749 V 212.048 L 186.618,151.306 172.044,136.898 142.898,108.083 Z"
+       id="polygon4153"
+       inkscape:connector-curvature="0"
+       style="fill:#ffffff;fill-opacity:0.172" />
+  </g>
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-weight:normal;font-size:180.24583435px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:url(#linearGradient1527);fill-opacity:1;stroke:none;stroke-width:4.50614548"
+     x="244.76372"
+     y="233.57153"
+     id="text834"><tspan
+       sodipodi:role="line"
+       id="tspan832"
+       x="244.76372"
+       y="233.57153"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Simbal;-inkscape-font-specification:Simbal;fill:url(#linearGradient1527);fill-opacity:1;stroke-width:4.50614548">.бг</tspan></text>
+</svg>
