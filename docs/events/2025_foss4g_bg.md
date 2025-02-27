@@ -68,8 +68,7 @@ tags: координатна система (КТ), картни проекци�
 ???+ warning "Внимание!"
     Подредбата и описанията на събитията подлежи на постоянни промени до започване на събитието. -->
 
-<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FSofia&bgcolor=%23ffffff&hl=bg&showDate=0&showPrint=0&showNav=0&showCalendars=0&showTabs=0&mode=AGENDA&title=FOSS4G%3ABG%20-%20%D0%BE%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%20%D0%93%D0%98%D0%A1%20%D1%81%D1%8A%D0%B1%D0%BE%D1%80&src=NGVhNGIxMTg1OGU5YTI4ZTdjZmY2NDI2YTQ3ODRhY2YyNDFhOTZhN2NjZTFhZDUxMDRiMDZhMzc5YzE1M2QzM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23EF6C00" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
-
+<iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FSofia&showPrint=0&mode=AGENDA&showCalendars=0&title=FOSS4G%3ABG%20%D0%9E%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%D0%B0%20%D0%93%D0%98%D0%A1%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F&hl=bg&showTabs=0&showNav=0&src=NGVhNGIxMTg1OGU5YTI4ZTdjZmY2NDI2YTQ3ODRhY2YyNDFhOTZhN2NjZTFhZDUxMDRiMDZhMzc5YzE1M2QzM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23EF6C00" style="border-width:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
 
 ### Вмъкване в собствен календар
 
