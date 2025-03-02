@@ -62,13 +62,15 @@ tags: координатна система (КТ), картни проекци�
 ???+ warning "Предстои обявяване"
     Програмата ще стане ясна до 28 февруари, петък. Дотогава календарът ще излиза празен.
 
-<!-- ???+ info "Забележка"
+???+ info "Забележка"
     Моля, натиснете върху всяко индивидуално събитие за повече информация - начален и краен час, място, лектор, тема и абстракт.
 
-???+ warning "Внимание!"
+<!-- ???+ warning "Внимание!"
     Подредбата и описанията на събитията подлежи на постоянни промени до започване на събитието. -->
 
 <iframe src="https://calendar.google.com/calendar/embed?height=600&wkst=2&ctz=Europe%2FSofia&showPrint=0&mode=AGENDA&showCalendars=0&title=FOSS4G%3ABG%20%D0%9E%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%D0%B0%20%D0%93%D0%98%D0%A1%20%D0%BA%D0%BE%D0%BD%D1%84%D0%B5%D1%80%D0%B5%D0%BD%D1%86%D0%B8%D1%8F&hl=bg&showTabs=0&showNav=0&src=NGVhNGIxMTg1OGU5YTI4ZTdjZmY2NDI2YTQ3ODRhY2YyNDFhOTZhN2NjZTFhZDUxMDRiMDZhMzc5YzE1M2QzM0Bncm91cC5jYWxlbmRhci5nb29nbGUuY29t&color=%23EF6C00" style="border-width:0" width="100%" height="600" frameborder="0" scrolling="no"></iframe>
+
+За вариант за печат на програмата, виж в [секцията "Рекламни материали"](#_13) по-долу.
 
 ### Вмъкване в собствен календар
 
@@ -279,12 +281,23 @@ tags: координатна система (КТ), картни проекци�
 
 Рекламни материали за събитието можеш да вземеш от тук:
 
+### Плакат на събитието
 <!-- QR code generated with https://www.qrcode-monkey.com -->
-
 - [2025_foss4gbg_osm_v3.png](./docs/2025_foss4gbg_osm_v3.png)
 - [2025_foss4gbg_osm_v3.pdf](./docs/2025_foss4gbg_osm_v3.pdf)
 - [2025_foss4gbg_osm_v3.svg](./docs/2025_foss4gbg_osm_v3.svg) - Inkscape
 
+### Програма на работилници
+
+- [2025_foss4gbg_programme_07_v4.png](./docs/2025_foss4gbg_programme_07_v4.png)
+- [2025_foss4gbg_programme_07_v4.pdf](./docs/2025_foss4gbg_programme_07_v4.pdf)
+- [2025_foss4gbg_programme_07_v4.svg](./docs/2025_foss4gbg_programme_07_v4.svg) - Inkscape
+
+### Програма на конференцията
+
+- [2025_foss4gbg_programme_08_v2.png](./docs/2025_foss4gbg_programme_08_v2.png)
+- [2025_foss4gbg_programme_08_v2.pdf](./docs/2025_foss4gbg_programme_08_v2.pdf)
+- [2025_foss4gbg_programme_08_v2.svg](./docs/2025_foss4gbg_programme_08_v2.svg) - Inkscape
 
 ## Ще публикувате ли материалите някъде?
 
