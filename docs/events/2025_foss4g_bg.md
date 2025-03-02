@@ -452,9 +452,9 @@ tags: координатна система (КТ), картни проекци�
 
 ### Програма на конференцията
 
-- [2025_foss4gbg_programme_08_v2.png](./docs/2025_foss4gbg_programme_08_v2.png)
-- [2025_foss4gbg_programme_08_v2.pdf](./docs/2025_foss4gbg_programme_08_v2.pdf)
-- [2025_foss4gbg_programme_08_v2.svg](./docs/2025_foss4gbg_programme_08_v2.svg) - Inkscape
+- [2025_foss4gbg_programme_08_v3.png](./docs/2025_foss4gbg_programme_08_v3.png)
+- [2025_foss4gbg_programme_08_v3.pdf](./docs/2025_foss4gbg_programme_08_v3.pdf)
+- [2025_foss4gbg_programme_08_v3.svg](./docs/2025_foss4gbg_programme_08_v3.svg) - Inkscape
 
 ## Ще публикувате ли материалите някъде?
 
