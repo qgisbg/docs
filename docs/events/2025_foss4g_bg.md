@@ -449,15 +449,15 @@ tags: координатна система (КТ), картни проекци�
 
 ### Програма на работилници
 
-- [2025_foss4gbg_programme_07_v4.png](./docs/2025_foss4gbg_programme_07_v4.png)
-- [2025_foss4gbg_programme_07_v4.pdf](./docs/2025_foss4gbg_programme_07_v4.pdf)
-- [2025_foss4gbg_programme_07_v4.svg](./docs/2025_foss4gbg_programme_07_v4.svg) - Inkscape
+- [2025_foss4gbg_programme_07_v5.png](./docs/2025_foss4gbg_programme_07_v5.png)
+- [2025_foss4gbg_programme_07_v5.pdf](./docs/2025_foss4gbg_programme_07_v5.pdf)
+- [2025_foss4gbg_programme_07_v5.svg](./docs/2025_foss4gbg_programme_07_v5.svg) - Inkscape
 
 ### Програма на конференцията
 
-- [2025_foss4gbg_programme_08_v3.png](./docs/2025_foss4gbg_programme_08_v3.png)
-- [2025_foss4gbg_programme_08_v3.pdf](./docs/2025_foss4gbg_programme_08_v3.pdf)
-- [2025_foss4gbg_programme_08_v3.svg](./docs/2025_foss4gbg_programme_08_v3.svg) - Inkscape
+- [2025_foss4gbg_programme_08_v4.png](./docs/2025_foss4gbg_programme_08_v4.png)
+- [2025_foss4gbg_programme_08_v4.pdf](./docs/2025_foss4gbg_programme_08_v4.pdf)
+- [2025_foss4gbg_programme_08_v4.svg](./docs/2025_foss4gbg_programme_08_v4.svg) - Inkscape
 
 ## Ще публикувате ли материалите някъде?
 
