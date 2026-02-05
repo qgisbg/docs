@@ -159,9 +159,9 @@ tags: координатна система (КТ), картни проекци�
 
 Предстои!
 <!-- QR code generated with https://www.qrcode-monkey.com -->
-<!-- - [2026_foss4gbg_osm_v3.png](./docs/2026_foss4gbg_osm_v3.png) -->
-<!-- - [2026_foss4gbg_osm_v3.pdf](./docs/2026_foss4gbg_osm_v3.pdf) -->
-<!-- - [2026_foss4gbg_osm_v3.svg](./docs/2026_foss4gbg_osm_v3.svg) - Inkscape -->
+- [Плакат в PNG формат](./docs/2026_foss4gbg_poster.png)
+- [Плакат в PDF формат](./docs/2026_foss4gbg_poster.pdf)
+- [Плакат в SVG формат](./docs/2026_foss4gbg_poster.svg)
 
 ### Програма на работилници
 
