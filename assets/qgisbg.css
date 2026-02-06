@@ -1,0 +1,8 @@
+.md-header__button.md-logo {
+    background: radial-gradient(ellipse 50% 50%, rgba(255,255,255,0.6) 80%, rgba(255,255,255,0) 95%);;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+.md-header__button.md-logo img, .md-header__button.md-logo svg {
+    width: auto;
+}
