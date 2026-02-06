@@ -162,6 +162,7 @@ tags: координатна система (КТ), картни проекци�
 
 - [2026_foss4g_video_invite.mp4](./img/2026_foss4g_video_invite.mp4)
 - [2026_foss4g_video_invite.webm](./img/2026_foss4g_video_invite.webm)
+- [YouTube връзка](https://www.youtube.com/embed/HZ_j3H8JR5g?si=CXziZjjkImzQZahg)
 
 ### Плакат на събитието
 
